@@ -3,30 +3,44 @@
     "solution": "Solution",
     "features": "Features",
     "architecture": "Architecture",
-    "contact": "Contact"
+    "contact": "Contact",
+    "back_home": "Back to Home"
   },
   "hero": {
     "title": "From Call Chaos to an AI-Native Communication Center",
     "subtitle": "Combines AI Call Center and AI-Native CRM in a single stack. Multilingual, real-time voice-to-voice conversations.",
-    "cta": "Book a Demo"
+    "cta": "Book a Demo",
+    "showreel": "Watch Showreel",
+    "stats": {
+      "ai": "AI Operations",
+      "cost": "Cost Reduction",
+      "lang": "Language Support"
+    }
   },
   "pain": {
     "title": "The Cost of 'Business as Usual'",
     "subtitle": "The phone still rings, but costs and inefficiencies are quietly burning your budget.",
+    "footer": {
+      "text": "Competition is rising every day.",
+      "highlight": "Staying in the old model is capping your growth."
+    },
     "cards": {
       "aht": {
         "title": "AHT Impact",
         "stat": "$250K",
+        "suffix": "/ year",
         "desc": "+1 second in Average Handle Time adds massive extra costs per year in a mid-size center."
       },
       "churn": {
         "title": "High Agent Turnover",
         "stat": "40%+",
+        "suffix": "Turnover Rate",
         "desc": "Constant hiring-training-churn loop. Global turnover rates are draining resources."
       },
       "quality": {
         "title": "Lost Data & Errors",
         "stat": "25%",
+        "suffix": "Data Loss",
         "desc": "Of interactions are not properly logged in CRM. Human error caps your growth potential."
       }
     }
@@ -40,88 +54,35 @@
       "it": "IT & Technology"
     },
     "ops": {
-      "title": "From Cost Centre to Performance Engine",
       "role": "For Customer Service Directors",
-      "before": {
-        "title": "Before ATRON",
-        "list": [
-          "Struggling to hit SLAs with limited budget",
-          "High agent churn; constantly hiring and training",
-          "Little visibility into why customers call"
-        ]
-      },
-      "after": {
-        "title": "After ATRON",
-        "list": [
-          "AI agents handle repetitive calls & FAQs 24/7",
-          "AHT reduced by 25-40%, FCR increases significantly",
-          "Live dashboards & 100% quality monitoring"
-        ]
-      }
+      "title": "From Cost Centre to Performance Engine",
+      "before": { "title": "Before ATRON", "list": ["Struggling to hit SLAs with limited budget", "High agent churn; constantly hiring and training", "Little visibility into why customers call"] },
+      "after": { "title": "After ATRON", "list": ["AI agents handle repetitive calls & FAQs 24/7", "AHT reduced by 25-40%, FCR increases significantly", "Live dashboards & 100% quality monitoring"] }
     },
     "sales": {
-      "title": "Turning Every Call Into Revenue",
       "role": "For Sales Directors",
-      "before": {
-        "title": "Before ATRON",
-        "list": [
-          "Outbound campaigns depend on manual dialing",
-          "Reps spend more time on CRM updates than selling",
-          "Difficult to measure which scripts truly work"
-        ]
-      },
-      "after": {
-        "title": "After ATRON",
-        "list": [
-          "AI qualifies leads and schedules callbacks automatically",
-          "Sales teams receive warm opportunities in CRM",
-          "Conversion rates improve, CAC goes down"
-        ]
-      }
+      "title": "Turning Every Call Into Revenue",
+      "before": { "title": "Before ATRON", "list": ["Outbound campaigns depend on manual dialing", "Reps spend more time on CRM updates than selling", "Difficult to measure which scripts truly work"] },
+      "after": { "title": "After ATRON", "list": ["AI qualifies leads and schedules callbacks automatically", "Sales teams receive warm opportunities in CRM", "Conversion rates improve, CAC goes down"] }
     },
     "it": {
-      "title": "Enterprise-Grade AI",
       "role": "For IT Directors",
-      "before": {
-        "title": "Before ATRON",
-        "list": [
-          "Legacy systems are hard to change and integrate",
-          "Concerns about data privacy and compliance",
-          "New channels become separate mini-projects"
-        ]
-      },
-      "after": {
-        "title": "After ATRON",
-        "list": [
-          "Connects to existing telephony (SIP/PBX) via APIs",
-          "Runs on cloud, on-prem or hybrid for compliance",
-          "Clear architecture with Speech, NLU, and RAG layers"
-        ]
-      }
+      "title": "Enterprise-Grade AI",
+      "before": { "title": "Before ATRON", "list": ["Legacy systems are hard to change and integrate", "Concerns about data privacy and compliance", "New channels become separate mini-projects"] },
+      "after": { "title": "After ATRON", "list": ["Connects to existing telephony (SIP/PBX) via APIs", "Runs on cloud, on-prem or hybrid for compliance", "Clear architecture with Speech, NLU, and RAG layers"] }
     }
   },
   "tech": {
     "title": "Power Under the Hood",
     "subtitle": "Transparent, modular, and secure AI architecture.",
+    "compliance": "All layers are KVKK/GDPR compliant and can be deployed On-premise or Cloud based on your needs.",
     "journey": {
       "title": "The Journey of a Call",
       "steps": [
-        {
-          "title": "Contact Initiates",
-          "desc": "Customer calls or is called by AI agent via SIP/VoIP connection."
-        },
-        {
-          "title": "AI Perception & Response",
-          "desc": "ATRON authenticates user, understands intent, and speaks naturally."
-        },
-        {
-          "title": "Live Reasoning (RAG)",
-          "desc": "Retrieves accurate answers from your knowledge base and transaction history."
-        },
-        {
-          "title": "Resolution & CRM Sync",
-          "desc": "Outcome is achieved, summarized, and auto-logged into the CRM."
-        }
+        { "title": "Contact Initiates", "desc": "Customer calls or is called by AI agent via SIP/VoIP connection." },
+        { "title": "AI Perception & Response", "desc": "ATRON authenticates user, understands intent, and speaks naturally." },
+        { "title": "Live Reasoning (RAG)", "desc": "Retrieves accurate answers from your knowledge base and transaction history." },
+        { "title": "Resolution & CRM Sync", "desc": "Outcome is achieved, summarized, and auto-logged into the CRM." }
       ]
     },
     "layers": {
@@ -137,12 +98,15 @@
   },
   "roi": {
     "title": "Calculate Your ROI",
+    "headline": "Turn Inefficiency into Budget.",
     "subtitle": "Estimate your potential annual savings based on your operation size.",
+    "currency": "USD",
+    "symbol": "$",
+    "badge": "30% Efficiency Gain",
     "labels": {
       "agents": "Number of Agents",
-      "cost": "Monthly Cost per Agent (TL)",
-      "saved": "Estimated Annual Savings",
-      "efficiency": "Efficiency Gain"
+      "cost": "Monthly Cost per Agent",
+      "saved": "Estimated Annual Savings"
     },
     "note": "Calculation assumes a 30% reduction in Average Handle Time (AHT)."
   },
@@ -155,5 +119,43 @@
       "terms": "Terms of Use"
     },
     "rights": "All rights reserved."
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "date": "Last Updated: January 28, 2026",
+      "sections": [
+        {
+          "title": "1. Data Collection",
+          "content": "When you use our services, we may collect data such as your name, contact details, and company information. This data is used to improve service quality."
+        },
+        {
+          "title": "2. Data Usage",
+          "content": "Collected data is processed to provide you with a better experience, verify transactions, and comply with legal obligations."
+        },
+        {
+          "title": "3. GDPR Compliance",
+          "content": "ATRON stores all your data on encrypted servers in compliance with GDPR standards and does not share it with third parties without your consent."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms of Use",
+      "date": "Last Updated: January 28, 2026",
+      "sections": [
+        {
+          "title": "1. Scope of Service",
+          "content": "ATRON is a SaaS platform providing AI-based call center and CRM solutions to businesses."
+        },
+        {
+          "title": "2. User Responsibilities",
+          "content": "Users are responsible for using the platform in accordance with laws and ensuring their account security."
+        },
+        {
+          "title": "3. Intellectual Property",
+          "content": "All rights, design, and content of the software belong to ATRON and cannot be copied without permission."
+        }
+      ]
+    }
   }
 }

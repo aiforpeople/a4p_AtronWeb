@@ -3,30 +3,44 @@
     "solution": "Çözüm",
     "features": "Özellikler",
     "architecture": "Mimari",
-    "contact": "İletişim"
+    "contact": "İletişim",
+    "back_home": "Ana Sayfaya Dön"
   },
   "hero": {
     "title": "Çağrı Kaosundan AI-Native İletişim Merkezine",
     "subtitle": "AI Çağrı Merkezi ve CRM tek platformda. Çok dilli, gerçek zamanlı ve doğal sesli görüşme deneyimi.",
-    "cta": "Demo İsteyin"
+    "cta": "Demo İsteyin",
+    "showreel": "Showreel İzle",
+    "stats": {
+      "ai": "AI Operasyon",
+      "cost": "Maliyet Düşüşü",
+      "lang": "Dil Desteği"
+    }
   },
   "pain": {
     "title": "Eski Modelin Gizli Maliyeti",
     "subtitle": "Telefonlar çalmaya devam ediyor, ancak maliyetler ve verimsizlik işletmenizi sessizce tüketiyor.",
+    "footer": {
+      "text": "Rekabet her geçen gün artıyor.",
+      "highlight": "Eski modelde ısrar etmek büyümenizi engelliyor."
+    },
     "cards": {
       "aht": {
         "title": "AHT Maliyeti",
         "stat": "$250K",
+        "suffix": "/ yıl",
         "desc": "Orta ölçekli bir operasyonda, işlem süresindeki (AHT) sadece +1 saniyelik artış yıllık ek maliyet yaratır."
       },
       "churn": {
         "title": "Yüksek Personel Devri",
         "stat": "%40+",
+        "suffix": "Devir Oranı",
         "desc": "Sürekli işe alım ve eğitim döngüsü. Temsilciler tükenmişlik sendromu ile işten ayrılıyor."
       },
       "quality": {
         "title": "Kayıp Veri & Hata",
         "stat": "%25",
+        "suffix": "Veri Kaybı",
         "desc": "CRM kayıtlarının %25'i eksik veya hatalı. İnsan hatası nedeniyle gelir fırsatları kaçıyor."
       }
     }
@@ -40,88 +54,35 @@
       "it": "IT & Teknoloji"
     },
     "ops": {
-      "title": "Maliyet Merkezinden Performans Motoruna",
       "role": "Müşteri Hizmetleri Direktörü İçin",
-      "before": {
-        "title": "ATRON Öncesi",
-        "list": [
-          "Sınırlı bütçeyle SLA hedeflerini tutturma mücadelesi",
-          "Yüksek personel devri ve sürekli eğitim maliyeti",
-          "Müşteri arama nedenlerine dair sınırlı görünürlük"
-        ]
-      },
-      "after": {
-        "title": "ATRON Sonrası",
-        "list": [
-          "AI ajanlar tekrarlayan çağrıları 7/24 karşılar",
-          "AHT %25-40 düşer, İlk Aramada Çözüm (FCR) artar",
-          "Canlı paneller ve %100 kalite izleme"
-        ]
-      }
+      "title": "Maliyet Merkezinden Performans Motoruna",
+      "before": { "title": "ATRON Öncesi", "list": ["Sınırlı bütçeyle SLA hedeflerini tutturma mücadelesi", "Yüksek personel devri ve sürekli eğitim maliyeti", "Müşteri arama nedenlerine dair sınırlı görünürlük"] },
+      "after": { "title": "ATRON Sonrası", "list": ["AI ajanlar tekrarlayan çağrıları 7/24 karşılar", "AHT %25-40 düşer, İlk Aramada Çözüm (FCR) artar", "Canlı paneller ve %100 kalite izleme"] }
     },
     "sales": {
-      "title": "Her Çağrıyı Gelir Fırsatına Çevirin",
       "role": "Satış Direktörü İçin",
-      "before": {
-        "title": "ATRON Öncesi",
-        "list": [
-          "Manuel arama ve scriptlere bağımlı dış aramalar",
-          "Satış temsilcileri satıştan çok veri girişiyle uğraşıyor",
-          "Hangi kampanyanın çalıştığını ölçmek zor"
-        ]
-      },
-      "after": {
-        "title": "ATRON Sonrası",
-        "list": [
-          "AI leadleri kalifiye eder ve randevu oluşturur",
-          "Satış ekibine CRM içinde 'ısınmış' fırsatlar gelir",
-          "Dönüşüm oranları artar, müşteri edinme maliyeti düşer"
-        ]
-      }
+      "title": "Her Çağrıyı Gelir Fırsatına Çevirin",
+      "before": { "title": "ATRON Öncesi", "list": ["Manuel arama ve scriptlere bağımlı dış aramalar", "Satış temsilcileri satıştan çok veri girişiyle uğraşıyor", "Hangi kampanyanın çalıştığını ölçmek zor"] },
+      "after": { "title": "ATRON Sonrası", "list": ["AI leadleri kalifiye eder ve randevu oluşturur", "Satış ekibine CRM içinde 'ısınmış' fırsatlar gelir", "Dönüşüm oranları artar, müşteri edinme maliyeti düşer"] }
     },
     "it": {
-      "title": "Kurumsal Seviyede Güvenli AI",
       "role": "IT Direktörü İçin",
-      "before": {
-        "title": "ATRON Öncesi",
-        "list": [
-          "Eski sistemleri entegre etmek zor ve riskli",
-          "Veri gizliliği ve güvenlik endişeleri (KVKK/GDPR)",
-          "Her yeni kanal ayrı bir entegrasyon projesi demek"
-        ]
-      },
-      "after": {
-        "title": "ATRON Sonrası",
-        "list": [
-          "Mevcut telefon (SIP/PBX) ve CRM ile API entegrasyonu",
-          "İsteğe bağlı On-premise veya Hybrid kurulum",
-          "Speech, NLU ve RAG katmanlarıyla şeffaf mimari"
-        ]
-      }
+      "title": "Kurumsal Seviyede Güvenli AI",
+      "before": { "title": "ATRON Öncesi", "list": ["Eski sistemleri entegre etmek zor ve riskli", "Veri gizliliği ve güvenlik endişeleri (KVKK/GDPR)", "Her yeni kanal ayrı bir entegrasyon projesi demek"] },
+      "after": { "title": "ATRON Sonrası", "list": ["Mevcut telefon (SIP/PBX) ve CRM ile API entegrasyonu", "İsteğe bağlı On-premise veya Hybrid kurulum", "Speech, NLU ve RAG katmanlarıyla şeffaf mimari"] }
     }
   },
   "tech": {
     "title": "Kaputun Altındaki Güç",
     "subtitle": "Şeffaf, modüler ve güvenli bir AI mimarisi.",
+    "compliance": "Tüm katmanlar KVKK/GDPR uyumlu şekilde, isteğe bağlı On-premise veya Cloud olarak yapılandırılabilir.",
     "journey": {
       "title": "Bir Çağrının Yolculuğu",
       "steps": [
-        {
-          "title": "İletişim Başlar",
-          "desc": "Müşteri arar veya AI tarafından aranır. SIP/VoIP üzerinden anlık bağlantı kurulur."
-        },
-        {
-          "title": "AI Algılama & Yanıt",
-          "desc": "ATRON niyeti anlar, kimliği doğrular ve doğal bir sesle yanıt verir."
-        },
-        {
-          "title": "Canlı Akıl Yürütme (RAG)",
-          "desc": "Bilgi bankanızdan ve işlem geçmişinden anlık, doğru veriyi çeker."
-        },
-        {
-          "title": "Sonuç & CRM Kaydı",
-          "desc": "İşlem tamamlanır, özet çıkarılır ve CRM'e tam otomatik olarak işlenir."
-        }
+        { "title": "İletişim Başlar", "desc": "Müşteri arar veya AI tarafından aranır. SIP/VoIP üzerinden anlık bağlantı kurulur." },
+        { "title": "AI Algılama & Yanıt", "desc": "ATRON niyeti anlar, kimliği doğrular ve doğal bir sesle yanıt verir." },
+        { "title": "Canlı Akıl Yürütme (RAG)", "desc": "Bilgi bankanızdan ve işlem geçmişinden anlık, doğru veriyi çeker." },
+        { "title": "Sonuç & CRM Kaydı", "desc": "İşlem tamamlanır, özet çıkarılır ve CRM'e tam otomatik olarak işlenir." }
       ]
     },
     "layers": {
@@ -137,12 +98,15 @@
   },
   "roi": {
     "title": "Yatırım Getirisi Hesapla",
+    "headline": "Verimsizliği Bütçeye Dönüştürün.",
     "subtitle": "Operasyon büyüklüğünüze göre ATRON'un sağlayacağı tahmini yıllık tasarrufu görün.",
+    "currency": "TL",
+    "symbol": "₺",
+    "badge": "%30 Verimlilik Artışı",
     "labels": {
       "agents": "Çağrı Merkezi Temsilci Sayısı",
-      "cost": "Temsilci Başı Aylık Maliyet (TL)",
-      "saved": "Tahmini Yıllık Tasarruf",
-      "efficiency": "Verimlilik Kazancı"
+      "cost": "Temsilci Başı Aylık Maliyet",
+      "saved": "Tahmini Yıllık Tasarruf"
     },
     "note": "Hesaplama %30 AHT (Ortalama İşlem Süresi) düşüşü varsayımına dayanır."
   },
@@ -155,5 +119,43 @@
       "terms": "Kullanım Koşulları"
     },
     "rights": "Tüm hakları saklıdır."
+  },
+  "legal": {
+    "privacy": {
+      "title": "Gizlilik Politikası",
+      "date": "Son Güncelleme: 28 Ocak 2026",
+      "sections": [
+        {
+          "title": "1. Veri Toplama",
+          "content": "Hizmetlerimizi kullandığınızda, adınız, iletişim bilgileriniz ve şirket bilgileriniz gibi verileri toplayabiliriz. Bu veriler hizmet kalitesini artırmak için kullanılır."
+        },
+        {
+          "title": "2. Veri Kullanımı",
+          "content": "Toplanan veriler, size daha iyi bir deneyim sunmak, işlemleri doğrulamak ve yasal yükümlülükleri yerine getirmek amacıyla işlenir."
+        },
+        {
+          "title": "3. KVKK ve GDPR Uyumu",
+          "content": "ATRON, tüm verilerinizi KVKK ve GDPR standartlarına uygun olarak şifreli sunucularda saklar ve izniniz olmadan üçüncü taraflarla paylaşmaz."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Kullanım Koşulları",
+      "date": "Son Güncelleme: 28 Ocak 2026",
+      "sections": [
+        {
+          "title": "1. Hizmetin Kapsamı",
+          "content": "ATRON, işletmelere AI tabanlı çağrı merkezi ve CRM çözümleri sunan bir SaaS platformudur."
+        },
+        {
+          "title": "2. Kullanıcı Sorumlulukları",
+          "content": "Kullanıcılar, platformu yasalara uygun şekilde kullanmakla ve hesap güvenliklerini sağlamakla yükümlüdür."
+        },
+        {
+          "title": "3. Fikri Mülkiyet",
+          "content": "Yazılımın tüm hakları, tasarımı ve içeriği ATRON'a aittir ve izinsiz kopyalanamaz."
+        }
+      ]
+    }
   }
 }
