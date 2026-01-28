@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-atron-red: #D30000;
+  --color-atron-dark: #0F172A;
+  --color-atron-surface: #1E293B;
+  --color-atron-light: #F8FAFC;
+
+  --font-sans: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-atron-light text-slate-800 dark:bg-atron-dark dark:text-slate-100 transition-colors duration-300;
+}
