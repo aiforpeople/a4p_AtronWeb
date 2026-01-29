@@ -39,9 +39,6 @@ const { t } = useI18n();
                 >
                     {{ t('hero.cta') }}
                 </router-link>
-                <button class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-slate-700 dark:text-white transition-all duration-200 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 focus:outline-none cursor-pointer">
-                    {{ t('hero.showreel') }}
-                </button>
             </div>
 
             <div class="pt-8 border-t border-slate-200 dark:border-slate-800 grid grid-cols-3 gap-4 text-center md:text-left">

@@ -60,7 +60,7 @@ const getList = (path) => {
                   </ul>
                 </div>
 
-                <div class="relative pl-6 border-l-4 border-atron-red bg-red-50/50 dark:bg-red-900/10 py-2 -ml-2 pr-2 rounded-r-lg">
+                <div class="relative pl-6 border-l-4 border-atron-red bg-red-50/50 dark:bg-red-900/10 py-2 pr-2 rounded-r-lg">
                   <h4 class="text-lg font-bold text-atron-red mb-3 flex items-center gap-2">
                     <CheckCircle2 class="w-5 h-5" /> {{ t(`solutions.${activeTab}.after.title`) }}
                   </h4>
