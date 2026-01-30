@@ -74,10 +74,9 @@ const getList = (path) => {
             </div>
 
             <div class="relative h-full min-h-[300px] rounded-2xl overflow-hidden shadow-lg">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-                <img v-if="activeTab === 'ops'" src="https://images.unsplash.com/photo-1556745753-b2904692b3cd?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover" />
-                <img v-if="activeTab === 'sales'" src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover" />
-                <img v-if="activeTab === 'it'" src="https://images.unsplash.com/photo-1558494949-ef2a2cc58fa9?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover" />
+                <img v-if="activeTab === 'ops'" src="@/assets/operations.jpeg" class="absolute inset-0 w-full h-full object-cover" alt="Operations" />
+                <img v-if="activeTab === 'sales'" src="@/assets/sales.jpeg" class="absolute inset-0 w-full h-full object-cover" alt="Sales" />
+                <img v-if="activeTab === 'it'" src="@/assets/it.jpeg" class="absolute inset-0 w-full h-full object-cover" alt="IT" />
             </div>
 
           </div>
