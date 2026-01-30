@@ -52,11 +52,10 @@ const setLanguage = (lang) => {
                 <ChevronDown class="w-3 h-3 opacity-50" />
               </button>
               
-              <div v-if="isLangMenuOpen" class="absolute right-0 top-full mt-3 w-32 bg-white dark:bg-atron-surface border border-gray-100 dark:border-gray-700 rounded-2xl shadow-2xl overflow-hidden py-2 transform origin-top-right transition-all z-50">
+              <div v-if="isLangMenuOpen" class="absolute right-0 top-full mt-3 p-2 align-center bg-white dark:bg-atron-surface border border-gray-100 dark:border-gray-700 rounded-2xl shadow-2xl overflow-hidden py-2 transform origin-top-right transition-all z-50">
                 <button v-for="lang in availableLocales" :key="lang" @click="setLanguage(lang)"
                         class="w-full text-left px-4 py-2.5 text-sm hover:bg-slate-50 dark:hover:bg-slate-700 uppercase cursor-pointer flex items-center gap-2 transition-colors"
                         :class="{ 'text-atron-red font-bold bg-red-50 dark:bg-red-900/10': locale === lang, 'text-slate-600 dark:text-slate-300': locale !== lang }">
-                  <span class="w-1.5 h-1.5 rounded-full" :class="locale === lang ? 'bg-atron-red' : 'bg-transparent'"></span>
                   {{ lang }}
                 </button>
               </div>

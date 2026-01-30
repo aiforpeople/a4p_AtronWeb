@@ -1,0 +1,160 @@
+{
+  "nav": {
+    "solution": "Solución",
+    "features": "Características",
+    "architecture": "Arquitectura",
+    "contact": "Contacto",
+    "back_home": "Volver al Inicio"
+  },
+  "hero": {
+    "title": "Del Caos de las Llamadas a un Centro de Comunicaciones Nativo de IA",
+    "subtitle": "Combina Call Center de IA y CRM nativo de IA en una sola pila. Conversaciones de voz a voz multilingües en tiempo real.",
+    "cta": "Reservar una Demo",
+    "stats": {
+      "ai": "Operaciones de IA",
+      "cost": "Reducción de Costes",
+      "lang": "Soporte de Idiomas"
+    }
+  },
+  "pain": {
+    "title": "El Coste de 'Seguir como Siempre'",
+    "subtitle": "El teléfono sigue sonando, pero los costes y las ineficiencias están consumiendo su presupuesto silenciosamente.",
+    "footer": {
+      "text": "La competencia aumenta cada día.",
+      "highlight": "Mantenerse en el modelo antiguo limita su crecimiento."
+    },
+    "cards": {
+      "aht": {
+        "title": "Impacto en el AHT",
+        "stat": "250K $",
+        "suffix": "/ año",
+        "desc": "+1 segundo en el Tiempo Medio de Operación (AHT) añade enormes costes adicionales al año en un centro mediano."
+      },
+      "churn": {
+        "title": "Alta Rotación de Agentes",
+        "stat": "40%+",
+        "suffix": "Tasa de Rotación",
+        "desc": "Bucle constante de contratación-formación-rotación. Las tasas globales de rotación agotan los recursos."
+      },
+      "quality": {
+        "title": "Datos Perdidos y Errores",
+        "stat": "25%",
+        "suffix": "Pérdida de Datos",
+        "desc": "De las interacciones no se registran correctamente en el CRM. El error humano limita su potencial de crecimiento."
+      }
+    }
+  },
+  "solutions": {
+    "title": "Transformación para cada Rol",
+    "subtitle": "Operaciones, Ventas o IT... ATRON habla su idioma y resuelve sus desafíos específicos.",
+    "tabs": {
+      "ops": "Operaciones",
+      "sales": "Ventas y Crecimiento",
+      "it": "IT y Tecnología"
+    },
+    "ops": {
+      "role": "Para Directores de Atención al Cliente",
+      "title": "De Centro de Costes a Motor de Rendimiento",
+      "before": { "title": "Antes de ATRON", "list": ["Dificultad para cumplir SLAs con presupuesto limitado", "Alta rotación de agentes; contratación constante", "Poca visibilidad de por qué llaman los clientes"] },
+      "after": { "title": "Después de ATRON", "list": ["Agentes de IA gestionan llamadas repetitivas 24/7", "AHT reducido en 25-40%, el FCR aumenta significativamente", "Paneles en vivo y monitoreo de calidad al 100%"] }
+    },
+    "sales": {
+      "role": "Para Directores de Ventas",
+      "title": "Convirtiendo cada Llamada en Ingresos",
+      "before": { "title": "Antes de ATRON", "list": ["Campañas de salida dependen de marcación manual", "Representantes pasan más tiempo en el CRM que vendiendo", "Difícil medir qué guiones funcionan realmente"] },
+      "after": { "title": "Después de ATRON", "list": ["La IA califica leads y programa citas automáticamente", "Los equipos de ventas reciben oportunidades listas en el CRM", "Las tasas de conversión mejoran, el CAC baja"] }
+    },
+    "it": {
+      "role": "Para Directores de IT",
+      "title": "IA de Grado Empresarial",
+      "before": { "title": "Antes de ATRON", "list": ["Sistemas heredados difíciles de integrar", "Preocupaciones sobre privacidad de datos y cumplimiento", "Nuevos canales se vuelven mini-proyectos separados"] },
+      "after": { "title": "Después de ATRON", "list": ["Se conecta a telefonía existente (SIP/PBX) vía APIs", "Funciona en nube, on-prem o híbrido para cumplimiento", "Arquitectura clara con capas de Voz, NLU y RAG"] }
+    }
+  },
+  "tech": {
+    "title": "Potencia bajo el Capó",
+    "subtitle": "Arquitectura de IA transparente, modular y segura.",
+    "compliance": "Todas las capas cumplen con GDPR/KVKK y pueden desplegarse en local o en la nube.",
+    "journey": {
+      "title": "El Viaje de una Llamada",
+      "steps": [
+        { "title": "Inicio del Contacto", "desc": "El cliente llama o es llamado por un agente de IA vía SIP/VoIP." },
+        { "title": "Percepción y Respuesta de IA", "desc": "ATRON autentica al usuario, entiende la intención y habla de forma natural." },
+        { "title": "Razonamiento en Vivo (RAG)", "desc": "Recupera respuestas precisas de su base de conocimientos e historial." },
+        { "title": "Resolución y Sincronización CRM", "desc": "Se logra el resultado, se resume y se registra automáticamente en el CRM." }
+      ]
+    },
+    "layers": {
+      "title": "Pila Tecnológica Modular",
+      "items": [
+        { "name": "Capa de Telefonía", "desc": "SIP, PBX, CCaaS y WebRTC" },
+        { "name": "Capa de Voz", "desc": "Motores ASR y TTS optimizados" },
+        { "name": "Capa de Inteligencia", "desc": "NLU, Gestión de Diálogo y RAG" },
+        { "name": "Datos e Integración", "desc": "Integraciones CRM, Ticketing y BI" },
+        { "name": "Analítica y Seguridad", "desc": "Monitoreo de Calidad, Registro GDPR" }
+      ]
+    }
+  },
+  "roi": {
+    "title": "Calcule su ROI",
+    "headline": "Convierta la Ineficiencia en Presupuesto.",
+    "subtitle": "Estime su ahorro anual potencial basado en el tamaño de su operación.",
+    "currency": "USD",
+    "symbol": "$",
+    "badge": "30% Ganancia de Eficiencia",
+    "labels": {
+      "agents": "Número de Agentes",
+      "cost": "Coste Mensual por Agente",
+      "saved": "Ahorro Anual Estimado"
+    },
+    "note": "El cálculo asume una reducción del 30% en el Tiempo Medio de Operación (AHT)."
+  },
+  "footer": {
+    "slogan": "Salga de la Fila.",
+    "sub_slogan": "ATRON Responde Ahora.",
+    "contact": "Contacto",
+    "links": {
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Uso"
+    },
+    "rights": "Todos los derechos reservados."
+  },
+  "legal": {
+    "privacy": {
+      "title": "Política de Privacidad",
+      "date": "Última actualización: 28 de enero de 2026",
+      "sections": [
+        {
+          "title": "1. Recopilación de Datos",
+          "content": "Al usar nuestros servicios, podemos recopilar datos como nombre, contacto e información de la empresa para mejorar la calidad del servicio."
+        },
+        {
+          "title": "2. Uso de Datos",
+          "content": "Los datos se procesan para ofrecer una mejor experiencia, verificar transacciones y cumplir obligaciones legales."
+        },
+        {
+          "title": "3. Cumplimiento GDPR",
+          "content": "ATRON almacena sus datos en servidores cifrados según estándares GDPR y no los comparte sin su consentimiento."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Términos de Uso",
+      "date": "Última actualización: 28 de enero de 2026",
+      "sections": [
+        {
+          "title": "1. Alcance del Servicio",
+          "content": "ATRON es una plataforma SaaS que ofrece soluciones de call center y CRM basadas en IA."
+        },
+        {
+          "title": "2. Responsabilidades del Usuario",
+          "content": "Los usuarios son responsables de usar la plataforma legalmente y asegurar su cuenta."
+        },
+        {
+          "title": "3. Propiedad Intelectual",
+          "content": "Todos los derechos, diseño y contenido pertenecen a ATRON y no pueden copiarse sin permiso."
+        }
+      ]
+    }
+  }
+}

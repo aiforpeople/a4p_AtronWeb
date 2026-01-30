@@ -1,0 +1,160 @@
+{
+  "nav": {
+    "solution": "Ratkaisu",
+    "features": "Ominaisuudet",
+    "architecture": "Arkkitehtuuri",
+    "contact": "Ota yhteyttä",
+    "back_home": "Takaisin etusivulle"
+  },
+  "hero": {
+    "title": "Puhelukaoksesta tekoälypohjaiseen viestintäkeskukseen",
+    "subtitle": "Yhdistää tekoäly-call centerin ja natiivin tekoäly-CRM:n yhdeksi kokonaisuudeksi. Monikieliset, reaaliaikaiset puhekeskustelut.",
+    "cta": "Varaa demo",
+    "stats": {
+      "ai": "Tekoälytoiminnot",
+      "cost": "Kustannussäästöt",
+      "lang": "Kielituki"
+    }
+  },
+  "pain": {
+    "title": "Vanhan toimintatavan hinta",
+    "subtitle": "Puhelin soi yhä, mutta tehottomuus kuluttaa budjettiasi hiljalleen.",
+    "footer": {
+      "text": "Kilpailu kovenee päivä päivältä.",
+      "highlight": "Vanhassa mallissa pysyminen rajoittaa kasvuasi."
+    },
+    "cards": {
+      "aht": {
+        "title": "AHT-vaikutus",
+        "stat": "250k $",
+        "suffix": "/ vuosi",
+        "desc": "Yksi lisäsekunti keskimääräisessä käsittelyajassa (AHT) tuo valtavia lisäkustannuksia keskisuurelle keskukselle."
+      },
+      "churn": {
+        "title": "Korkea vaihtuvuus",
+        "stat": "40%+",
+        "suffix": "Vaihtuvuusaste",
+        "desc": "Jatkuva rekrytointi-koulutus-vaihtuvuus-kierre kuluttaa resursseja maailmanlaajuisesti."
+      },
+      "quality": {
+        "title": "Tiedon menetys & virheet",
+        "stat": "25%",
+        "suffix": "Tiedonhävikki",
+        "desc": "Vuorovaikutuksista ei tallenneta asianmukaisesti CRM:ään. Inhimilliset virheet rajoittavat kasvua."
+      }
+    }
+  },
+  "solutions": {
+    "title": "Muutos jokaiselle roolille",
+    "subtitle": "Operaatiot, myynti tai IT... ATRON puhuu kieltäsi ja ratkaisee haasteesi.",
+    "tabs": {
+      "ops": "Toiminnot",
+      "sales": "Myynti & Kasvu",
+      "it": "IT & Teknologia"
+    },
+    "ops": {
+      "role": "Asiakaspalvelujohtajille",
+      "title": "Kustannuserästä tulosmoottoriksi",
+      "before": { "title": "Ennen ATRONia", "list": ["Vaikeuksia saavuttaa SLA-tavoitteet", "Korkea työntekijävaihtuvuus", "Heikko näkyvyys puheluiden syihin"] },
+      "after": { "title": "ATRONin jälkeen", "list": ["Tekoälyagentit hoitavat rutiinit 24/7", "AHT laskee 25-40%, FCR nousee", "Live-seuranta ja 100 % laadunvalvonta"] }
+    },
+    "sales": {
+      "role": "Myyntijohtajille",
+      "title": "Jokainen puhelu tuotoksi",
+      "before": { "title": "Ennen ATRONia", "list": ["Outbound-kampanjat manuaalisen soiton varassa", "Myyjät käyttävät liikaa aikaa CRM-kirjauksiin", "Vaikea mitata mikä puhescripti toimii"] },
+      "after": { "title": "ATRONin jälkeen", "list": ["Tekoäly karsii liidit ja varaa ajat", "Myyntitiimi saa lämpimiä liidejä CRM:ään", "Konversio paranee, CAC laskee"] }
+    },
+    "it": {
+      "role": "IT-johtajille",
+      "title": "Enterprise-tason tekoäly",
+      "before": { "title": "Ennen ATRONia", "list": ["Vanhoja järjestelmiä vaikea integroida", "Tietosuoja- ja compliance-huolet", "Uudet kanavat jäävät erillisiksi projekteiksi"] },
+      "after": { "title": "ATRONin jälkeen", "list": ["Yhdistyy puhelinverkkoon (SIP/PBX) API-rajapinnoilla", "Cloud, On-premise tai hybridi-toteutus", "Selkeä Speech, NLU ja RAG -arkkitehtuuri"] }
+    }
+  },
+  "tech": {
+    "title": "Tekninen voima",
+    "subtitle": "Läpinäkyvä, modulaarinen ja turvallinen tekoälyarkkitehtuuri.",
+    "compliance": "Kaikki tasot ovat GDPR-yhteensopivia ja asennettavissa paikallisesti tai pilveen.",
+    "journey": {
+      "title": "Puhelun matka",
+      "steps": [
+        { "title": "Yhteys alkaa", "desc": "Asiakas soittaa tai tekoäly soittaa asiakkaalle SIP/VoIP-yhteydellä." },
+        { "title": "Tekoälyn havainto", "desc": "ATRON tunnistaa käyttäjän, ymmärtää aikomuksen ja puhuu luonnollisesti." },
+        { "title": "Reaaliaikainen päättely", "desc": "Hakee vastaukset tietokannastasi ja historiasta (RAG)." },
+        { "title": "Ratkaisu & CRM-synkronointi", "desc": "Tulos saavutetaan, tiivistetään ja tallennetaan automaattisesti CRM:ään." }
+      ]
+    },
+    "layers": {
+      "title": "Modulaarinen teknologiapino",
+      "items": [
+        { "name": "Puhelukerros", "desc": "SIP, PBX, CCaaS & WebRTC" },
+        { "name": "Puhekerros", "desc": "Optimoidut ASR- ja TTS-moottorit" },
+        { "name": "Älykerros", "desc": "NLU, Dialogin hallinta & RAG" },
+        { "name": "Data & Integraatio", "desc": "CRM-, Ticketing- & BI-integraatiot" },
+        { "name": "Analytiikka & Turvallisuus", "desc": "Laadunvalvonta, GDPR-lokitus" }
+      ]
+    }
+  },
+  "roi": {
+    "title": "Laske ROI",
+    "headline": "Muuta tehottomuus budjetiksi.",
+    "subtitle": "Arvioi vuotuiset säästösi toiminnan koon perusteella.",
+    "currency": "EUR",
+    "symbol": "€",
+    "badge": "30 % tehokkuusetu",
+    "labels": {
+      "agents": "Agenttien määrä",
+      "cost": "Kuukausikustannus per agentti",
+      "saved": "Arvioitu vuosisäästö"
+    },
+    "note": "Laskelma olettaa 30 prosentin vähennyksen käsittelyajassa (AHT)."
+  },
+  "footer": {
+    "slogan": "Pois jonosta.",
+    "sub_slogan": "ATRON vastaa nyt.",
+    "contact": "Ota yhteyttä",
+    "links": {
+      "privacy": "Tietosuojaseloste",
+      "terms": "Käyttöehdot"
+    },
+    "rights": "Kaikki oikeudet pidätetään."
+  },
+  "legal": {
+    "privacy": {
+      "title": "Tietosuojaseloste",
+      "date": "Viimeksi päivitetty: 28. tammikuuta 2026",
+      "sections": [
+        {
+          "title": "1. Tiedonkeruu",
+          "content": "Kun käytät palveluitamme, voimme kerätä tietoja, kuten nimesi, yhteystietosi ja yrityksesi tiedot. Näitä tietoja käytetään palvelun laadun parantamiseen."
+        },
+        {
+          "title": "2. Tiedon käyttö",
+          "content": "Kerättyjä tietoja käsitellään paremman käyttökokemuksen tarjoamiseksi, tapahtumien varmentamiseksi ja lakisääteisten velvoitteiden noudattamiseksi."
+        },
+        {
+          "title": "3. GDPR-yhteensopivuus",
+          "content": "ATRON tallentaa kaikki tietosi salatuille palvelimille GDPR-standardien mukaisesti eikä jaa niitä kolmansille osapuolille ilman suostumustasi."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Käyttöehdot",
+      "date": "Viimeksi päivitetty: 28. tammikuuta 2026",
+      "sections": [
+        {
+          "title": "1. Palvelun laajuus",
+          "content": "ATRON on SaaS-alusta, joka tarjoaa tekoälypohjaisia call center- ja CRM-ratkaisuja yrityksille."
+        },
+        {
+          "title": "2. Käyttäjän vastuut",
+          "content": "Käyttäjät vastaavat alustan lainmukaisesta käytöstä ja tilinsä turvallisuuden varmistamisesta."
+        },
+        {
+          "title": "3. Immateriaalioikeudet",
+          "content": "Kaikki ohjelmiston oikeudet, suunnittelu ja sisältö kuuluvat ATRONille, eikä niitä saa kopioida ilman lupaa."
+        }
+      ]
+    }
+  }
+}

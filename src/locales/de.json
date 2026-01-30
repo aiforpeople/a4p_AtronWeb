@@ -1,0 +1,142 @@
+{
+  "nav": {
+    "solution": "Lösung",
+    "features": "Funktionen",
+    "architecture": "Architektur",
+    "contact": "Kontakt",
+    "back_home": "Zurück zum Home"
+  },
+  "hero": {
+    "title": "Vom Anruf-Chaos zum KI-nativen Kommunikationszentrum",
+    "subtitle": "Kombiniert KI-Callcenter und KI-natives CRM in einem Stack. Mehrsprachige Voice-to-Voice-Gespräche in Echtzeit.",
+    "cta": "Demo buchen",
+    "stats": {
+      "ai": "KI-Operationen",
+      "cost": "Kostensenkung",
+      "lang": "Sprachunterstützung"
+    }
+  },
+  "pain": {
+    "title": "Die Kosten des 'Weiter so'",
+    "subtitle": "Das Telefon klingelt zwar, aber Ineffizienz verbrennt im Stillen Ihr Budget.",
+    "footer": {
+      "text": "Der Wettbewerb nimmt täglich zu.",
+      "highlight": "Im alten Modell zu verharren, begrenzt Ihr Wachstum."
+    },
+    "cards": {
+      "aht": {
+        "title": "AHT-Auswirkung",
+        "stat": "250.000 $",
+        "suffix": "/ Jahr",
+        "desc": "+1 Sekunde bei der durchschnittlichen Bearbeitungszeit (AHT) verursacht in einem mittleren Center massive jährliche Zusatzkosten."
+      },
+      "churn": {
+        "title": "Hohe Fluktuation",
+        "stat": "40%+",
+        "suffix": "Fluktuationsrate",
+        "desc": "Ständiger Kreislauf aus Einstellung und Schulung. Globale Fluktuationsraten zehren an den Ressourcen."
+      },
+      "quality": {
+        "title": "Datenverlust & Fehler",
+        "stat": "25%",
+        "suffix": "Datenverlust",
+        "desc": "Interaktionen werden nicht ordnungsgemäß im CRM protokolliert. Menschliche Fehler bremsen Ihr Potenzial."
+      }
+    }
+  },
+  "solutions": {
+    "title": "Transformation für jede Rolle",
+    "subtitle": "Operations, Sales oder IT... ATRON spricht Ihre Sprache und löst Ihre spezifischen Probleme.",
+    "tabs": {
+      "ops": "Operations",
+      "sales": "Vertrieb & Wachstum",
+      "it": "IT & Technologie"
+    },
+    "ops": {
+      "role": "Für Kundenservice-Leiter",
+      "title": "Vom Kostentreiber zur Performance-Maschine",
+      "before": { "title": "Vor ATRON", "list": ["Kampf um SLAs mit begrenztem Budget", "Hohe Fluktuation; ständiges Training", "Wenig Einblick in Anrufsgründe"] },
+      "after": { "title": "Nach ATRON", "list": ["KI-Agenten bearbeiten FAQs rund um die Uhr", "AHT um 25-40% reduziert, FCR steigt deutlich", "Live-Dashboards & 100% Qualitätsüberwachung"] }
+    },
+    "sales": {
+      "role": "Für Vertriebsleiter",
+      "title": "Jeden Anruf in Umsatz verwandeln",
+      "before": { "title": "Vor ATRON", "list": ["Outbound-Kampagnen hängen von manueller Wahl ab", "Mitarbeiter verbringen mehr Zeit mit CRM als mit Verkauf", "Schwer messbar, welche Skripte wirklich funktionieren"] },
+      "after": { "title": "Nach ATRON", "list": ["KI qualifiziert Leads und plant Termine automatisch", "Vertriebsteams erhalten warme Leads direkt im CRM", "Konversionsraten steigen, CAC sinkt"] }
+    },
+    "it": {
+      "role": "Für IT-Leiter",
+      "title": "KI auf Enterprise-Niveau",
+      "before": { "title": "Vor ATRON", "list": ["Altsysteme schwer zu integrieren", "Sorgen um Datenschutz und Compliance", "Neue Kanäle werden zu isolierten Mini-Projekten"] },
+      "after": { "title": "Nach ATRON", "list": ["Anbindung an Telefonie (SIP/PBX) via APIs", "Cloud, On-Premise oder Hybrid für Compliance", "Klare Architektur mit Speech-, NLU- und RAG-Layern"] }
+    }
+  },
+  "tech": {
+    "title": "Power unter der Haube",
+    "subtitle": "Transparente, modulare und sichere KI-Architektur.",
+    "compliance": "Alle Layer sind DSGVO-konform und können On-Premise oder Cloud-basiert bereitgestellt werden.",
+    "journey": {
+      "title": "Die Reise eines Anrufs",
+      "steps": [
+        { "title": "Kontakt beginnt", "desc": "Kunde ruft an oder wird von KI-Agent via SIP/VoIP kontaktiert." },
+        { "title": "KI-Wahrnehmung", "desc": "ATRON authentifiziert Nutzer, versteht Absicht und spricht natürlich." },
+        { "title": "Live-Reasoning (RAG)", "desc": "Ruft präzise Antworten aus Wissensdatenbank und Historie ab." },
+        { "title": "Lösung & CRM-Sync", "desc": "Ergebnis erzielt, zusammengefasst und auto-log im CRM." }
+      ]
+    },
+    "layers": {
+      "title": "Modularer Tech-Stack",
+      "items": [
+        { "name": "Telefonie-Layer", "desc": "SIP, PBX, CCaaS & WebRTC" },
+        { "name": "Speech-Layer", "desc": "Optimierte ASR & TTS Engines" },
+        { "name": "Intelligence-Layer", "desc": "NLU, Dialog-Management & RAG" },
+        { "name": "Daten & Integration", "desc": "CRM, Ticketing & BI-Anbindungen" },
+        { "name": "Analytics & Sicherheit", "desc": "Qualitätsüberwachung, DSGVO-Logging" }
+      ]
+    }
+  },
+  "roi": {
+    "title": "Berechnen Sie Ihren ROI",
+    "headline": "Ineffizienz in Budget verwandeln.",
+    "subtitle": "Schätzen Sie Ihre jährlichen Einsparungen basierend auf Ihrer Größe.",
+    "currency": "USD",
+    "symbol": "$",
+    "badge": "30% Effizienzgewinn",
+    "labels": {
+      "agents": "Anzahl der Agenten",
+      "cost": "Monatliche Kosten pro Agent",
+      "saved": "Geschätzte jährliche Ersparnis"
+    },
+    "note": "Berechnung basiert auf 30% Reduzierung der AHT."
+  },
+  "footer": {
+    "slogan": "Raus aus der Warteschleife.",
+    "sub_slogan": "ATRON antwortet jetzt.",
+    "contact": "Kontakt",
+    "links": {
+      "privacy": "Datenschutz",
+      "terms": "Nutzungsbedingungen"
+    },
+    "rights": "Alle Rechte vorbehalten."
+  },
+  "legal": {
+    "privacy": {
+      "title": "Datenschutzerklärung",
+      "date": "Zuletzt aktualisiert: 28. Januar 2026",
+      "sections": [
+        { "title": "1. Datenerhebung", "content": "Wir erheben Daten wie Name und Kontakt zur Serviceverbesserung." },
+        { "title": "2. Datennutzung", "content": "Daten dienen der besseren Erfahrung und rechtlichen Compliance." },
+        { "title": "3. DSGVO-Konformität", "content": "ATRON speichert Daten verschlüsselt gemäß DSGVO-Standards." }
+      ]
+    },
+    "terms": {
+      "title": "Nutzungsbedingungen",
+      "date": "Zuletzt aktualisiert: 28. Januar 2026",
+      "sections": [
+        { "title": "1. Leistungsumfang", "content": "ATRON ist eine SaaS-Plattform für KI-Callcenter-Lösungen." },
+        { "title": "2. Nutzerpflichten", "content": "Nutzer sind für gesetzeskonforme Nutzung verantwortlich." },
+        { "title": "3. Geistiges Eigentum", "content": "Alle Rechte liegen bei ATRON; Kopieren verboten." }
+      ]
+    }
+  }
+}

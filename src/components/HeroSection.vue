@@ -58,11 +58,9 @@ const { t } = useI18n();
         </div>
 
         <div class="relative hidden md:block">
-            <div class="relative bg-gradient-to-br from-slate-100 to-white dark:from-slate-800 dark:to-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xl p-2 transition-transform duration-500">
                 <img src="@/assets/hero.png" 
                      alt="Dashboard" 
-                     class="rounded-xl w-full h-auto object-cover opacity-90 grayscale hover:grayscale-0 transition-all duration-500" />
-            </div>
+                     class="rounded-xl w-full h-auto " />
         </div>
     </div>
   </section>

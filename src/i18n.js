@@ -11,9 +11,24 @@ const messages = Object.fromEntries(
 
 export const availableLocales = Object.keys(messages);
 
+function getBrowserLocale() {
+  try {
+    if (typeof navigator !== 'undefined') {
+      const browserLang = navigator.language || navigator.userLanguage; 
+      const userLangShort = browserLang.split('-')[0];
+      if (availableLocales.includes(userLangShort)) {
+        return userLangShort;
+      }
+    }
+  } catch (e) {
+    console.warn('Error detecting browser locale:', e);
+  }
+  return 'en';
+}
+
 const i18n = createI18n({
   legacy: false,
-  locale: 'tr',
+  locale: getBrowserLocale(),
   fallbackLocale: 'en',
   globalInjection: true,
   messages

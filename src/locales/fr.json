@@ -1,0 +1,160 @@
+{
+  "nav": {
+    "solution": "Solution",
+    "features": "Fonctionnalités",
+    "architecture": "Architecture",
+    "contact": "Contact",
+    "back_home": "Retour à l'accueil"
+  },
+  "hero": {
+    "title": "Du chaos des appels à un centre de communication natif IA",
+    "subtitle": "Combine un centre d'appels IA et un CRM natif IA en une seule pile. Conversations voix-à-voix multilingues en temps réel.",
+    "cta": "Réserver une démo",
+    "stats": {
+      "ai": "Opérations IA",
+      "cost": "Réduction des coûts",
+      "lang": "Support linguistique"
+    }
+  },
+  "pain": {
+    "title": "Le coût du statu quo",
+    "subtitle": "Le téléphone sonne toujours, mais l'inefficacité brûle discrètement votre budget.",
+    "footer": {
+      "text": "La concurrence s'intensifie chaque jour.",
+      "highlight": "Rester sur l'ancien modèle limite votre croissance."
+    },
+    "cards": {
+      "aht": {
+        "title": "Impact de la DMT",
+        "stat": "250K $",
+        "suffix": "/ an",
+        "desc": "+1 seconde de Durée Moyenne de Traitement (DMT) ajoute des coûts massifs par an dans un centre de taille moyenne."
+      },
+      "churn": {
+        "title": "Rotation élevée des agents",
+        "stat": "40%+",
+        "suffix": "Taux de rotation",
+        "desc": "Cycle constant recrutement-formation-départ. Les taux mondiaux épuisent les ressources."
+      },
+      "quality": {
+        "title": "Pertes de données",
+        "stat": "25%",
+        "suffix": "Perte de données",
+        "desc": "Des interactions ne sont pas correctement loguées dans le CRM. L'erreur humaine bride votre potentiel."
+      }
+    }
+  },
+  "solutions": {
+    "title": "Transformation pour chaque rôle",
+    "subtitle": "Opérations, Ventes ou IT... ATRON parle votre langue et résout vos défis.",
+    "tabs": {
+      "ops": "Opérations",
+      "sales": "Ventes & Croissance",
+      "it": "IT & Technologie"
+    },
+    "ops": {
+      "role": "Pour les directeurs de la relation client",
+      "title": "D'un centre de coûts à un moteur de performance",
+      "before": { "title": "Avant ATRON", "list": ["Difficulté à tenir les SLA avec un budget limité", "Rotation élevée des agents; formation constante", "Peu de visibilité sur les motifs d'appels"] },
+      "after": { "title": "Après ATRON", "list": ["Agents IA gèrent les FAQ 24/7", "DMT réduite de 25-40%, le FCR augmente", "Tableaux de bord live & 100% monitoring qualité"] }
+    },
+    "sales": {
+      "role": "Pour les directeurs commerciaux",
+      "title": "Chaque appel devient un revenu",
+      "before": { "title": "Avant ATRON", "list": ["Campagnes sortantes manuelles", "Agents passent trop de temps sur le CRM", "Difficile de mesurer l'efficacité des scripts"] },
+      "after": { "title": "Après ATRON", "list": ["L'IA qualifie les leads et prend rendez-vous", "Les équipes reçoivent des opportunités qualifiées", "Le taux de conversion monte, le CAC baisse"] }
+    },
+    "it": {
+      "role": "Pour les directeurs informatiques",
+      "title": "IA de classe entreprise",
+      "before": { "title": "Avant ATRON", "list": ["Systèmes hérités difficiles à intégrer", "Inquiétudes sur la confidentialité des données", "Nouveaux canaux deviennent des projets isolés"] },
+      "after": { "title": "Après ATRON", "list": ["Connexion à la téléphonie via APIs (SIP/PBX)", "Cloud, On-premise ou hybride pour la conformité", "Architecture claire : Speech, NLU et RAG"] }
+    }
+  },
+  "tech": {
+    "title": "Puissance sous le capot",
+    "subtitle": "Architecture IA transparente, modulaire et sécurisée.",
+    "compliance": "Conforme RGPD/KVKK, déploiement On-premise ou Cloud.",
+    "journey": {
+      "title": "Le parcours d'un appel",
+      "steps": [
+        { "title": "Contact initié", "desc": "Le client appelle ou est appelé par l'IA via SIP/VoIP." },
+        { "title": "Perception IA", "desc": "ATRON authentifie l'utilisateur et comprend l'intention." },
+        { "title": "Raisonnement (RAG)", "desc": "Extrait des réponses de votre base de connaissances." },
+        { "title": "Résolution & Sync CRM", "desc": "Résultat atteint et logué automatiquement dans le CRM." }
+      ]
+    },
+    "layers": {
+      "title": "Stack technique modulaire",
+      "items": [
+        { "name": "Couche Téléphonie", "desc": "SIP, PBX, CCaaS & WebRTC" },
+        { "name": "Couche Speech", "desc": "Moteurs ASR & TTS optimisés" },
+        { "name": "Couche Intelligence", "desc": "NLU, Dialogue & RAG" },
+        { "name": "Données & Intégration", "desc": "CRM, Ticketing & BI" },
+        { "name": "Analytique & Sécurité", "desc": "Monitoring qualité, Logs RGPD" }
+      ]
+    }
+  },
+  "roi": {
+    "title": "Calculez votre ROI",
+    "headline": "Transformez l'inefficacité en budget.",
+    "subtitle": "Estimez vos économies annuelles selon votre taille.",
+    "currency": "USD",
+    "symbol": "$",
+    "badge": "Gain d'efficacité de 30%",
+    "labels": {
+      "agents": "Nombre d'agents",
+      "cost": "Coût mensuel par agent",
+      "saved": "Économies annuelles estimées"
+    },
+    "note": "Calcul basé sur une réduction de 30% de la DMT."
+  },
+  "footer": {
+    "slogan": "Sortez de la file d'attente.",
+    "sub_slogan": "ATRON répond maintenant.",
+    "contact": "Contact",
+    "links": {
+      "privacy": "Confidentialité",
+      "terms": "Conditions d'utilisation"
+    },
+    "rights": "Tous droits réservés."
+  },
+  "legal": {
+    "privacy": {
+      "title": "Politique de Confidentialité",
+      "date": "Dernière mise à jour : 28 janvier 2026",
+      "sections": [
+        {
+          "title": "1. Collecte des données",
+          "content": "Lors de l'utilisation de nos services, nous pouvons collecter des données telles que votre nom et vos coordonnées pour améliorer la qualité du service."
+        },
+        {
+          "title": "2. Utilisation des données",
+          "content": "Les données sont traitées pour fournir une meilleure expérience, vérifier les transactions et respecter les obligations légales."
+        },
+        {
+          "title": "3. Conformité RGPD",
+          "content": "ATRON stocke vos données sur des serveurs cryptés conformes au RGPD et ne les partage pas sans votre consentement."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Conditions d'Utilisation",
+      "date": "Dernière mise à jour : 28 janvier 2026",
+      "sections": [
+        {
+          "title": "1. Portée du service",
+          "content": "ATRON est une plateforme SaaS fournissant des solutions de centre d'appels et de CRM basées sur l'IA."
+        },
+        {
+          "title": "2. Responsabilités de l'utilisateur",
+          "content": "Les utilisateurs sont responsables de l'utilisation légale de la plateforme et de la sécurité de leur compte."
+        },
+        {
+          "title": "3. Propriété intellectuelle",
+          "content": "Tous les droits et contenus du logiciel appartiennent à ATRON et ne peuvent être copiés sans autorisation."
+        }
+      ]
+    }
+  }
+}

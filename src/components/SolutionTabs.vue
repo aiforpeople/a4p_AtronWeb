@@ -74,9 +74,9 @@ const getList = (path) => {
             </div>
 
             <div class="relative h-full min-h-[300px] rounded-2xl overflow-hidden shadow-lg">
-                <img v-if="activeTab === 'ops'" src="@/assets/operations.jpeg" class="absolute inset-0 w-full h-full object-cover" alt="Operations" />
-                <img v-if="activeTab === 'sales'" src="@/assets/sales.jpeg" class="absolute inset-0 w-full h-full object-cover" alt="Sales" />
-                <img v-if="activeTab === 'it'" src="@/assets/it.jpeg" class="absolute inset-0 w-full h-full object-cover" alt="IT" />
+                <img v-if="activeTab === 'ops'" src="@/assets/operations.png" class="absolute inset-0 w-full h-full object-cover" alt="Operations" />
+                <img v-if="activeTab === 'sales'" src="@/assets/sales.png" class="absolute inset-0 w-full h-full object-cover" alt="Sales" />
+                <img v-if="activeTab === 'it'" src="@/assets/it.png" class="absolute inset-0 w-full h-full object-cover" alt="IT" />
             </div>
 
           </div>
