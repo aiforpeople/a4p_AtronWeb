@@ -161,6 +161,22 @@ section{padding:20vh 0}
 .proof h3{font-size:clamp(32px,3.6vw,64px);margin:14px 0 18px}
 @media (max-width:860px){.gal .a,.gal .b,.proof article:nth-child(n){grid-column:1/-1}.gal .b{margin-top:0}}
 
+/* real moment */
+.moment{grid-column:1/-1;margin-top:14vh;border:1px solid var(--line);background:var(--ink-2);padding:clamp(24px,3.4vw,56px)}
+.moment .m-label{display:flex;gap:10px;align-items:center;color:var(--dim)}
+.moment h3{font-size:clamp(26px,2.8vw,48px);margin:18px 0 6vh;max-width:22ch}
+.m-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(20px,3vw,56px);align-items:center}
+.m-said .k,.m-rec .k{color:var(--dim);margin-bottom:18px}
+.m-said blockquote{font-family:'Archivo';font-variation-settings:'wdth' 75;font-weight:800;font-size:clamp(30px,3.6vw,64px);line-height:1;letter-spacing:-.02em}
+.m-said .tr{color:var(--dim);margin-top:16px}
+.m-arrow{font-family:'Archivo';font-size:clamp(40px,5vw,90px);color:var(--red);line-height:1}
+.m-rec dl{display:grid;grid-template-columns:130px 1fr;border-top:1px solid var(--line)}
+.m-rec dt,.m-rec dd{border-bottom:1px solid var(--line);padding:13px 0}
+.m-rec dt{color:var(--dim);padding-top:16px}
+.m-rec dd.hot{color:var(--live)}
+.moment .cap{margin-top:28px}
+@media (max-width:860px){.m-grid{grid-template-columns:1fr}.m-arrow{transform:rotate(90deg);justify-self:start}}
+
 /* how */
 .how{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
 .how .img{grid-column:1/6}

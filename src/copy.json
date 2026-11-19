@@ -399,6 +399,74 @@
   "day.foot": {
    "tr": "Sizin şirketinizde bu sahneler başka olur. Hangisi olduğunu bulmak için aşağıdaki ajanla iki dakika konuşmanız yeterli.",
    "en": "In your company these scenes look different. Two minutes with the agent below is enough to find out which."
+  },
+  "m.label": {
+   "tr": "Gerçek bir çağrı · Outbound",
+   "en": "A real call · Outbound"
+  },
+  "m.h": {
+   "tr": "Hastanın söylediği cümle, CRM'de bir kayıt oldu.",
+   "en": "What the patient said became a record in the CRM."
+  },
+  "m.said": {
+   "tr": "Hastanın kendi sözü · İspanyolca",
+   "en": "The patient's own words · Spanish"
+  },
+  "m.quote": {
+   "tr": "“Bueno, cualquier día a las 07:00 de la tarde.”",
+   "en": "“Bueno, cualquier día a las 07:00 de la tarde.”"
+  },
+  "m.quote_tr": {
+   "tr": "“Herhangi bir gün, akşam 7'de olur.”",
+   "en": "“Any day at 7 in the evening works.”"
+  },
+  "m.rec": {
+   "tr": "ATRON'un yazdığı kayıt",
+   "en": "The record ATRON wrote"
+  },
+  "m.k1": {
+   "tr": "Durum",
+   "en": "Status"
+  },
+  "m.v1": {
+   "tr": "İlgileniyor",
+   "en": "Interested"
+  },
+  "m.k2": {
+   "tr": "Tedavi",
+   "en": "Treatment"
+  },
+  "m.v2": {
+   "tr": "Diş · henüz yaptırmamış",
+   "en": "Dental · not done yet"
+  },
+  "m.k3": {
+   "tr": "Geri arama",
+   "en": "Call back"
+  },
+  "m.v3": {
+   "tr": "Ertesi gün 19:00 · Madrid saati",
+   "en": "Next day 19:00 · Madrid time"
+  },
+  "m.k4": {
+   "tr": "Kaynak",
+   "en": "Source"
+  },
+  "m.v4": {
+   "tr": "Hastanın kendisi",
+   "en": "The patient"
+  },
+  "m.k5": {
+   "tr": "Süre",
+   "en": "Duration"
+  },
+  "m.v5": {
+   "tr": "1 dk 10 sn",
+   "en": "1 min 10 s"
+  },
+  "m.cap": {
+   "tr": "Kasım 2026 · kişisel veriler çıkarıldı",
+   "en": "November 2026 · personal data removed"
   }
  },
  "ARMS": [
