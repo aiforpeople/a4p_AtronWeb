@@ -1,0 +1,34 @@
+# ATRON
+
+> AI agents that take over the work your team repeats on the phone, on WhatsApp and in forms. A working prototype in your own process in week one. Built in Istanbul by AI for People Teknoloji A.Ş. Site in Turkish (https://atronai.co/) and English (https://atronai.co/en/).
+
+ATRON is an operations layer: one shared core (memory, rules, quality control, integrations) and AI agents that each own one job, such as answering inbound calls, reading every WhatsApp sales chat, or calling cold lead lists. A new job doesn't need new software; it needs a new agent on the same core.
+
+Proof: two ATRON projects are on Renault Innovation Hub's global shortlist. Inbound voice, WhatsApp sales QA and outbound win-back calling run in production for an enterprise health-tourism operator (under NDA).
+
+How engagements work: a working prototype in the client's own process in week one, then a pilot on real data judged against one agreed metric, then production in the client's systems.
+
+Contact: can@atronai.co
+
+## Agents
+
+- [A voice agent that answers, qualifies and routes the call.](https://atronai.co/en/agents/voice-agent/): The ATRON voice agent answers inbound calls in the caller's language, qualifies them, writes the outcome to your CRM and hands over to your team when needed. (Turkish: https://atronai.co/ajanlar/sesli-ajan/)
+- [Quality control that reads every sales conversation.](https://atronai.co/en/agents/whatsapp-qa/): The ATRON WhatsApp QA agent reads every WhatsApp conversation your sales team has, scores them, flags suspicious behaviour and missed opportunities, and produces the week's forecast. (Turkish: https://atronai.co/ajanlar/whatsapp-kalite-kontrol/)
+- [An agent that calls cold leads and writes the outcome to the CRM.](https://atronai.co/en/agents/outbound-win-back/): The ATRON outbound agent calls cold and lost leads in the language of their list, re-measures interest, hands interested leads to your team and writes every outcome to your CRM. (Turkish: https://atronai.co/ajanlar/outbound-geri-kazanim/)
+
+## FAQ
+
+### What is ATRON?
+ATRON is an operations layer where AI agents take over the repetitive work companies do on the phone, on WhatsApp and in forms. It is one shared core (memory, rules, quality control, integrations) plus agents that each own one job. It is built in Istanbul by AI for People Teknoloji A.Ş.
+
+### How long does setup take?
+In the first week we show a prototype running in your own process. Then the agent runs as a pilot on your real data, judged against one metric we agree on up front. When it meets the metric, it goes live.
+
+### Which systems does it connect to?
+Your CRM (for example Zoho), your phone system or SIP trunk, and your WhatsApp channels. For Turkish phone numbers it uses SIP operators such as Verimor or Netgsm, or your own cloud PBX.
+
+### Which languages does it speak?
+Turkish and English. Its live outbound campaigns call in Portuguese, Bulgarian, Italian, Romanian, Spanish, Serbian, French, Russian, Dutch and German. Each contact is called in the language of the list they came from.
+
+### How is this different from a chatbot?
+The agents don't just answer, they finish the job: they call, qualify, write the outcome to the CRM and hand over to a person when needed. Every step is logged and judged against a single success metric.

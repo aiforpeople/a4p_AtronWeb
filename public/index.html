@@ -1,610 +1,397 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ATRON · AI-native operations infrastructure</title>
-<meta name="description" content="Modular AI agents for voice, messaging and outbound operations, built on one orchestration core. In production for enterprise operations.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ATRON · Sürecinizi söyleyin, gelecek hafta çalışsın</title>
+<meta name="description" content="ATRON ajanları ekibinizin telefonda, WhatsApp&#x27;ta ve formlarda her gün tekrar ettiği işi devralır. İlk hafta sizin sürecinizde çalışan bir prototip.">
 <link rel="canonical" href="https://atronai.co/">
+<link rel="alternate" hreflang="tr" href="https://atronai.co/"><link rel="alternate" hreflang="en" href="https://atronai.co/en/"><link rel="alternate" hreflang="x-default" href="https://atronai.co/">
 <link rel="icon" href="/favicon.ico">
-<meta name="theme-color" content="#0B0B0A">
-<!-- Open Graph / Twitter -->
+<meta name="theme-color" content="#07080c">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
 <meta property="og:url" content="https://atronai.co/">
-<meta property="og:title" content="ATRON · AI-native operations infrastructure">
-<meta property="og:description" content="Modular AI agents for voice, field and internal operations, built on one orchestration core. In enterprise production. Not a chatbot — infrastructure.">
-<meta property="og:image" content="https://atronai.co/logo.png">
+<meta property="og:title" content="ATRON · Sürecinizi söyleyin, gelecek hafta çalışsın">
+<meta property="og:description" content="ATRON ajanları ekibinizin telefonda, WhatsApp&#x27;ta ve formlarda her gün tekrar ettiği işi devralır. İlk hafta sizin sürecinizde çalışan bir prototip.">
+<meta property="og:image" content="https://atronai.co/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ATRON · AI-native operations infrastructure">
-<meta name="twitter:description" content="Modular AI agents for voice, field and internal operations, built on one orchestration core. In enterprise production. Not a chatbot — infrastructure.">
-<meta name="twitter:image" content="https://atronai.co/logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --paper:#F4F4F1;
-  --ink:#0B0B0A;
-  --mid:#65655F;
-  --hair:#D9D9D3;
-  --signal:#FF4400;
-  --term:#101010;
-  --term-txt:#C9C9C2;
-  --maxw:1280px;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;overflow-x:hidden}
-body{
-  overflow-x:hidden;
-  width:100%;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:'Archivo',sans-serif;
-  font-variation-settings:'wdth' 100;
-  font-size:17px;
-  line-height:1.55;
-  -webkit-font-smoothing:antialiased;
-}
-::selection{background:var(--signal);color:#fff}
-a{color:inherit}
-.mono{font-family:'IBM Plex Mono',monospace}
-
-/* ---------- frame ---------- */
-.frame{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-section{border-top:1px solid var(--hair)}
-.sec{display:grid;grid-template-columns:220px 1fr;gap:48px;padding:88px 0}
-.sec-label{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:12px;letter-spacing:.06em;
-  color:var(--mid);
-  position:sticky;top:32px;align-self:start;
-}
-.sec-label b{color:var(--ink);font-weight:500;display:block}
-
-/* ---------- header ---------- */
-header{
-  border-bottom:1px solid var(--hair);
-  position:sticky;top:0;background:var(--paper);z-index:50;
-}
-.nav{
-  display:flex;align-items:center;justify-content:space-between;
-  height:64px;
-}
-.wordmark{
-  font-weight:900;font-size:20px;letter-spacing:.14em;
-  font-variation-settings:'wdth' 118;
-  text-decoration:none;
-}
-.nav-links{display:flex;gap:28px;font-size:13px}
-.nav-links a{
-  text-decoration:none;color:var(--mid);
-  font-family:'IBM Plex Mono',monospace;letter-spacing:.04em;
-}
-.nav-links a:hover{color:var(--ink)}
-.nav-cta{
-  font-family:'IBM Plex Mono',monospace;font-size:13px;
-  text-decoration:none;color:var(--ink);
-  border:1px solid var(--ink);padding:8px 16px;
-}
-.nav-cta:hover{background:var(--ink);color:var(--paper)}
-
-/* ---------- status ticker ---------- */
-.ticker{
-  border-bottom:1px solid var(--hair);
-  overflow:hidden;white-space:nowrap;
-  font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.08em;
-  color:var(--mid);padding:10px 0;
-  user-select:none;
-}
-.ticker-track{display:inline-block;animation:tick 36s linear infinite}
-.ticker span{margin:0 28px}
-.ticker b{color:var(--ink);font-weight:500}
-.ticker i{font-style:normal;color:var(--signal)}
-@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.ticker-track{animation:none}}
-
-/* ---------- hero ---------- */
-.hero{padding:80px 0 0;border-top:none}
-.h1-line{display:block}
-.h1-line.sig{color:var(--signal)}
-@media(prefers-reduced-motion:no-preference){
-  .h1-line{
-    font-variation-settings:'wdth' 78;
-    animation:widen .9s cubic-bezier(.2,.8,.2,1) forwards;
-  }
-  .h1-line:nth-child(2){animation-delay:.08s}
-  .h1-line:nth-child(3){animation-delay:.16s}
-  @keyframes widen{to{font-variation-settings:'wdth' 112}}
-}
-.hero-eyebrow{
-  font-family:'IBM Plex Mono',monospace;font-size:13px;
-  letter-spacing:.08em;color:var(--mid);margin-bottom:28px;
-}
-.hero-eyebrow .dot{
-  display:inline-block;width:8px;height:8px;border-radius:50%;
-  background:var(--signal);margin-right:10px;
-  box-shadow:0 0 0 0 rgba(255,68,0,.5);
-  animation:pulse 2.4s infinite;
-  vertical-align:1px;
-}
-@keyframes pulse{
-  0%{box-shadow:0 0 0 0 rgba(255,68,0,.45)}
-  70%{box-shadow:0 0 0 9px rgba(255,68,0,0)}
-  100%{box-shadow:0 0 0 0 rgba(255,68,0,0)}
-}
-h1{
-  font-weight:900;
-  font-variation-settings:'wdth' 112;
-  font-size:clamp(36px,8.2vw,120px);
-  line-height:.92;
-  letter-spacing:-.02em;
-  text-transform:uppercase;
-}
-.hero-sub{
-  margin-top:36px;max-width:56ch;
-  font-size:19px;color:var(--mid);
-}
-.hero-sub b{color:var(--ink);font-weight:600}
-.hero-meta{
-  margin-top:48px;display:flex;gap:0;border-top:1px solid var(--hair);
-  flex-wrap:wrap;
-}
-.hero-meta div{
-  padding:20px 32px 20px 0;margin-right:32px;
-  font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--mid);
-  letter-spacing:.03em;
-}
-.hero-meta div b{color:var(--ink);font-weight:500;display:block;font-size:15px;margin-bottom:2px}
-
-/* ---------- ops feed (signature) ---------- */
-.opsfeed{
-  margin-top:72px;
-  background:var(--term);
-  color:var(--term-txt);
-  font-family:'IBM Plex Mono',monospace;
-  font-size:13px;line-height:1.9;
-  padding:22px 28px 26px;
-  overflow:hidden;
-  position:relative;
-}
-.opsfeed-head{
-  display:flex;justify-content:space-between;align-items:center;
-  color:#7A7A73;font-size:11.5px;letter-spacing:.08em;
-  border-bottom:1px solid #262624;padding-bottom:12px;margin-bottom:14px;
-}
-.opsfeed-head .live{color:var(--signal)}
-#feedlines{min-height:168px}
-#feedlines .ln{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;transform:translateY(4px);transition:opacity .3s,transform .3s}
-#feedlines .ln.on{opacity:1;transform:none}
-#feedlines .t{color:#6E6E67}
-#feedlines .ev{color:#EDEDE8}
-#feedlines .ok{color:var(--signal)}
-.reduced #feedlines .ln{opacity:1;transform:none;transition:none}
-
-/* ---------- platform diagram ---------- */
-h2{
-  font-weight:800;font-variation-settings:'wdth' 108;
-  font-size:clamp(28px,3.6vw,44px);line-height:1.05;
-  letter-spacing:-.01em;text-transform:uppercase;
-  margin-bottom:20px;max-width:22ch;
-}
-.lede{max-width:58ch;color:var(--mid);font-size:18px;margin-bottom:48px}
-.lede b{color:var(--ink);font-weight:600}
-.diagram{border:1px solid var(--ink)}
-.d-row{display:grid;grid-template-columns:repeat(3,1fr)}
-.d-row + .d-row .d-cell{border-top:1px solid var(--hair)}
-.d-cell{
-  border-right:1px solid var(--hair);
-  padding:22px 20px 26px;min-height:120px;
-  display:flex;flex-direction:column;justify-content:space-between;gap:14px;
-}
-.d-cell:last-child{border-right:none}
-.d-cell .k{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--mid);letter-spacing:.06em}
-.d-cell .v{font-weight:700;font-size:16px;line-height:1.25}
-.d-cell.ghost .v{color:var(--mid);font-weight:500}
-.d-cell.ghost{background:
-  repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(0,0,0,.028) 6px,rgba(0,0,0,.028) 7px)}
-.d-core{
-  background:var(--ink);color:var(--paper);
-  padding:26px 24px;
-  display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;
-  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
-}
-.d-core .name{
-  font-weight:900;font-variation-settings:'wdth' 118;
-  letter-spacing:.1em;font-size:18px;
-}
-.d-core .fn{
-  font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9B9B94;letter-spacing:.05em;
-}
-.d-core .fn i{font-style:normal;color:var(--paper)}
-.d-sys{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
-  padding:18px 24px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--mid);letter-spacing:.04em}
-.d-cap{
-  text-align:center;font-family:'IBM Plex Mono',monospace;font-size:11px;
-  color:var(--mid);padding:10px 0 0;letter-spacing:.08em;
-}
-
-/* ---------- capabilities ---------- */
-.caps{border-top:1px solid var(--ink)}
-.cap{
-  display:grid;grid-template-columns:64px 260px 1fr;gap:24px;
-  padding:20px 0;border-bottom:1px solid var(--hair);
-  align-items:baseline;
-}
-.cap:last-child{border-bottom:none}
-.cap .id{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--signal)}
-.cap .nm{font-weight:700;font-size:17px}
-.cap .ds{color:var(--mid);font-size:15.5px}
-
-/* ---------- agents ---------- */
-.agents{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--ink)}
-.agent:nth-child(n+4){border-top:1px solid var(--hair)}
-.agent:nth-child(3n){border-right:none}
-.agent.ghosted{background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(0,0,0,.028) 6px,rgba(0,0,0,.028) 7px)}
-.agent.ghosted:hover{background:var(--ink)}
-.agent{
-  border-right:1px solid var(--hair);
-  padding:28px 26px 30px;
-  display:flex;flex-direction:column;gap:18px;min-height:340px;
-}
-.agent:last-child{border-right:none}
-.agent .tag{
-  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;
-  color:var(--mid);display:flex;justify-content:space-between;
-}
-.agent .tag .st{color:var(--signal)}
-.agent h3{
-  font-weight:800;font-variation-settings:'wdth' 106;
-  font-size:24px;line-height:1.1;text-transform:uppercase;letter-spacing:-.005em;
-}
-.agent .what{font-size:15.5px;color:var(--ink)}
-.agent .why{font-size:15px;color:var(--mid);margin-top:auto;
-  border-top:1px solid var(--hair);padding-top:16px}
-.agent .why b{color:var(--ink);font-weight:600;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.06em;display:block;margin-bottom:6px}
-.agent{transition:background .18s,color .18s}
-.agent:hover{background:var(--ink);color:var(--paper)}
-.agent:hover .what{color:var(--paper)}
-.agent:hover .why{color:#A5A59E;border-top-color:#33332F}
-.agent:hover .why b{color:var(--paper)}
-.agent:hover .tag{color:#8B8B84}
-
-/* ---------- proof ---------- */
-.proof-quote{
-  font-weight:800;font-variation-settings:'wdth' 104;
-  font-size:clamp(24px,3vw,36px);line-height:1.18;
-  max-width:26ch;text-transform:none;letter-spacing:-.008em;
-  margin-bottom:40px;
-}
-.proof-quote em{font-style:normal;border-bottom:4px solid var(--signal)}
-.proof-facts{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--hair);border-left:none;border-right:none}
-.pf{padding:22px 24px 22px 0;border-right:1px solid var(--hair);margin-right:24px}
-.pf:last-child{border-right:none}
-.pf .k{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--mid);letter-spacing:.07em;margin-bottom:8px}
-.pf .v{font-weight:700;font-size:16px;line-height:1.3}
-
-/* ---------- deploy ---------- */
-.steps{counter-reset:step}
-.step{
-  display:grid;grid-template-columns:120px 300px 1fr;gap:24px;
-  padding:32px 0;border-bottom:1px solid var(--hair);align-items:baseline;
-}
-.step:last-child{border-bottom:none}
-.step .no{
-  font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--signal);
-}
-.step h3{font-weight:800;font-size:22px;text-transform:uppercase;font-variation-settings:'wdth' 106}
-.step p{color:var(--mid);font-size:15.5px;max-width:52ch}
-.step .dur{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--mid);display:block;margin-top:10px;letter-spacing:.05em}
-
-/* ---------- contact / footer ---------- */
-.contact{background:var(--signal);color:var(--ink);border-top:1px solid var(--signal)}
-.contact .sec-label{color:rgba(11,11,10,.55)}
-.contact .sec-label b{color:var(--ink)}
-.contact h2{max-width:20ch}
-.contact .lede{color:rgba(11,11,10,.72)}
-.contact a.big{
-  display:inline-block;
-  font-weight:800;font-variation-settings:'wdth' 108;
-  font-size:clamp(24px,3vw,38px);text-transform:uppercase;
-  text-decoration:none;border-bottom:5px solid var(--ink);
-  line-height:1.15;
-}
-.contact a.big:hover{background:var(--ink);color:var(--signal)}
-footer{background:var(--ink);color:#7C7C75;border-top:1px solid #262624}
-.foot{
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
-  padding:28px 0;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.04em;
-}
-
-/* ---------- responsive ---------- */
-@media(max-width:960px){
-  .sec{grid-template-columns:1fr;gap:28px;padding:64px 0}
-  .sec-label{position:static}
-  .agents{grid-template-columns:1fr}
-  .agent{border-right:none;border-bottom:1px solid var(--hair);min-height:0}
-  .agent:last-child{border-bottom:none}
-  .d-row{grid-template-columns:repeat(2,1fr)}
-  .d-cell{border-bottom:1px solid var(--hair)}
-  .cap{grid-template-columns:48px 1fr;grid-template-rows:auto auto}
-  .cap .ds{grid-column:2}
-  .step{grid-template-columns:1fr;gap:8px}
-  .proof-facts{grid-template-columns:1fr}
-  .pf{border-right:none;border-bottom:1px solid var(--hair);margin-right:0;padding-right:0}
-  .pf:last-child{border-bottom:none}
-  .nav-links{display:none}
-  .hero{padding:52px 0 0}
-  h1{font-size:clamp(30px,8.6vw,64px)}
-}
-@media(max-width:600px){
-  .frame{padding:0 16px}
-  .hero{padding:40px 0 0}
-  h1{font-size:clamp(27px,9vw,40px)}
-  .hero-eyebrow{margin-bottom:20px;font-size:12px}
-  .hero-sub{margin-top:24px;font-size:16.5px}
-  .hero-meta{margin-top:32px}
-  .hero-meta div{padding:14px 20px 14px 0;margin-right:20px}
-  .opsfeed{margin-top:44px;padding:18px 16px 20px;font-size:11.5px;line-height:1.75}
-  .opsfeed-head{font-size:10.5px}
-  .sec{padding:52px 0}
-  h2{font-size:clamp(24px,7.2vw,30px)}
-  .lede{font-size:16px;margin-bottom:32px}
-  .d-row{grid-template-columns:1fr}
-  .d-cell{min-height:0}
-  .cap{grid-template-columns:44px 1fr}
-  .step h3{font-size:19px}
-  .proof-quote{font-size:clamp(21px,6vw,26px)}
-  .contact a.big{font-size:clamp(21px,6.4vw,28px)}
-  .foot{font-size:10.5px}
-}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .hero-eyebrow .dot{animation:none}
-}
-</style>
+<meta name="twitter:image" content="https://atronai.co/img/og.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://atronai.co/#org", "name": "AI for People Teknoloji A.Ş.", "alternateName": "AI for People", "url": "https://aiforpeople.co", "logo": "https://atronai.co/logo.png", "email": "can@atronai.co", "address": {"@type": "PostalAddress", "addressLocality": "İstanbul", "addressCountry": "TR"}, "founder": {"@type": "Person", "name": "Can Çelikay", "sameAs": ["https://www.linkedin.com/in/can-celikay-391b0015"]}}, {"@type": "WebSite", "@id": "https://atronai.co/#site", "url": "https://atronai.co", "name": "ATRON", "publisher": {"@id": "https://atronai.co/#org"}}, {"@type": "SoftwareApplication", "@id": "https://atronai.co/#atron", "name": "ATRON", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "url": "https://atronai.co/", "description": "ATRON ajanları ekibinizin telefonda, WhatsApp'ta ve formlarda her gün tekrar ettiği işi devralır. İlk hafta sizin sürecinizde çalışan bir prototip.", "publisher": {"@id": "https://atronai.co/#org"}, "inLanguage": "tr"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ATRON nedir?", "acceptedAnswer": {"@type": "Answer", "text": "ATRON, şirketlerin telefonda, WhatsApp'ta ve formlarda tekrar eden operasyon işlerini devralan yapay zekâ ajanlarının çalıştığı bir operasyon katmanıdır. Ortak bir çekirdek (hafıza, kurallar, kalite kontrol, entegrasyonlar) ve her biri tek bir işi üstlenen ajanlardan oluşur. AI for People Teknoloji A.Ş. tarafından İstanbul'da geliştirilir."}}, {"@type": "Question", "name": "Kurulum ne kadar sürer?", "acceptedAnswer": {"@type": "Answer", "text": "İlk hafta sizin sürecinizde çalışan bir prototip gösteriyoruz. Ardından ajan gerçek verinizle, baştan birlikte seçtiğimiz tek bir ölçüte göre pilot olarak çalışır. Ölçüt tutunca canlıya geçer."}}, {"@type": "Question", "name": "Hangi sistemlere bağlanır?", "acceptedAnswer": {"@type": "Answer", "text": "CRM'inize (örneğin Zoho), santralinize ya da SIP hattınıza ve WhatsApp kanallarınıza bağlanır. Türkiye'deki telefon numaraları için Verimor, Netgsm gibi SIP operatörleri ya da kendi bulut santraliniz kullanılır."}}, {"@type": "Question", "name": "Hangi dillerde konuşur?", "acceptedAnswer": {"@type": "Answer", "text": "Türkçe ve İngilizce konuşur. Canlıdaki outbound kampanyalarında Portekizce, Bulgarca, İtalyanca, Rumence, İspanyolca, Sırpça, Fransızca, Rusça, Felemenkçe ve Almanca arama yapıyor. Her kişiyi, geldiği listenin dilinde arar."}}, {"@type": "Question", "name": "Bir chatbot'tan farkı ne?", "acceptedAnswer": {"@type": "Answer", "text": "Ajanlar yalnızca cevap vermez, işi bitirir: arar, niteler, sonucu CRM'e yazar, gerektiğinde insana devreder. Her adım kayıt altındadır ve tek bir başarı ölçütüne göre değerlendirilir."}}]}]}</script>
+<link rel="preload" href="/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/site.css">
 </head>
 <body>
+<script>document.documentElement.classList.add('js');</script>
 
-<header>
-  <div class="frame nav">
-    <a class="wordmark" href="#">ATRON</a>
-    <nav class="nav-links">
-      <a href="#platform">platform</a>
-      <a href="#capabilities">capabilities</a>
-      <a href="#agents">agents</a>
-      <a href="#deployment">deployment</a>
+<!-- Netlify Forms: static copy so the form is detected at deploy time -->
+<form name="brief" netlify netlify-honeypot="bot-field" hidden>
+  <input name="bot-field"><input name="company"><input name="process"><input name="volume"><input name="channel"><input name="systems"><input name="success"><input name="name"><input name="contact"><textarea name="summary"></textarea><textarea name="transcript"></textarea><input name="lang"><input name="source">
+</form>
+
+<header id="top">
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="ATRON"><img src="/logo.png" alt="ATRON" width="1037" height="266"></a>
+    <nav class="mono">
+      <a class="hide-m" href="#canli" data-k="nav.live">Canlı dene</a>
+      <a class="hide-m" href="#mimari" data-k="nav.arch">Mimari</a>
+      <a class="hide-m" href="#kanit" data-k="nav.proof">Kanıt</a>
+      <a class="hide-m" href="#nasil" data-k="nav.how">Nasıl</a>
+      <div class="lang" role="group" aria-label="Language"><a href="/" hreflang="tr" lang="tr" aria-current="page">TR</a><a href="/en/" hreflang="en" lang="en">EN</a></div>
     </nav>
-    <a class="nav-cta" href="#contact">Talk to us →</a>
   </div>
 </header>
 
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <span><i>●</i> ATRON/STATUS</span><span><b>VOICE CONTACT CENTER</b>: LIVE</span><span><b>WHATSAPP QA + FORECASTING</b>: LIVE</span><span><b>OUTBOUND AGENT</b>: LIVE</span><span><b>FIELD REPORTING AGENT</b>: ENTERPRISE PILOT</span><span><b>OPERATIONS COORDINATOR</b>: IN DEPLOYMENT</span><span><b>ATRON CORE</b>: OPERATIONAL</span><span><b>FIRST ENTERPRISE DEPLOYMENT</b>: IN PRODUCTION</span><span><i>●</i> ATRON/STATUS</span><span><b>VOICE CONTACT CENTER</b>: LIVE</span><span><b>WHATSAPP QA + FORECASTING</b>: LIVE</span><span><b>OUTBOUND AGENT</b>: LIVE</span><span><b>FIELD REPORTING AGENT</b>: ENTERPRISE PILOT</span><span><b>OPERATIONS COORDINATOR</b>: IN DEPLOYMENT</span><span><b>ATRON CORE</b>: OPERATIONAL</span><span><b>FIRST ENTERPRISE DEPLOYMENT</b>: IN PRODUCTION</span>
-  </div>
-</div>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="frame">
-    <p class="hero-eyebrow"><span class="dot"></span>SYSTEMS OPERATIONAL · ISTANBUL / EU</p>
-    <h1><span class="h1-line">AI-native</span><span class="h1-line">operations</span><span class="h1-line sig">infrastructure.</span></h1>
-    <p class="hero-sub">Modular AI agents that run <b>customer, field and internal operations</b>, built on one orchestration core and live in enterprise production. Not a chatbot. Not a pilot deck. Infrastructure.</p>
-    <div class="hero-meta">
-      <div><b>5 agents</b>production &amp; pilot</div>
-      <div><b>1 core</b>orchestration · state · guardrails</div>
-      <div><b>Enterprise</b>first deployment live</div>
+<main>
+<section class="hero" aria-labelledby="h1">
+  <div class="bg"><picture><source srcset="/img/hero.webp" type="image/webp"><img src="/img/hero.jpg" alt="" fetchpriority="high"></picture></div>
+  <div class="wrap">
+    <p class="mono label"><span class="dot"></span><span data-k="hero.label">ATRON · Operasyon katmanı · Canlıda</span></p>
+    <h1 id="h1" class="display" data-k="hero.h1" data-html><span class="rise"><span>Sürecinizi söyleyin.</span></span><span class="rise"><span><em>Gelecek hafta</em></span></span><span class="rise"><span>çalışsın.</span></span></h1>
+    <p class="body fade" data-k="hero.body">ATRON, ekibinizin her gün tekrar ettiği işi yapan yapay zekâ çalışanlarıdır. Gece gelen aramayı açar, yüzlerce WhatsApp konuşmasını okur, Excel&#x27;de unutulmuş listeyi arar. Sonucu sabah CRM&#x27;inizde bulursunuz.</p>
+    <div class="ctas fade">
+      <a class="chip solid mono" href="#canli"><span data-k="hero.cta1">Ajanla şimdi konuş</span><span class="arr">→</span></a>
+      <a class="chip mono" href="#iletisim"><span data-k="hero.cta2">Görüşme ayarla</span><span class="arr">→</span></a>
     </div>
-
-    <div class="opsfeed" aria-label="Live agent operations feed (illustrative)">
-      <div class="opsfeed-head">
-        <span>ATRON/OPS · AGENT EVENT STREAM</span>
-        <span class="live">● LIVE</span>
-      </div>
-      <div id="feedlines" aria-hidden="true"></div>
-    </div>
-    <p class="d-cap" style="text-align:left;padding:10px 0 72px">EVENT STREAM SHOWN IS ILLUSTRATIVE OF PRODUCTION TELEMETRY</p>
   </div>
 </section>
 
-<!-- PLATFORM -->
-<section id="platform">
-  <div class="frame sec">
-    <div class="sec-label"><b>ATRON/PLATFORM</b>the architecture</div>
-    <div>
-      <h2>One core. Modular agents on top.</h2>
-      <p class="lede">Every ATRON agent runs on the same orchestration core. Conversation state, guardrails, routing and observability are solved once, at the infrastructure level. <b>New agents are configured, not rebuilt.</b></p>
-      <div class="diagram" role="img" aria-label="Architecture diagram: three production agents and future agents plug into the ATRON core, which integrates with enterprise systems">
-        <div class="d-row">
-          <div class="d-cell"><span class="k">CUSTOMER OPS</span><span class="v">Voice Agent</span></div>
-          <div class="d-cell"><span class="k">CUSTOMER OPS</span><span class="v">Outbound Agent</span></div>
-          <div class="d-cell"><span class="k">INTELLIGENCE</span><span class="v">Conversation QA + Forecasting</span></div>
+<section id="gun" aria-labelledby="h-day">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono"><span data-k="day.label">01 · Örnek bir gün</span><span data-k="day.label2">Senaryo, müşteri değil</span></p>
+      <h2 id="h-day" class="wide fade" data-k="day.h" data-html>ATRON sizin şirketinizde <em>ne yapar?</em></h2>
+      <p class="body dim fade" data-k="day.body">Bir sağlık turizmi şirketi düşünün. Aşağıdakiler o şirketin sıradan bir günü; ATRON&#x27;un bugün yaptığı işlerden kurulmuş bir senaryo.</p>
+    </div>
+    <ol class="day">
+      <li class="fade"><span class="display tm" data-k="day.1t">23:40</span><div><h3 data-k="day.1h">İtalya&#x27;dan bir hasta arıyor. Ekip uyuyor.</h3><p data-k="day.1p">ATRON telefonu açar, İtalyanca konuşur, hangi tedaviyi ve ne zaman istediğini sorar. Talebi CRM&#x27;e yazar.</p></div><p class="mono res"><span class="dot"></span><span data-k="day.1r">09:00 · Kayıt satış ekibinin önünde.</span></p></li>
+      <li class="fade"><span class="display tm" data-k="day.2t">10:15</span><div><h3 data-k="day.2h">Dün yüzlerce WhatsApp konuşması yapıldı. Kimse hepsini okuyamaz.</h3><p data-k="day.2p">ATRON hepsini okudu. Fiyat sorusu cevapsız kalan konuşmaları ve iki kez geri dönüp cevap alamayan müşterileri ayrı bir listeye koydu.</p></div><p class="mono res"><span class="dot"></span><span data-k="day.2r">10:20 · Liste satış müdürünün ekranında.</span></p></li>
+      <li class="fade"><span class="display tm" data-k="day.3t">14:00</span><div><h3 data-k="day.3h">Geçen yıl ilgilenip vazgeçen binlerce kişi bir Excel&#x27;de duruyor.</h3><p data-k="day.3p">ATRON listeyi alır, herkesi kendi dilinde ve kendi saatinde arar. Hâlâ ilgilenenleri ekibe aktarır, aranmak istemeyenleri bir daha aramaz.</p></div><p class="mono res"><span class="dot"></span><span data-k="day.3r">18:00 · İlgilenenler CRM&#x27;de, sırada.</span></p></li>
+    </ol>
+    <p class="body dim fade day-foot"><span data-k="day.foot">Sizin şirketinizde bu sahneler başka olur. Hangisi olduğunu bulmak için aşağıdaki ajanla iki dakika konuşmanız yeterli.</span> <a class="link" href="#canli">↓</a></p>
+  </div>
+</section>
+
+<section id="canli" aria-labelledby="h-live">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono"><span data-k="live.label">02 · Canlı · Video değil</span><span data-k="live.label2">Mikrofon gerekir</span></p>
+      <h2 id="h-live" class="wide fade" data-k="live.h" data-html>Şu an bir ATRON ajanıyla <em>konuşabilirsiniz.</em></h2>
+      <p class="body dim fade" data-k="live.body">Ajan size operasyonunuzu soracak: hangi iş, ne sıklıkla, hangi sistemlerde, başarıyı neyle ölçüyorsunuz. Konuştukça sağdaki brief kendiliğinden dolar. Gerçek müşterilerimizde CRM&#x27;e düşen kayıt da tam böyle oluşur.</p>
+    </div>
+
+    <div class="panel fade">
+      <div class="side">
+        <div class="status mono" id="status"><span class="st"><span class="dot"></span><span id="stText" data-k="live.idle">Hazır</span></span><span class="timer" id="timer">0:00 / 3:00</span></div>
+        <button class="start" id="startBtn" type="button"><span class="ring"></span><span class="t" id="startText" data-k="live.start">Konuşmayı başlat</span></button>
+        <div class="wave" id="wave" aria-hidden="true"></div>
+        <div class="log" id="log" aria-live="polite"><p class="empty" data-k="live.empty">Konuşma burada yazıya dökülecek.</p></div>
+        <p class="note" data-k="live.note">Görüşme en fazla 3 dakika sürer. Ses kaydı tutmuyoruz. Brief&#x27;i göndermek tamamen size kalmış; göndermezseniz hiçbir şey bize ulaşmaz.</p>
+      </div>
+      <div class="side brief">
+        <div>
+          <h3 data-k="brief.h">Sizin brief&#x27;iniz</h3>
+          <p class="sub" data-k="brief.sub">Konuşmak istemiyorsanız alanları yazarak da doldurabilirsiniz.</p>
         </div>
-        <div class="d-row">
-          <div class="d-cell"><span class="k">FIELD OPS</span><span class="v">Field Reporting Agent</span></div>
-          <div class="d-cell"><span class="k">INTERNAL OPS</span><span class="v">Operations Coordinator</span></div>
-          <div class="d-cell ghost"><span class="k">AGENT/N</span><span class="v">Your operation, agentized</span></div>
-        </div>
-        <div class="d-core">
-          <span class="name">ATRON CORE</span>
-          <span class="fn"><i>orchestration</i> · <i>state</i> · <i>guardrails</i> · <i>multilingual</i> · <i>observability</i></span>
-        </div>
-        <div class="d-sys">
-          <span>CRM</span><span>TELEPHONY</span><span>MESSAGING</span><span>ERP / DATA</span><span>YOUR SYSTEMS</span>
+        <dl id="briefFields"></dl>
+        <p class="summary" id="summary"></p>
+        <div class="send">
+          <button class="chip solid mono" id="sendBtn" type="button"><span data-k="brief.send">Brief&#x27;i Can&#x27;a gönder</span><span class="arr">→</span></button>
+          <span class="mono ok" id="sendOk" hidden></span>
         </div>
       </div>
-      <p class="d-cap">FIG.01 · AGENTS PLUG INTO THE CORE. THE CORE PLUGS INTO YOUR SYSTEMS.</p>
     </div>
+    <audio id="agentAudio" autoplay playsinline></audio>
   </div>
 </section>
 
-<!-- CAPABILITIES -->
-<section id="capabilities">
-  <div class="frame sec">
-    <div class="sec-label"><b>ATRON/CAPABILITIES</b>the primitives</div>
-    <div>
-      <h2>Seven primitives. Every agent is built from them.</h2>
-      <p class="lede">These are not features. They are the building blocks. Existing agents are made of them, and so is the next one we build for your operation.</p>
-      <div class="caps">
-        <div class="cap"><span class="id">C/01</span><span class="nm">Real-time interaction</span><span class="ds">Sub-second spoken and written dialogue over telephony, web and messaging. One interaction layer, every channel.</span></div>
-        <div class="cap"><span class="id">C/02</span><span class="nm">Persistent state</span><span class="ds">Operational context that survives days, handoffs and channel switches. An agent that remembers is infrastructure; one that forgets is a demo.</span></div>
-        <div class="cap"><span class="id">C/03</span><span class="nm">Multilingual by default</span><span class="ds">Locale-aware dialogue across European and MENA languages, derived from context rather than a dropdown.</span></div>
-        <div class="cap"><span class="id">C/04</span><span class="nm">Structured extraction</span><span class="ds">Free-form speech and text converted into validated, system-ready records. Report structuring intelligence.</span></div>
-        <div class="cap"><span class="id">C/05</span><span class="nm">Operational forecasting</span><span class="ds">Interaction signals turned into demand and sales projections the operation can plan against.</span></div>
-        <div class="cap"><span class="id">C/06</span><span class="nm">QA &amp; observability</span><span class="ds">Every interaction and every agent decision scored, logged and auditable. Quality is measured, not assumed.</span></div>
-        <div class="cap"><span class="id">C/07</span><span class="nm">Integration &amp; deployment</span><span class="ds">Two-way integration with CRM, telephony and enterprise data. Runs in the cloud or on your own infrastructure.</span></div>
-      </div>
+<section id="mimari" aria-labelledby="h-arch">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono"><span data-k="arch.label">03 · Arkasında ne var</span><span>ATRON Core</span></p>
+      <h2 id="h-arch" class="wide fade" data-k="arch.h" data-html>Bir beyin. <em>Kendi işini bilen</em> kollar.</h2>
+      <p class="body dim fade" data-k="arch.body">Ahtapotun nöronlarının çoğu kollarındadır; her kol kendi işini kendi halleder. ATRON da böyle: telefonu açan, WhatsApp&#x27;ı okuyan, listeyi arayan her ajan bir kol. Hepsi aynı beyne bağlı; şirketinizin kurallarını, müşteri geçmişini ve CRM&#x27;inizi bilen tek bir merkez. Yeni bir iş çıktığında yeni bir yazılım almazsınız, ahtapota yeni bir kol takarız.</p>
     </div>
+    <figure class="fade">
+      <div class="frame-img r169"><picture><source srcset="/img/core.webp" type="image/webp"><img src="/img/core.jpg" alt="" loading="lazy"></picture></div>
+      <figcaption class="mono cap"><span data-k="arch.cap">Tek çekirdek, sekiz kol</span><span>16:9</span></figcaption>
+    </figure>
+    <div class="arms"><div class="arm fade"><span class="mono n">01</span><h4><a href="/ajanlar/sesli-ajan/">Ses ajanı <span class="go">→</span></a></h4><p>Gelen aramaları arayanın dilinde karşılar, niteler ve doğru yere aktarır.</p><span class="mono s live"><span class="dot"></span><span>Canlıda</span></span></div><div class="arm fade"><span class="mono n">02</span><h4><a href="/ajanlar/whatsapp-kalite-kontrol/">WhatsApp kalite + tahmin <span class="go">→</span></a></h4><p>Satış konuşmalarının tamamını okur, puanlar ve haftanın tahminini çıkarır.</p><span class="mono s live"><span class="dot"></span><span>Canlıda</span></span></div><div class="arm fade"><span class="mono n">03</span><h4><a href="/ajanlar/outbound-geri-kazanim/">Outbound <span class="go">→</span></a></h4><p>Soğumuş ve kaybedilmiş lead&#x27;leri arar, sonucu CRM&#x27;e yazar.</p><span class="mono s live"><span class="dot"></span><span>Canlıda</span></span></div><div class="arm fade"><span class="mono n">04</span><h4>Saha raporu</h4><p>Sahadan sesli anlatılanı doğrulanmış, sisteme hazır kayda çevirir.</p><span class="mono s pilot"><span class="dot"></span><span>Kurumsal pilot</span></span></div><div class="arm fade"><span class="mono n">05</span><h4>Operasyon koordinatörü</h4><p>Grup yazışmalarında verilen sözleri ve tarihleri takip eder, sadece gerektiğinde araya girer.</p><span class="mono s deploy"><span class="dot"></span><span>Devreye alınıyor</span></span></div><div class="arm fade yours"><span class="mono n">06</span><h4>Sizin operasyonunuz</h4><p>Sıradaki kol. Bize süreci anlatın, ilk hafta çalışan halini görün.</p><span class="mono s yours"><span>Sıradaki</span></span></div></div>
   </div>
 </section>
 
-<!-- AGENTS -->
-<section id="agents">
-  <div class="frame sec">
-    <div class="sec-label"><b>ATRON/AGENTS</b>in production</div>
-    <div>
-      <h2>The agent family.</h2>
-      <p class="lede">Five agents across customer, intelligence, field and internal operations, all assembled from the primitives above. Each one replaces repetitive human hours with an accountable, measurable system.</p>
-      <div class="agents">
-        <article class="agent">
-          <div class="tag"><span>CUSTOMER OPS · VOICE</span><span class="st">IN PRODUCTION</span></div>
-          <h3>Voice Agent</h3>
-          <p class="what">Answers, qualifies and routes inbound calls in natural spoken language, around the clock, in the caller's language.</p>
-          <div class="why"><b>OPERATIONAL PROBLEM</b>Missed calls and inconsistent first response are lost revenue. Every call is now answered in seconds, and every outcome is logged.</div>
+<section id="kanit" aria-labelledby="h-proof">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono"><span data-k="proof.label">04 · Kanıt</span><span data-k="proof.label2">Slayt değil</span></p>
+      <h2 id="h-proof" class="wide fade" data-k="proof.h" data-html>Gösterdiğimiz her şey <em>çalışıyor.</em></h2>
+    </div>
+    <div class="gal">
+      <figure class="a fade"><div class="frame-img r45"><picture><source srcset="/img/voice.webp" type="image/webp"><img src="/img/voice.jpg" alt="" loading="lazy"></picture></div><figcaption class="mono cap"><span data-k="proof.cap1">Ses</span><span>4:5</span></figcaption></figure>
+      <figure class="b fade"><div class="frame-img r45"><picture><source srcset="/img/record.webp" type="image/webp"><img src="/img/record.jpg" alt="" loading="lazy"></picture></div><figcaption class="mono cap"><span data-k="proof.cap2">Kayıt</span><span>4:5</span></figcaption></figure>
+      <div class="proof">
+        <article class="fade">
+          <p class="mono" style="color:var(--dim)" data-k="proof.a.k">Otomotiv · Renault Innovation Hub</p>
+          <h3 class="display" data-k="proof.a.h" data-html>İki projeyle <em>global shortlist.</em></h3>
+          <p class="body dim" data-k="proof.a.p">Renault&#x27;nun inovasyon programına geliştirdiğimiz iki proje, dünya çapındaki kısa listeye girdi. Masaya her seferinde çalışan bir demo koyduk.</p>
         </article>
-        <article class="agent">
-          <div class="tag"><span>INTELLIGENCE · QA</span><span class="st">IN PRODUCTION</span></div>
-          <h3>Conversation QA + Forecasting</h3>
-          <p class="what">Monitors and scores WhatsApp sales conversations at scale, then converts conversation signals into sales forecasts.</p>
-          <div class="why"><b>OPERATIONAL PROBLEM</b>Managers can read 2% of conversations. The agent reads 100%, and tells you what next month looks like.</div>
-        </article>
-        <article class="agent">
-          <div class="tag"><span>CUSTOMER OPS · OUTBOUND</span><span class="st">IN PRODUCTION</span></div>
-          <h3>Outbound Agent</h3>
-          <p class="what">Calls back dormant and lost leads with context-aware, multilingual conversations, then writes the outcome straight into the CRM.</p>
-          <div class="why"><b>OPERATIONAL PROBLEM</b>Lost leads are paid-for demand going to waste. Win-back becomes a system, not a campaign.</div>
-        </article>
-        <article class="agent">
-          <div class="tag"><span>FIELD OPS · REPORTING</span><span class="st">ENTERPRISE PILOT</span></div>
-          <h3>Field Reporting Agent</h3>
-          <p class="what">Turns spoken field reports into structured, validated, system-ready records. A technician talks; the operation gets a complete, format-checked report.</p>
-          <div class="why"><b>OPERATIONAL PROBLEM</b>Field expertise dies in free-text notes and unfiled paperwork. Reports become data the moment they are spoken.</div>
-        </article>
-        <article class="agent">
-          <div class="tag"><span>INTERNAL OPS · COORDINATION</span><span class="st">IN DEPLOYMENT</span></div>
-          <h3>Operations Coordinator</h3>
-          <p class="what">Lives inside operational group chats. Tracks commitments, deadlines and handoffs, and speaks only when something needs attention.</p>
-          <div class="why"><b>OPERATIONAL PROBLEM</b>Projects drown in scrollback. The agent reads everything, stays silent by default, and escalates only what matters.</div>
-        </article>
-        <article class="agent ghosted">
-          <div class="tag"><span>AGENT/N · YOUR OPERATION</span><span class="st">SCOPE WITH US</span></div>
-          <h3>Your operation, agentized</h3>
-          <p class="what">Built from the same seven primitives, on the same core, with the same QA and observability. Scope to pilot in weeks.</p>
-          <div class="why"><b>OPERATIONAL PROBLEM</b>Yours. That's the point. <a href="#contact" style="color:inherit">Bring it to us ↗</a></div>
+        <article class="fade">
+          <p class="mono" style="color:var(--dim)" data-k="proof.b.k">Sağlık turizmi · Kurumsal operatör (NDA)</p>
+          <h3 class="display" data-k="proof.b.h" data-html>Canlıda. <em>Pilot değil.</em></h3>
+          <p class="body dim" data-k="proof.b.p">Gelen aramalar, WhatsApp satış konuşmalarının kalite kontrolü ve soğumuş lead&#x27;lere geri dönüş aynı çekirdek üzerinde, operatörün kendi CRM&#x27;iyle entegre çalışıyor.</p>
         </article>
       </div>
+      <figure class="moment fade" aria-labelledby="m-h">
+        <p class="mono m-label"><span class="dot"></span><span data-k="m.label">Gerçek bir çağrı · Outbound</span></p>
+        <h3 id="m-h" class="wide" data-k="m.h">Hastanın söylediği cümle, CRM&#x27;de bir kayıt oldu.</h3>
+        <div class="m-grid">
+          <div class="m-said">
+            <p class="mono k" data-k="m.said">Hastanın kendi sözü · İspanyolca</p>
+            <blockquote lang="es" data-k="m.quote">“Bueno, cualquier día a las 07:00 de la tarde.”</blockquote>
+            <p class="tr" data-k="m.quote_tr">“Herhangi bir gün, akşam 7&#x27;de olur.”</p>
+          </div>
+          <div class="m-arrow" aria-hidden="true">→</div>
+          <div class="m-rec">
+            <p class="mono k" data-k="m.rec">ATRON&#x27;un yazdığı kayıt</p>
+            <dl>
+              <dt class="mono" data-k="m.k1">Durum</dt><dd class="hot" data-k="m.v1">İlgileniyor</dd>
+              <dt class="mono" data-k="m.k2">Tedavi</dt><dd data-k="m.v2">Diş · henüz yaptırmamış</dd>
+              <dt class="mono" data-k="m.k3">Geri arama</dt><dd data-k="m.v3">Ertesi gün 19:00 · Madrid saati</dd>
+              <dt class="mono" data-k="m.k4">Kaynak</dt><dd data-k="m.v4">Hastanın kendisi</dd>
+              <dt class="mono" data-k="m.k5">Süre</dt><dd data-k="m.v5">1 dk 10 sn</dd>
+            </dl>
+          </div>
+        </div>
+        <figcaption class="mono cap"><span data-k="m.cap">Kasım 2026 · kişisel veriler çıkarıldı</span><span>ATRON Outbound</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- PROOF -->
-<section id="proof">
-  <div class="frame sec">
-    <div class="sec-label"><b>ATRON/PROOF</b>first enterprise deployment</div>
-    <div>
-      <p class="proof-quote">An enterprise health-tourism operator runs its patient communication on ATRON: <em>voice and WhatsApp, in production,</em> across multilingual operations.</p>
-      <div class="proof-facts">
-        <div class="pf"><div class="k">CLIENT</div><div class="v">Enterprise health-tourism operator (under NDA)</div></div>
-        <div class="pf"><div class="k">SCOPE</div><div class="v">Inbound voice, WhatsApp QA and outbound win-back, integrated with the client's CRM</div></div>
-        <div class="pf"><div class="k">STATUS</div><div class="v">Live in production. Not a pilot.</div></div>
-      </div>
+<section id="nasil" aria-labelledby="h-how">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono"><span data-k="how.label">05 · Nasıl çalışıyoruz</span><span data-k="how.label2">Bir hafta</span></p>
+      <h2 id="h-how" class="wide fade" data-k="how.h" data-html>Önce çalışan şey. <em>Sonra</em> gerçek veri.</h2>
     </div>
-  </div>
-</section>
-
-<!-- DEPLOYMENT -->
-<section id="deployment">
-  <div class="frame sec">
-    <div class="sec-label"><b>ATRON/DEPLOYMENT</b>how we work</div>
-    <div>
-      <h2>Scope. Pilot. Production.</h2>
-      <p class="lede">Built for enterprise procurement reality: small committed steps, measurable gates, no quarter-long discovery theatre.</p>
+    <div class="how">
+      <figure class="img fade"><div class="frame-img r45"><picture><source srcset="/img/week.webp" type="image/webp"><img src="/img/week.jpg" alt="" loading="lazy"></picture></div></figure>
       <div class="steps">
-        <div class="step">
-          <span class="no">STEP/01</span>
-          <h3>Scope</h3>
-          <p>We map the operation with your team: the flows, the systems, the report or outcome the agent must produce. Then we define the pilot's success metric together.<span class="dur">TYPICALLY 1–2 WEEKS</span></p>
-        </div>
-        <div class="step">
-          <span class="no">STEP/02</span>
-          <h3>Pilot</h3>
-          <p>A working agent on real data in a production-adjacent environment. You evaluate output quality against the agreed metric, not a demo video.<span class="dur">WEEKS, NOT QUARTERS</span></p>
-        </div>
-        <div class="step">
-          <span class="no">STEP/03</span>
-          <h3>Production</h3>
-          <p>Deployed within your infrastructure and compliance constraints, monitored continuously, with QA and observability on from day one.<span class="dur">ONGOING, MEASURED</span></p>
-        </div>
+        <div class="step fade"><span class="mono k" data-k="how.1k">Hafta 1</span><div><h4 data-k="how.1h">Prototip</h4><p data-k="how.1p">Sürecinizi dışarıdan inceleriz, brief&#x27;i kendimize yazarız. Hafta sonunda kendi akışınızda çalışan bir ajan görürsünüz.</p></div></div>
+        <div class="step fade"><span class="mono k" data-k="how.2k">Pilot</span><div><h4 data-k="how.2h">Gerçek veri, tek ölçüt</h4><p data-k="how.2p">Ajan gerçek verinizle, canlıya yakın bir ortamda çalışır. Başarıyı baştan birlikte seçtiğimiz tek bir ölçüte göre değerlendiririz.</p></div></div>
+        <div class="step fade"><span class="mono k" data-k="how.3k">Canlı</span><div><h4 data-k="how.3h">Sizin sistemlerinizde</h4><p data-k="how.3p">CRM&#x27;inize, santralinize ve mesajlaşma kanallarınıza bağlanır, uyum kurallarınızın içinde çalışır. İzlemeyi ve iyileştirmeyi biz sürdürürüz.</p></div></div>
       </div>
     </div>
   </div>
 </section>
+<section id="sss" aria-labelledby="h-faq"><div class="wrap"><div class="sec-head"><p class="mono"><span>06 · Sık sorulanlar</span><span>FAQ</span></p><h2 id="h-faq" class="wide fade">Kısa cevaplar.</h2></div><div class="faq"><details class="qa fade"><summary><h3>ATRON nedir?</h3><span class="pm" aria-hidden="true"></span></summary><p>ATRON, şirketlerin telefonda, WhatsApp&#x27;ta ve formlarda tekrar eden operasyon işlerini devralan yapay zekâ ajanlarının çalıştığı bir operasyon katmanıdır. Ortak bir çekirdek (hafıza, kurallar, kalite kontrol, entegrasyonlar) ve her biri tek bir işi üstlenen ajanlardan oluşur. AI for People Teknoloji A.Ş. tarafından İstanbul&#x27;da geliştirilir.</p></details><details class="qa fade"><summary><h3>Kurulum ne kadar sürer?</h3><span class="pm" aria-hidden="true"></span></summary><p>İlk hafta sizin sürecinizde çalışan bir prototip gösteriyoruz. Ardından ajan gerçek verinizle, baştan birlikte seçtiğimiz tek bir ölçüte göre pilot olarak çalışır. Ölçüt tutunca canlıya geçer.</p></details><details class="qa fade"><summary><h3>Hangi sistemlere bağlanır?</h3><span class="pm" aria-hidden="true"></span></summary><p>CRM&#x27;inize (örneğin Zoho), santralinize ya da SIP hattınıza ve WhatsApp kanallarınıza bağlanır. Türkiye&#x27;deki telefon numaraları için Verimor, Netgsm gibi SIP operatörleri ya da kendi bulut santraliniz kullanılır.</p></details><details class="qa fade"><summary><h3>Hangi dillerde konuşur?</h3><span class="pm" aria-hidden="true"></span></summary><p>Türkçe ve İngilizce konuşur. Canlıdaki outbound kampanyalarında Portekizce, Bulgarca, İtalyanca, Rumence, İspanyolca, Sırpça, Fransızca, Rusça, Felemenkçe ve Almanca arama yapıyor. Her kişiyi, geldiği listenin dilinde arar.</p></details><details class="qa fade"><summary><h3>Bir chatbot&#x27;tan farkı ne?</h3><span class="pm" aria-hidden="true"></span></summary><p>Ajanlar yalnızca cevap vermez, işi bitirir: arar, niteler, sonucu CRM&#x27;e yazar, gerektiğinde insana devreder. Her adım kayıt altındadır ve tek bir başarı ölçütüne göre değerlendirilir.</p></details></div></div></section>
+</main>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="frame sec">
-    <div class="sec-label"><b>ATRON/CONTACT</b>start the conversation</div>
-    <div>
-      <h2>Bring us an operation. We'll bring it an agent.</h2>
-      <p class="lede">Innovation and operations teams: send us the process that eats the most human hours. We'll tell you, concretely, what an agent for it looks like.</p>
-      <a class="big" href="mailto:can@atronai.co">can@atronai.co</a>
+<section class="contact" id="iletisim" aria-labelledby="h-contact">
+  <div class="wrap">
+    <p class="mono" style="opacity:.8" data-k="contact.label">Sıra sizde</p>
+    <h2 id="h-contact" class="display" style="margin-top:24px" data-k="contact.h">Hangi süreç sizi en çok yoruyor?</h2>
+    <p class="body" data-k="contact.body">Bize o süreci anlatın. Google Meet&#x27;te yarım saat konuşalım, bir hafta sonra çalışır halini görün.</p>
+    <div class="row">
+      <a class="chip solid mono" id="meetLink" href="mailto:can@atronai.co?subject=ATRON%20%C2%B7%20G%C3%B6r%C3%BC%C5%9Fme"><span data-k="contact.cta">Görüşme ayarla</span><span class="arr">→</span></a>
+      <button class="chip mono" id="copyMail" type="button"><span id="copyText">can@atronai.co</span></button>
     </div>
   </div>
 </section>
-
 <footer>
-  <div class="frame foot">
-    <span>ATRON · AI FOR PEOPLE TEKNOLOJİ A.Ş.</span>
-    <span>VADİ İSTANBUL · SARIYER / İSTANBUL</span>
+  <div class="wrap mono">
+    <span data-k="foot.a">ATRON, AI for People Teknoloji A.Ş. ürünüdür</span>
+    <span>Vadi İstanbul · Sarıyer / İstanbul</span>
+    <span data-k="foot.b">Görseller yapay zekâ destekli üretimdir</span>
     <span>© 2026</span>
   </div>
 </footer>
 
 <script>
 (function(){
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var host = document.getElementById('feedlines');
-  var events = [
-    ['voice.call.answered','locale=tr-TR · queue=inbound','1.1s to first word'],
-    ['voice.call.completed','→ record.structured · fields=17/17','validated'],
-    ['whatsapp.qa.scored','conversation#4821 · score=92/100','flag=none'],
-    ['outbound.callback.scheduled','locale=de-DE · reason=win-back','crm.synced'],
-    ['forecast.updated','pipeline+conversation signals','Δ recalculated'],
-    ['whatsapp.session.resumed','state restored · day 3','no context loss'],
-    ['voice.call.routed','intent=escalation → human agent','handoff clean'],
-    ['qa.audit.exported','1,204 interactions · 0 unreviewed','complete']
-  ];
-  var i = 0, max = 7;
-  function stamp(){
-    var d = new Date();
-    return [d.getHours(),d.getMinutes(),d.getSeconds()].map(function(n){return String(n).padStart(2,'0')}).join(':');
+'use strict';
+/* ---------------- copy ---------------- */
+var T = {"live.label": "02 · Canlı · Video değil", "live.label2": "Mikrofon gerekir", "live.h": "Şu an bir ATRON ajanıyla <em>konuşabilirsiniz.</em>", "live.body": "Ajan size operasyonunuzu soracak: hangi iş, ne sıklıkla, hangi sistemlerde, başarıyı neyle ölçüyorsunuz. Konuştukça sağdaki brief kendiliğinden dolar. Gerçek müşterilerimizde CRM'e düşen kayıt da tam böyle oluşur.", "live.idle": "Hazır", "live.connecting": "Bağlanıyor", "live.live": "Canlı", "live.ended": "Bitti", "live.error": "Bağlanamadı", "live.start": "Konuşmayı başlat", "live.stop": "Bitir", "live.again": "Yeniden konuş", "live.empty": "Konuşma burada yazıya dökülecek.", "live.note": "Görüşme en fazla 3 dakika sürer. Ses kaydı tutmuyoruz. Brief'i göndermek tamamen size kalmış; göndermezseniz hiçbir şey bize ulaşmaz.", "live.unavail": "Canlı ajan şu an bu tarayıcıda bağlanamıyor. Brief'i yazarak doldurup gönderebilirsiniz.", "live.mic": "Mikrofon izni verilmedi. İzin verip yeniden deneyin ya da brief'i yazarak doldurun.", "who.agent": "ATRON", "who.you": "Siz", "brief.h": "Sizin brief'iniz", "brief.sub": "Konuşmak istemiyorsanız alanları yazarak da doldurabilirsiniz.", "brief.send": "Brief'i Can'a gönder", "brief.sent": "Gönderildi. Can size dönecek.", "brief.fail": "Gönderilemedi. can@atronai.co adresine yazabilirsiniz.", "brief.need": "Size dönebilmemiz için bir iletişim bilgisi ekleyin.", "f.company": "Şirket", "f.process": "Süreç", "f.volume": "Hacim", "f.channel": "Kanal", "f.systems": "Sistemler", "f.success": "Başarı ölçütü", "f.name": "Ad", "f.contact": "İletişim", "p.company": "Şirket ya da sektör", "p.process": "En çok vakit alan, tekrar eden iş", "p.volume": "Günde / haftada kaç kez", "p.channel": "Telefon, WhatsApp, form, saha…", "p.systems": "CRM, ERP, Excel…", "p.success": "Neyi ölçerek anlarsınız", "p.name": "Adınız", "p.contact": "E-posta ya da telefon", "copy.done": "Kopyalandı"};
+var FIELDS = ['company','process','volume','channel','systems','success','name','contact'];
+
+/* ---------------- language ---------------- */
+var lang = document.documentElement.lang;
+
+function t(k){ return T[k] || k; }
+
+var briefDl = document.getElementById('briefFields');
+FIELDS.forEach(function(f){
+  var dt = document.createElement('dt'); dt.className = 'mono'; dt.setAttribute('data-k','f.'+f);
+  var dd = document.createElement('dd'); dd.id = 'dd-'+f;
+  var inp = document.createElement('input'); inp.id = 'f-'+f; inp.name = f; inp.autocomplete = f === 'name' ? 'name' : (f === 'contact' ? 'email' : 'off');
+  dd.appendChild(inp); briefDl.appendChild(dt); briefDl.appendChild(dd);
+});
+
+function applyLang(){
+  FIELDS.forEach(function(f){ document.getElementById('f-'+f).placeholder = t('p.'+f); });
+  document.querySelectorAll('#briefFields dt').forEach(function(dt){ dt.textContent = t(dt.getAttribute('data-k')); });
+  setStateText(state);
+  var h1 = document.getElementById('h1'); if (h1) h1.classList.add('in');
+}
+
+/* ---------------- reveals + header ---------------- */
+var io = 'IntersectionObserver' in window ? new IntersectionObserver(function(es){
+  es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{rootMargin:'0px 0px -10% 0px'}) : null;
+function observe(){ document.querySelectorAll('.fade:not(.in),.rise:not(.in)').forEach(function(el){ io ? io.observe(el) : el.classList.add('in'); }); }
+var header = document.querySelector('header');
+addEventListener('scroll', function(){ header.classList.toggle('solid', scrollY > 40); }, {passive:true});
+
+/* ---------------- copy email ---------------- */
+document.getElementById('copyMail').addEventListener('click', function(){
+  var el = document.getElementById('copyText');
+  var done = function(){ el.textContent = t('copy.done'); setTimeout(function(){ el.textContent = 'can@atronai.co'; }, 1600); };
+  if (navigator.clipboard) navigator.clipboard.writeText('can@atronai.co').then(done, function(){ location.href = 'mailto:can@atronai.co'; });
+  else location.href = 'mailto:can@atronai.co';
+});
+
+/* ---------------- live agent ---------------- */
+var MAX_SEC = 180;
+var CALLS_URL = 'https://api.openai.com/v1/realtime/calls';
+var state = 'idle', call = null, transcript = [], timerId = null, startedMs = 0;
+var statusEl = document.getElementById('status'), stText = document.getElementById('stText');
+var startBtn = document.getElementById('startBtn'), startText = document.getElementById('startText');
+var logEl = document.getElementById('log'), timerEl = document.getElementById('timer');
+var wave = document.getElementById('wave');
+for (var i=0;i<36;i++) wave.appendChild(document.createElement('i'));
+
+function fmt(s){ return Math.floor(s/60)+':'+('0'+(s%60)).slice(-2); }
+function setStateText(s){
+  stText.textContent = t('live.'+s);
+  statusEl.classList.toggle('live', s === 'live');
+  startBtn.classList.toggle('on', s === 'live' || s === 'connecting');
+  startText.textContent = (s === 'live' || s === 'connecting') ? t('live.stop') : (s === 'ended' ? t('live.again') : t('live.start'));
+}
+function setState(s){ state = s; setStateText(s); }
+
+function addLine(role, text){
+  text = (text||'').trim(); if (!text) return;
+  var empty = logEl.querySelector('.empty'); if (empty) empty.remove();
+  var p = document.createElement('p'); p.className = role;
+  var w = document.createElement('span'); w.className = 'mono who'; w.textContent = role === 'agent' ? t('who.agent') : t('who.you');
+  p.appendChild(w); p.appendChild(document.createTextNode(text));
+  logEl.appendChild(p); logEl.scrollTop = logEl.scrollHeight;
+  transcript.push((role === 'agent' ? 'ATRON: ' : 'Visitor: ') + text);
+}
+function sysLine(text){
+  var empty = logEl.querySelector('.empty'); if (empty) empty.remove();
+  var p = document.createElement('p'); p.className = 'empty'; p.textContent = text; logEl.appendChild(p);
+}
+
+function setField(f, v){
+  var inp = document.getElementById('f-'+f); if (!inp || typeof v !== 'string' || !v.trim()) return;
+  inp.value = v.trim();
+  var dd = document.getElementById('dd-'+f); dd.classList.add('flash'); setTimeout(function(){ dd.classList.remove('flash'); }, 900);
+}
+
+function sendEvt(payload){ if (call && call.dc.readyState === 'open') call.dc.send(JSON.stringify(payload)); }
+
+function runTool(name, args){
+  if (name === 'update_brief'){ FIELDS.forEach(function(f){ if (args[f]) setField(f, args[f]); }); return {ok:true}; }
+  if (name === 'finish_brief'){ document.getElementById('summary').textContent = args.summary || ''; return {ok:true}; }
+  return {ok:false, error:'unknown tool'};
+}
+
+function onEvent(ev){
+  var type = ev.type || '';
+  if (type === 'conversation.item.input_audio_transcription.completed') return addLine('caller', ev.transcript);
+  if (type === 'response.output_audio_transcript.done' || type === 'response.audio_transcript.done') return addLine('agent', ev.transcript);
+  if (type === 'response.function_call_arguments.done'){
+    var args = {}; try { args = JSON.parse(ev.arguments || '{}'); } catch(e) {}
+    var out = runTool(ev.name, args);
+    sendEvt({type:'conversation.item.create', item:{type:'function_call_output', call_id:ev.call_id, output:JSON.stringify(out)}});
+    sendEvt({type:'response.create'});
   }
-  function add(){
-    var e = events[i % events.length]; i++;
-    var ln = document.createElement('div');
-    ln.className = 'ln';
-    ln.innerHTML = '<span class="t">'+stamp()+'</span>  <span class="ev">'+e[0]+'</span>  <span class="t">'+e[1]+'</span>  <span class="ok">'+e[2]+'</span>';
-    host.appendChild(ln);
-    while(host.children.length > max){ host.removeChild(host.firstChild); }
-    requestAnimationFrame(function(){ requestAnimationFrame(function(){ ln.classList.add('on'); }); });
-  }
-  if(reduced){
-    document.body.classList.add('reduced');
-    for(var k=0;k<max;k++){ add(); }
-  } else {
-    for(var k=0;k<3;k++){ add(); }
-    setInterval(add, 2600);
-  }
+}
+
+function meter(stream){
+  try {
+    var AC = window.AudioContext || window.webkitAudioContext; var ac = new AC();
+    var an = ac.createAnalyser(); an.fftSize = 128; ac.createMediaStreamSource(stream).connect(an);
+    var data = new Uint8Array(an.frequencyBinCount), bars = wave.children;
+    (function loop(){
+      if (!call) { for (var j=0;j<bars.length;j++) bars[j].style.height = '4px'; ac.close(); return; }
+      an.getByteFrequencyData(data);
+      for (var j=0;j<bars.length;j++){ var v = data[j+2] || 0; bars[j].style.height = Math.max(4, v/255*42)+'px'; }
+      requestAnimationFrame(loop);
+    })();
+    return ac;
+  } catch(e) { return null; }
+}
+
+async function startCall(){
+  setState('connecting');
+  var secret;
+  try {
+    var res = await fetch('/api/realtime-session', {method:'POST', headers:{'content-type':'application/json'}, body:JSON.stringify({lang:lang})});
+    if (!res.ok) throw new Error('session '+res.status);
+    secret = (await res.json()).value;
+  } catch(e) { setState('error'); sysLine(t('live.unavail')); return; }
+
+  var mic;
+  try { mic = await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true, noiseSuppression:true, autoGainControl:true}}); }
+  catch(e) { setState('error'); sysLine(t('live.mic')); return; }
+
+  var pc = new RTCPeerConnection(), dc = pc.createDataChannel('oai-events');
+  call = {pc:pc, dc:dc, mic:mic};
+  var audio = document.getElementById('agentAudio');
+  pc.ontrack = function(e){ audio.srcObject = e.streams[0]; audio.play().catch(function(){}); };
+  mic.getAudioTracks().forEach(function(tr){ pc.addTrack(tr, mic); });
+  dc.onopen = function(){
+    setState('live'); startedMs = Date.now();
+    timerId = setInterval(function(){
+      var s = Math.round((Date.now()-startedMs)/1000); timerEl.textContent = fmt(Math.min(s,MAX_SEC))+' / '+fmt(MAX_SEC);
+      if (s >= MAX_SEC) endCall();
+    }, 500);
+    sendEvt({type:'response.create'});
+  };
+  dc.onmessage = function(e){ try { onEvent(JSON.parse(e.data)); } catch(err) {} };
+  pc.onconnectionstatechange = function(){ if (pc.connectionState === 'failed' && call){ endCall(); setState('error'); } };
+  call.ac = meter(mic);
+  try {
+    var offer = await pc.createOffer(); await pc.setLocalDescription(offer);
+    var sdp = await fetch(CALLS_URL, {method:'POST', body:offer.sdp, headers:{Authorization:'Bearer '+secret, 'Content-Type':'application/sdp'}});
+    if (!sdp.ok) throw new Error('sdp '+sdp.status);
+    await pc.setRemoteDescription({type:'answer', sdp: await sdp.text()});
+  } catch(e) { endCall(); setState('error'); sysLine(t('live.unavail')); }
+}
+
+function endCall(){
+  if (!call) return;
+  var c = call; call = null; clearInterval(timerId);
+  c.mic.getTracks().forEach(function(tr){ tr.stop(); });
+  try { c.dc.close(); } catch(e) {}
+  c.pc.close();
+  if (state !== 'error') setState('ended');
+}
+
+startBtn.addEventListener('click', function(){
+  if (call || state === 'connecting') { endCall(); return; }
+  if (!window.RTCPeerConnection || !navigator.mediaDevices) { setState('error'); sysLine(t('live.unavail')); return; }
+  startCall();
+});
+
+/* ---------------- send brief (Netlify Forms) ---------------- */
+document.getElementById('sendBtn').addEventListener('click', async function(){
+  var ok = document.getElementById('sendOk');
+  var data = {'form-name':'brief', lang:lang, source: transcript.length ? 'voice' : 'typed', summary: document.getElementById('summary').textContent, transcript: transcript.join('\n')};
+  FIELDS.forEach(function(f){ data[f] = document.getElementById('f-'+f).value.trim(); });
+  if (!data.contact){ ok.hidden = false; ok.style.color = 'var(--bone)'; ok.textContent = t('brief.need'); document.getElementById('f-contact').focus(); return; }
+  try {
+    var res = await fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: new URLSearchParams(data).toString()});
+    if (!res.ok) throw new Error(res.status);
+    ok.hidden = false; ok.style.color = 'var(--live)'; ok.textContent = t('brief.sent');
+  } catch(e) { ok.hidden = false; ok.style.color = 'var(--bone)'; ok.textContent = t('brief.fail'); }
+});
+
+applyLang();
+observe();
 })();
 </script>
 </body>
