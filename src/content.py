@@ -23,7 +23,7 @@ HEAD = {
 
 FAQ = {
     "tr": {
-        "label": "06 · Sık sorulanlar",
+        "label": "07 · Sık sorulanlar",
         "h": "Kısa cevaplar.",
         "items": [
             ("ATRON nedir?",
@@ -39,7 +39,7 @@ FAQ = {
         ],
     },
     "en": {
-        "label": "06 · FAQ",
+        "label": "07 · FAQ",
         "h": "Short answers.",
         "items": [
             ("What is ATRON?",

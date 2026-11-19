@@ -241,8 +241,8 @@
    "en": "Two projects on the <em>global shortlist.</em>"
   },
   "proof.a.p": {
-   "tr": "Renault'nun inovasyon programına geliştirdiğimiz iki proje, dünya çapındaki kısa listeye girdi. Masaya her seferinde çalışan bir demo koyduk.",
-   "en": "Two projects we built for Renault's innovation programme made the worldwide shortlist. Every time, we put a working demo on the table."
+   "tr": "Renault'nun inovasyon programına geliştirdiğimiz iki proje dünya çapındaki kısa listeye girdi; Renault bizden iki proje daha istedi. Hepsi aşağıda.",
+   "en": "Two projects we built for Renault's innovation programme made the worldwide shortlist, and Renault asked us for two more. All four are below."
   },
   "proof.b.k": {
    "tr": "Sağlık turizmi · Kurumsal operatör (NDA)",
@@ -257,8 +257,8 @@
    "en": "Inbound calls, quality control of WhatsApp sales conversations and win-back calls to cold leads run on the same core, integrated with the operator's own CRM."
   },
   "how.label": {
-   "tr": "05 · Nasıl çalışıyoruz",
-   "en": "05 · How we work"
+   "tr": "06 · Nasıl çalışıyoruz",
+   "en": "06 · How we work"
   },
   "how.label2": {
    "tr": "Bir hafta",
@@ -467,6 +467,170 @@
   "m.cap": {
    "tr": "Kasım 2026 · kişisel veriler çıkarıldı",
    "en": "November 2026 · personal data removed"
+  },
+  "deep.label": {
+   "tr": "05 · Derin teknoloji",
+   "en": "05 · Deep tech"
+  },
+  "deep.label2": {
+   "tr": "Renault Innovation Hub",
+   "en": "Renault Innovation Hub"
+  },
+  "deep.h": {
+   "tr": "Renault bizden <em>dört proje</em> istedi.",
+   "en": "Renault asked us for <em>four projects.</em>"
+  },
+  "deep.body": {
+   "tr": "Hepsini kendi imkânımızla geliştirdik, ikisi dünya çapındaki kısa listede. Altta duran modelleri biz yaptığımız için ATRON'un ajanları sadece konuşmayı değil, konuşanı da anlıyor.",
+   "en": "We built all of them on our own dime; two are on the worldwide shortlist. Because we build the models underneath, ATRON's agents understand not just the words but the person saying them."
+  },
+  "deep.ex": {
+   "tr": "Örnek",
+   "en": "Example"
+  },
+  "deep.prosem.st": {
+   "tr": "Global shortlist",
+   "en": "Global shortlist"
+  },
+  "deep.prosem.d": {
+   "tr": "Sesten duyguyu, cümle bitmeden okuyan model. Tamamen bizim eğittiğimiz bir model; ajanlarımız böylece karşısındakinin nasıl hissettiğini duyar.",
+   "en": "A model that reads emotion from the voice before the sentence ends. Trained entirely by us, so our agents hear how the other person feels."
+  },
+  "deep.prosem.in": {
+   "tr": "“Üçüncü kez arıyorum, hâlâ bir cevap yok.”",
+   "en": "“This is the third time I'm calling and still no answer.”"
+  },
+  "deep.prosem.k0": {
+   "tr": "Gerilim",
+   "en": "Tension"
+  },
+  "deep.prosem.v0": {
+   "tr": "Yüksek, artıyor",
+   "en": "High, rising"
+  },
+  "deep.prosem.k1": {
+   "tr": "Ton",
+   "en": "Tone"
+  },
+  "deep.prosem.v1": {
+   "tr": "Olumsuz",
+   "en": "Negative"
+  },
+  "deep.prosem.k2": {
+   "tr": "Ajana",
+   "en": "To the agent"
+  },
+  "deep.prosem.v2": {
+   "tr": "Özür dile, sözü kısa tut",
+   "en": "Apologise, keep it short"
+  },
+  "deep.fic.st": {
+   "tr": "Global shortlist",
+   "en": "Global shortlist"
+  },
+  "deep.fic.d": {
+   "tr": "Servis teknisyeni telefona konuşur, arıza raporu kendini doldurur. Zorunlu bir alan eksikse sistem sesle sorar; raporu yine teknisyen onaylar.",
+   "en": "A service technician talks to their phone and the incident report fills itself in. If a mandatory field is missing, the system asks out loud; the technician still signs it off."
+  },
+  "deep.fic.in": {
+   "tr": "“Müşteri soğuk çalıştırmada titreme olduğunu söylüyor, kilometre kırk sekiz bin.”",
+   "en": "“The customer says it shakes on a cold start, mileage forty-eight thousand.”"
+  },
+  "deep.fic.k0": {
+   "tr": "Şikâyet",
+   "en": "Complaint"
+  },
+  "deep.fic.v0": {
+   "tr": "Soğuk çalıştırmada titreme",
+   "en": "Shakes on cold start"
+  },
+  "deep.fic.k1": {
+   "tr": "Kilometre",
+   "en": "Mileage"
+  },
+  "deep.fic.v1": {
+   "tr": "48.000",
+   "en": "48,000"
+  },
+  "deep.fic.k2": {
+   "tr": "Şasi no",
+   "en": "VIN"
+  },
+  "deep.fic.v2": {
+   "tr": "Eksik → “Şasi numarasını okur musunuz?”",
+   "en": "Missing → “Can you read me the VIN?”"
+  },
+  "deep.mw.st": {
+   "tr": "Canlı demo · Renault'ya teslim edildi",
+   "en": "Live demo · delivered to Renault"
+  },
+  "deep.mw.d": {
+   "tr": "Sürücünün aklının yoldan ayrıldığını sessizce fark eder. Güvenli bir anı bekler, önce fark ettirmeden yoklar, sonra sorar.",
+   "en": "Quietly notices when a driver's mind drifts from the road. It waits for a safe moment, probes without the driver noticing, then asks."
+  },
+  "deep.mw.in": {
+   "tr": "Bakış 30 saniyedir sabit. Yoldaki ışığa tepki yok.",
+   "en": "Gaze fixed for 30 seconds. No reaction to the light on the road."
+  },
+  "deep.mw.k0": {
+   "tr": "Bekler",
+   "en": "Waits"
+  },
+  "deep.mw.v0": {
+   "tr": "Güvenli an",
+   "en": "A safe moment"
+  },
+  "deep.mw.k1": {
+   "tr": "Sorar",
+   "en": "Asks"
+  },
+  "deep.mw.v1": {
+   "tr": "Kısa bir soru",
+   "en": "A short question"
+  },
+  "deep.mw.k2": {
+   "tr": "Sonuç",
+   "en": "Result"
+  },
+  "deep.mw.v2": {
+   "tr": "“Bilmiyorum” → dalgınlık teyit edildi",
+   "en": "“I don't know” → drift confirmed"
+  },
+  "deep.rc.st": {
+   "tr": "Prototip",
+   "en": "Prototype"
+  },
+  "deep.rc.d": {
+   "tr": "Sürücü yola çıkmadan önce üç dakikalık bir ısınma oynar. Sistem o gün ne kadar hazır olduğunu ölçer; kararı araç verir.",
+   "en": "Before setting off, the driver plays a three-minute warm-up. The system measures how ready they are today; the vehicle makes the call."
+  },
+  "deep.rc.in": {
+   "tr": "Üç tur: Kulak · Göz · Refleks",
+   "en": "Three rounds: Ear · Eye · Reflex"
+  },
+  "deep.rc.k0": {
+   "tr": "Süre",
+   "en": "Time"
+  },
+  "deep.rc.v0": {
+   "tr": "~3 dakika",
+   "en": "~3 minutes"
+  },
+  "deep.rc.k1": {
+   "tr": "Çıktı",
+   "en": "Output"
+  },
+  "deep.rc.v1": {
+   "tr": "Günün form skoru",
+   "en": "Today's readiness score"
+  },
+  "deep.rc.k2": {
+   "tr": "Kime",
+   "en": "To"
+  },
+  "deep.rc.v2": {
+   "tr": "Araca",
+   "en": "The vehicle"
   }
  },
  "ARMS": [

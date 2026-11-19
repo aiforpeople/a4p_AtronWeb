@@ -177,6 +177,24 @@ section{padding:20vh 0}
 .moment .cap{margin-top:28px}
 @media (max-width:860px){.m-grid{grid-template-columns:1fr}.m-arrow{transform:rotate(90deg);justify-self:start}}
 
+/* deep tech */
+.dts{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.dt{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(24px,3vw,48px);display:flex;flex-direction:column;gap:18px}
+.dt-st{display:flex;gap:10px;align-items:center;color:var(--dim)}
+.dt-st.proto .dot{background:var(--bone);opacity:.6;animation:none}
+.dt h3{font-size:clamp(44px,5vw,88px)}
+.dt-d{color:var(--dim);max-width:48ch}
+.dt-io{margin-top:auto;background:var(--ink-2);border:1px solid var(--line);padding:22px}
+.dt-io .k{color:var(--dim);margin-bottom:12px}
+.dt-in{font-family:'Archivo';font-variation-settings:'wdth' 75;font-weight:700;font-size:clamp(20px,1.8vw,28px);line-height:1.15;letter-spacing:-.01em}
+.dt-arr{color:var(--red);font-size:24px;margin:10px 0}
+.dt-io dl{display:grid;grid-template-columns:110px 1fr;border-top:1px solid var(--line)}
+.dt-io dt,.dt-io dd{border-bottom:1px solid var(--line);padding:10px 0;font-size:15px}
+.dt-io dt{color:var(--dim);padding-top:13px}
+.dt-io dd.hot{color:var(--live)}
+.dt-io dd.warn{color:#ff5a4f}
+@media (max-width:960px){.dts{grid-template-columns:1fr}}
+
 /* how */
 .how{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
 .how .img{grid-column:1/6}
