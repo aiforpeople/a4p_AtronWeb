@@ -145,6 +145,23 @@ section{padding:20vh 0}
 .arm.yours h4{color:var(--red)}
 @media (max-width:860px){.arm{grid-template-columns:40px 1fr;gap:6px 14px}.arm p,.arm .s{grid-column:2}.arm .s{justify-content:flex-start;text-align:left}}
 
+/* brain layers */
+.brain{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-bottom:14vh}
+.layers{grid-column:1/7;list-style:none;display:flex;flex-direction:column;gap:10px}
+.layers li{display:grid;grid-template-columns:44px 1fr;gap:4px 16px;padding:22px 24px;border:1px solid var(--line);background:var(--ink-2)}
+.layers li .n{grid-row:span 2;color:var(--dim);padding-top:6px}
+.layers h3{font-family:'Archivo';font-variation-settings:'wdth' 100;font-weight:800;font-size:clamp(22px,2vw,30px);letter-spacing:-.02em;line-height:1.1}
+.layers p{color:var(--dim);font-size:15.5px}
+.layers li.core{background:var(--red);border-color:var(--red);padding:34px 24px}
+.layers li.core .n,.layers li.core p{color:rgba(235,233,227,.85)}
+.layers li.core h3{font-size:clamp(28px,2.8vw,44px)}
+.outs{grid-column:8/13;align-self:center}
+.proofline{display:flex;gap:10px;align-items:baseline;line-height:1.6;margin-bottom:28px}
+.outs dl{display:grid;grid-template-columns:130px 1fr;border-top:1px solid var(--line)}
+.outs dt,.outs dd{border-bottom:1px solid var(--line);padding:16px 0}
+.outs dt{color:var(--dim);padding-top:19px}
+@media (max-width:960px){.layers,.outs{grid-column:1/-1}}
+
 /* arm links */
 .arm h4 a{display:inline-flex;gap:.3em;align-items:baseline}
 .arm h4 .go{color:var(--red);font-size:.7em;transition:transform .4s var(--e-ui)}

@@ -197,20 +197,20 @@
    "en": "Email or phone"
   },
   "arch.label": {
-   "tr": "03 · Arkasında ne var",
-   "en": "03 · What's behind it"
+   "tr": "03 · Operasyon katmanı",
+   "en": "03 · Operations layer"
   },
   "arch.h": {
-   "tr": "Bir beyin. <em>Kendi işini bilen</em> kollar.",
-   "en": "One brain. Arms that <em>know their job.</em>"
+   "tr": "Herkesin ve her ajanın baktığı <em>tek bir beyin.</em>",
+   "en": "One brain that <em>every person and every agent</em> works from."
   },
   "arch.body": {
-   "tr": "Ahtapotun nöronlarının çoğu kollarındadır; her kol kendi işini kendi halleder. ATRON da böyle: telefonu açan, WhatsApp'ı okuyan, listeyi arayan her ajan bir kol. Hepsi aynı beyne bağlı; şirketinizin kurallarını, müşteri geçmişini ve CRM'inizi bilen tek bir merkez. Yeni bir iş çıktığında yeni bir yazılım almazsınız, ahtapota yeni bir kol takarız.",
-   "en": "Most of an octopus's neurons are in its arms; each arm handles its own job. ATRON works the same way: the agent that answers the phone, the one that reads WhatsApp, the one that calls the list, each is an arm. They all connect to one brain that knows your rules, your customers' history and your CRM. When a new job comes up, you don't buy new software. We add an arm."
+   "tr": "Biz kendi şirketimizi böyle yönetiyoruz. Her konuşma, her karar, her ajanın yaptığı iş ATRON Brain'e yazılıyor; insan da ajan da aynı yerden okuyor. Şimdi aynısının sizin şirketinizde kurulduğunu düşünün.",
+   "en": "This is how we run our own company. Every conversation, every decision and every piece of work an agent does is written to ATRON Brain; people and agents read from the same place. Now picture the same thing set up in your company."
   },
   "arch.cap": {
-   "tr": "Tek çekirdek, sekiz kol",
-   "en": "One core, eight arms"
+   "tr": "Kollar: her ajan bir iş",
+   "en": "The arms: one agent, one job"
   },
   "proof.label": {
    "tr": "04 · Kanıt",
@@ -631,6 +631,74 @@
   "deep.rc.v2": {
    "tr": "Araca",
    "en": "The vehicle"
+  },
+  "br.l1": {
+   "tr": "Ekibiniz",
+   "en": "Your team"
+  },
+  "br.l1d": {
+   "tr": "Satış, operasyon, yönetim. Soru sorar, karar verir.",
+   "en": "Sales, operations, management. They ask and decide."
+  },
+  "br.l2": {
+   "tr": "ATRON Brain",
+   "en": "ATRON Brain"
+  },
+  "br.l2d": {
+   "tr": "Tek hafıza. Kim ne konuştu, ne karar verildi, hangi iş nerede.",
+   "en": "One memory. Who said what, what was decided, where each job stands."
+  },
+  "br.l3": {
+   "tr": "Ajanlar",
+   "en": "Agents"
+  },
+  "br.l3d": {
+   "tr": "Telefonu açar, WhatsApp'ı okur, listeyi arar. Yaptığını beyne yazar.",
+   "en": "They answer calls, read WhatsApp, call lists, and write what they did to the brain."
+  },
+  "br.l4": {
+   "tr": "Sistemleriniz",
+   "en": "Your systems"
+  },
+  "br.l4d": {
+   "tr": "CRM, ERP, Drive, santral, WhatsApp. Veri yerinde kalır; beyin nerede olduğunu bilir.",
+   "en": "CRM, ERP, Drive, phone system, WhatsApp. Data stays where it is; the brain knows where to find it."
+  },
+  "br.proof": {
+   "tr": "BUGÜNE KADAR KENDİ ATRON BRAIN'İMİZE 1.700'DEN FAZLA KONUŞMA VE KARAR YAZILDI.",
+   "en": "Over 1,700 conversations and decisions have been written to our own ATRON Brain so far."
+  },
+  "br.o1k": {
+   "tr": "Erişim",
+   "en": "Access"
+  },
+  "br.o1": {
+   "tr": "Yeni başlayan biri “Bu müşteriyle en son ne konuştuk?” diye sorar; cevap kaynağıyla gelir.",
+   "en": "A new hire asks “What did we last discuss with this customer?” and gets the answer with its source."
+  },
+  "br.o2k": {
+   "tr": "Hız",
+   "en": "Speed"
+  },
+  "br.o2": {
+   "tr": "Ajan aramayı bitirdiği anda kayıt beyinde. Kimse ertesi sabahı beklemez.",
+   "en": "The moment an agent ends a call, the record is in the brain. Nobody waits for the next morning."
+  },
+  "br.o3k": {
+   "tr": "Verim",
+   "en": "Efficiency"
+  },
+  "br.o3": {
+   "tr": "Aynı bilgi iki kez sorulmaz, iki kez girilmez.",
+   "en": "Nothing gets asked twice or typed in twice."
+  },
+  "br.o4k": {
+   "tr": "İnsan + ajan",
+   "en": "People + agents"
+  },
+  "br.o4": {
+   "tr": "Ajan nerede durması gerektiğini bilir. Kararı insan verir; ajan o kararı da hatırlar.",
+   "en": "Agents know where to stop. People make the call, and the agents remember that call too."
   }
  },
  "ARMS": [
