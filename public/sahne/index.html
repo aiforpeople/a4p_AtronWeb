@@ -6,7 +6,7 @@
 <title>ATRON · sahne denemesi</title>
 <meta name="robots" content="noindex">
 <link rel="preload" href="/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/sahne/f/01.webp" as="image">
+
 <style>
 @font-face{font-family:'Archivo';font-style:normal;font-display:swap;font-weight:100 900;font-stretch:62% 125%;src:url(/fonts/archivo-latin-wdth-normal.woff2) format('woff2-variations');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'Archivo';font-style:normal;font-display:swap;font-weight:100 900;font-stretch:62% 125%;src:url(/fonts/archivo-latin-ext-wdth-normal.woff2) format('woff2-variations');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
@@ -88,66 +88,92 @@ html:not(.js) svg.lead,html:not(.js) .hint{display:none}
 </section>
 <section class="next mono">02 / WHATSAPP · sıradaki sahne</section>
 </main>
-<script>
-(function(){
-if(!document.documentElement.classList.contains('js')) return;
-var N=22, IW=1624, IH=893, PAPER='#d6d8dd';
-var cv=document.getElementById('cv'), cx=cv.getContext('2d');
-var act=document.getElementById('ses'), b1=document.getElementById('b1'), b2=document.getElementById('b2');
-var clock=document.getElementById('clock'), hint=document.getElementById('hint'), lp=document.getElementById('lp'), lc=document.getElementById('lc');
-var small=Math.min(innerWidth,innerHeight)*Math.min(devicePixelRatio||1,2)<900;
-var imgs=[], ready=0;
-for(var i=1;i<=N;i++){ (function(i){ var im=new Image(); im.decoding='async'; im.onload=function(){ready++; draw();}; im.src='/sahne/f/'+('0'+i).slice(-2)+(small?'-m':'')+'.webp'; imgs[i-1]=im; })(i); }
-var W=0,H=0,dpr=1, rect={x:0,y:0,w:0,h:0}, p=0, portrait=false;
+<script type="importmap">{"imports":{"three":"/vendor/three/three.module.min.js"}}</script>
+<script type="module">
+import * as THREE from 'three';
+const N=22, IW=1624, IH=893, PAPER=0xd6d8dd;
+const cv=document.getElementById('cv'), act=document.getElementById('ses');
+const b1=document.getElementById('b1'), b2=document.getElementById('b2'), clock=document.getElementById('clock'), hint=document.getElementById('hint');
+const lp=document.getElementById('lp'), lc=document.getElementById('lc');
+let renderer;
+try { renderer=new THREE.WebGLRenderer({canvas:cv,antialias:false,alpha:true,premultipliedAlpha:true,powerPreference:'low-power'}); }
+catch(e){ document.documentElement.classList.remove('js'); throw e; }   // no WebGL: static frame + text
+renderer.outputColorSpace=THREE.LinearSRGBColorSpace;   // textures pass through untouched
+renderer.setClearColor(0x000000,0);   // page paper shows through; avoids clear-colour colourspace mismatch
+const scene=new THREE.Scene(), cam=new THREE.OrthographicCamera(0,1,0,1,-1,1);
+const uni={ tC:{value:null}, tD:{value:null}, uOff:{value:new THREE.Vector2()}, uT:{value:0}, uBreath:{value:1}, uFade:{value:0} };
+const mat=new THREE.ShaderMaterial({ uniforms:uni, transparent:true, blending:THREE.NoBlending,
+  vertexShader:'varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.); }',
+  fragmentShader:`precision highp float; varying vec2 vUv; uniform sampler2D tC,tD; uniform vec2 uOff; uniform float uT,uBreath,uFade;
+    void main(){
+      // depth parallax: near things slide more than far things (two refinement steps)
+      float d=texture2D(tD,vUv).r; vec2 uv=vUv-uOff*(d-.22);
+      d=texture2D(tD,uv).r; uv=vUv-uOff*(d-.22);
+      d=texture2D(tD,uv).r;
+      // breathing: the mantle swells very slightly around its centre
+      vec2 c=vec2(.215,.70); float r=distance(vec2(uv.x*1.82,uv.y),vec2(c.x*1.82,c.y));
+      float w=smoothstep(.36,.08,r)*smoothstep(.30,.48,d);
+      uv+=(uv-c)*(-.011*sin(uT*1.25))*w*uBreath;
+      float a=mix(1.,smoothstep(0.,.09,vUv.y)*smoothstep(1.,.91,vUv.y),uFade);
+      gl_FragColor=vec4(texture2D(tC,clamp(uv,0.,1.)).rgb*a,a);
+    }` });
+const quad=new THREE.Mesh(new THREE.PlaneGeometry(1,1),mat); scene.add(quad);
+const small=Math.min(innerWidth,innerHeight)*Math.min(devicePixelRatio||1,2)<900;
+const loader=new THREE.TextureLoader(), col=[], dep=[];
+function tex(url,i,arr){ loader.load(url,t=>{ t.colorSpace=THREE.NoColorSpace; t.minFilter=THREE.LinearFilter; t.generateMipmaps=false; arr[i]=t; dirty=true; }); }
+for(let i=0;i<N;i++){ const n=String(i+1).padStart(2,'0'); tex('/sahne/f/'+n+(small?'-m':'')+'.webp',i,col); tex('/sahne/d/'+n+'.webp',i,dep); }
+let W=0,H=0,rect={x:0,y:0,w:0,h:0},p=0,portrait=false,dirty=true,visible=true;
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)), band=(v,a,b)=>clamp((v-a)/(b-a),0,1), ease=t=>t*t*(3-2*t);
 function size(){
-  dpr=Math.min(devicePixelRatio||1,2); W=cv.clientWidth; H=cv.clientHeight; cv.width=Math.round(W*dpr); cv.height=Math.round(H*dpr);
-  portrait=W/H<1;
-  var s, x, y;
-  if(portrait){ s=(W*1.55)/IW; x=-W*0.04; y=H*0.13; }       // show the left 65% of the frame in the top half
-  else { s=Math.max(W/IW,H/IH); x=0; y=(H-IH*s)/2; }
-  rect={x:x,y:y,w:IW*s,h:IH*s};
-  draw();
+  const dpr=Math.min(devicePixelRatio||1,2); W=cv.clientWidth; H=cv.clientHeight; renderer.setPixelRatio(dpr); renderer.setSize(W,H,false);
+  portrait=W/H<1; let s,x,y;
+  if(portrait){ s=(W*1.55)/IW; x=-W*0.04; y=H*0.13; } else { s=Math.max(W/IW,H/IH); x=0; y=(H-IH*s)/2; }
+  // 3% overscan so the parallax never shows the edge of the photo
+  const o=portrait?0:0.03; rect={x:x-IW*s*o,y:y-IH*s*o,w:IW*s*(1+2*o),h:IH*s*(1+2*o)};
+  cam.left=0; cam.right=W; cam.top=H; cam.bottom=0; cam.updateProjectionMatrix();
+  quad.scale.set(rect.w,rect.h,1); quad.position.set(rect.x+rect.w/2,H-(rect.y+rect.h/2),0);
+  layout();
 }
-function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
-function ease(t){return t*t*(3-2*t);}
-function band(v,a,b){return clamp((v-a)/(b-a),0,1);}
-function draw(){
-  if(!W) return;
-  cx.setTransform(dpr,0,0,dpr,0,0); cx.fillStyle=PAPER; cx.fillRect(0,0,W,H);
-  // frames play between 22% and 72% of the act
-  var t=band(p,.22,.72)*(N-1), i=Math.floor(t), f=t-i;
-  var a=imgs[clamp(i,0,N-1)], b=imgs[clamp(i+1,0,N-1)];
-  if(a&&a.complete&&a.naturalWidth){ cx.globalAlpha=1; cx.drawImage(a,rect.x,rect.y,rect.w,rect.h); }
-  // stop-motion: hold each frame, blend only in the last 30% of the step
-  var k=0; // hard cuts: a blend shows a ghosted double arm when the reader stops mid-step
-  if(k>0&&b&&b.complete&&b.naturalWidth){ cx.globalAlpha=k; cx.drawImage(b,rect.x,rect.y,rect.w,rect.h); cx.globalAlpha=1; }
-  if(portrait){ var g=cx.createLinearGradient(0,rect.y+rect.h-24,0,rect.y+rect.h); g.addColorStop(0,'rgba(214,216,221,0)'); g.addColorStop(1,PAPER); cx.fillStyle=g; cx.fillRect(0,rect.y+rect.h-24,W,25);
-    g=cx.createLinearGradient(0,rect.y,0,rect.y+50); g.addColorStop(0,PAPER); g.addColorStop(1,'rgba(214,216,221,0)'); cx.fillStyle=g; cx.fillRect(0,rect.y-1,W,51); }
-  // copy
-  var o1=1-ease(band(p,.14,.26)), o2=ease(band(p,.70,.82));
+// pointer / tilt -> parallax target; plus a slow idle drift so the puppet is never frozen
+let tx=0,ty=0,ox=0,oy=0;
+addEventListener('pointermove',e=>{ if(e.pointerType==='touch') return; tx=(e.clientX/innerWidth-.5)*2; ty=(e.clientY/innerHeight-.5)*2; },{passive:true});
+addEventListener('deviceorientation',e=>{ if(e.gamma==null) return; tx=clamp(e.gamma/22,-1,1); ty=clamp((e.beta-45)/28,-1,1); },{passive:true});
+function layout(){
+  const o1=1-ease(band(p,.14,.26)), o2=ease(band(p,.70,.82));
   b1.style.opacity=o1; b1.style.transform=(portrait?'':'translateY(-50%) ')+'translateY('+(-24*(1-o1))+'px)'; b1.style.pointerEvents=o1<.5?'none':'auto';
   b2.style.opacity=o2; b2.style.transform=(portrait?'':'translateY(-50%) ')+'translateY('+(24*(1-o2))+'px)'; b2.style.pointerEvents=o2<.5?'none':'auto';
   hint.style.opacity=1-band(p,.02,.1);
-  var oc=ease(band(p,.24,.32))*(1-ease(band(p,.62,.70))); clock.style.opacity=oc; clock.style.transform=portrait?'':'translateY(calc(-50svh + 110px))';
-  // leader line: handset (final pose) -> the label
-  var hx=rect.x+rect.w*0.372, hy=rect.y+rect.h*0.395;
-  var kb=b2.querySelector('.k').getBoundingClientRect(), sb=cv.getBoundingClientRect();
-  var tx=kb.left-sb.left-14, ty=kb.top-sb.top+kb.height/2;
-  if(portrait){ hx=rect.x+rect.w*0.40; tx=kb.left-sb.left+3; lp.setAttribute('d','M'+hx+' '+hy+' L'+hx+' '+(ty-34)+' L'+tx+' '+(ty-34)+' L'+tx+' '+(ty-12)); }
-  else { var mx=hx+(tx-hx)*.45; lp.setAttribute('d','M'+hx+' '+hy+' L'+mx+' '+ty+' L'+tx+' '+ty); }
-  var L=lp.getTotalLength(); lp.style.strokeDasharray=L; lp.style.strokeDashoffset=L*(1-ease(band(p,.72,.84)));
+  const oc=ease(band(p,.24,.32))*(1-ease(band(p,.62,.70))); clock.style.opacity=oc; clock.style.transform=portrait?'':'translateY(calc(-50svh + 110px))';
+  let hx=rect.x+rect.w*0.372, hy=rect.y+rect.h*0.395;
+  const kb=b2.querySelector('.k').getBoundingClientRect(), sb=cv.getBoundingClientRect();
+  let ax=kb.left-sb.left-14; const ay=kb.top-sb.top+kb.height/2;
+  if(portrait){ hx=rect.x+rect.w*0.40; ax=kb.left-sb.left+3; lp.setAttribute('d','M'+hx+' '+hy+' L'+hx+' '+(ay-34)+' L'+ax+' '+(ay-34)+' L'+ax+' '+(ay-12)); }
+  else { const mx=hx+(ax-hx)*.45; lp.setAttribute('d','M'+hx+' '+hy+' L'+mx+' '+ay+' L'+ax+' '+ay); }
+  const L=lp.getTotalLength(); lp.style.strokeDasharray=L; lp.style.strokeDashoffset=L*(1-ease(band(p,.72,.84)));
   lc.setAttribute('cx',hx); lc.setAttribute('cy',hy); lc.style.opacity=band(p,.71,.74);
 }
-function onScroll(){ var r=act.getBoundingClientRect(); p=clamp(-r.top/(r.height-innerHeight),0,1); draw(); }
-addEventListener('scroll',function(){ requestAnimationFrame(onScroll); },{passive:true});
-// some iOS in-app browsers throttle scroll events: also poll the position every frame
-var lastTop=null;(function tick(){ var t=act.getBoundingClientRect().top; if(t!==lastTop){ lastTop=t; onScroll(); } requestAnimationFrame(tick); })();
+let lastTop=null, t0=performance.now();
+function frame(now){
+  requestAnimationFrame(frame);
+  const r=act.getBoundingClientRect();
+  if(r.top!==lastTop){ lastTop=r.top; p=clamp(-r.top/(r.height-innerHeight),0,1); visible=r.bottom>0&&r.top<innerHeight; layout(); }
+  if(!visible) return;
+  const t=(now-t0)/1000;
+  const gx=tx*.75+.35*Math.sin(t*.43), gy=ty*.6+.25*Math.cos(t*.31);
+  ox+=(gx-ox)*.06; oy+=(gy-oy)*.06;
+  const i=clamp(Math.round(band(p,.22,.72)*(N-1)),0,N-1);
+  // nearest loaded frame (while images are still arriving)
+  let k=i; while(k>0&&!(col[k]&&dep[k])) k--;
+  if(!(col[k]&&dep[k])) return;
+  uni.tC.value=col[k]; uni.tD.value=dep[k]; uni.uT.value=t;
+  uni.uFade.value=portrait?1:0; uni.uOff.value.set(ox*(portrait?.016:.011), oy*.008);
+  renderer.render(scene,cam);
+}
 addEventListener('resize',size);
-window.__setP=function(v){ p=v; draw(); };
-size(); onScroll();
-if(document.fonts&&document.fonts.ready) document.fonts.ready.then(draw);
+window.__setP=v=>{ const r=act.getBoundingClientRect(); scrollTo(0, scrollY + r.top + v*(r.height-innerHeight)); };
+size(); requestAnimationFrame(frame);
+if(document.fonts&&document.fonts.ready) document.fonts.ready.then(layout);
 window.__ready=true;
-})();
 </script>
 </body>
 </html>
