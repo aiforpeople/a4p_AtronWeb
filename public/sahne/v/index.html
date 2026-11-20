@@ -116,7 +116,8 @@ function draw(){
   cx.setTransform(dpr,0,0,dpr,0,0); cx.fillStyle=PAPER; cx.fillRect(0,0,W,H);
   // frames play between 22% and 72% of the act
   var t=band(p,.22,.72)*(N-1), i=Math.floor(t), f=t-i;
-  var a=imgs[clamp(i,0,N-1)], b=imgs[clamp(i+1,0,N-1)];
+  var ok=function(m){return m&&m.complete&&m.naturalWidth;}, i0=clamp(i,0,N-1), a=imgs[i0], b=imgs[clamp(i+1,0,N-1)];
+  for(var d=1; !ok(a)&&d<N; d++){ a=ok(imgs[i0-d])?imgs[i0-d]:(ok(imgs[i0+d])?imgs[i0+d]:a); }   // still loading: show the nearest frame that has arrived
   if(a&&a.complete&&a.naturalWidth){ cx.globalAlpha=1; cx.drawImage(a,rect.x,rect.y,rect.w,rect.h); }
   // stop-motion: hold each frame, blend only in the last 30% of the step
   var k=0; // hard cuts: a blend shows a ghosted double arm when the reader stops mid-step
