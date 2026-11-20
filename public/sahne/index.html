@@ -61,7 +61,7 @@ html:not(.js) svg.lead,html:not(.js) .hint{display:none}
 </style>
 </head>
 <body>
-<script>if(!matchMedia('(prefers-reduced-motion:reduce)').matches)document.documentElement.classList.add('js');</script>
+<script>document.documentElement.classList.add('js');</script>
 <main>
 <section class="act" id="ses" aria-label="Ses ajanı">
   <div class="stage">
@@ -139,6 +139,8 @@ function draw(){
 }
 function onScroll(){ var r=act.getBoundingClientRect(); p=clamp(-r.top/(r.height-innerHeight),0,1); draw(); }
 addEventListener('scroll',function(){ requestAnimationFrame(onScroll); },{passive:true});
+// some iOS in-app browsers throttle scroll events: also poll the position every frame
+var lastTop=null;(function tick(){ var t=act.getBoundingClientRect().top; if(t!==lastTop){ lastTop=t; onScroll(); } requestAnimationFrame(tick); })();
 addEventListener('resize',size);
 window.__setP=function(v){ p=v; draw(); };
 size(); onScroll();
