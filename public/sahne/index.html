@@ -65,7 +65,7 @@ html:not(.js) svg.lead,html:not(.js) .hint{display:none}
 <main>
 <section class="act" id="ses" aria-label="Ses ajanı">
   <div class="stage">
-    <img class="fallback" src="/sahne/f/08.webp" alt="ATRON kuklası bir koluyla telefon ahizesini kulağına tutuyor">
+    <img class="fallback" src="/sahne/f/22.webp" alt="ATRON kuklası bir koluyla telefon ahizesini kulağına tutuyor">
     <canvas id="cv" aria-hidden="true"></canvas>
     <svg class="lead" aria-hidden="true"><path id="lp"/><circle id="lc" r="4"/></svg>
     <header class="top"><a href="/"><img src="/logo.png" alt="ATRON" width="1037" height="266"></a><span class="mono r">OPERASYON KATMANI · 01 / SES</span></header>
@@ -90,7 +90,7 @@ html:not(.js) svg.lead,html:not(.js) .hint{display:none}
 <script>
 (function(){
 if(!document.documentElement.classList.contains('js')) return;
-var N=8, IW=1624, IH=893, PAPER='#d6d8dd';
+var N=22, IW=1624, IH=893, PAPER='#d6d8dd';
 var cv=document.getElementById('cv'), cx=cv.getContext('2d');
 var act=document.getElementById('ses'), b1=document.getElementById('b1'), b2=document.getElementById('b2');
 var clock=document.getElementById('clock'), hint=document.getElementById('hint'), lp=document.getElementById('lp'), lc=document.getElementById('lc');
@@ -118,7 +118,7 @@ function draw(){
   var a=imgs[clamp(i,0,N-1)], b=imgs[clamp(i+1,0,N-1)];
   if(a&&a.complete&&a.naturalWidth){ cx.globalAlpha=1; cx.drawImage(a,rect.x,rect.y,rect.w,rect.h); }
   // stop-motion: hold each frame, blend only in the last 30% of the step
-  var k=band(f,.7,1);
+  var k=band(f,.45,1);
   if(k>0&&b&&b.complete&&b.naturalWidth){ cx.globalAlpha=k; cx.drawImage(b,rect.x,rect.y,rect.w,rect.h); cx.globalAlpha=1; }
   if(portrait){ var g=cx.createLinearGradient(0,rect.y+rect.h-24,0,rect.y+rect.h); g.addColorStop(0,'rgba(214,216,221,0)'); g.addColorStop(1,PAPER); cx.fillStyle=g; cx.fillRect(0,rect.y+rect.h-24,W,25);
     g=cx.createLinearGradient(0,rect.y,0,rect.y+50); g.addColorStop(0,PAPER); g.addColorStop(1,'rgba(214,216,221,0)'); cx.fillStyle=g; cx.fillRect(0,rect.y-1,W,51); }
