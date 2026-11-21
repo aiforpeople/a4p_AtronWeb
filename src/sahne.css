@@ -11,9 +11,11 @@ body{background:var(--paper);color:var(--ink);font-family:'Geist',system-ui,sans
 a{color:inherit;text-decoration:none}
 .mono{font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.06em}
 .act{position:relative;height:420vh}
-.stage{position:sticky;top:0;height:100svh;overflow:hidden}
+.stage{position:sticky;top:0;height:100svh;overflow:hidden;background:var(--bg,var(--paper));color:var(--ink)}
+.stage::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;opacity:var(--scrim,0);background:linear-gradient(to left,var(--bg) 0,var(--bg) 18%,transparent 58%)}
+.act.L .stage::after{background:linear-gradient(to right,var(--bg) 0,var(--bg) 18%,transparent 58%)}
 canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:0 50%}
+.fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .js .fallback{display:none}
 .top{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space-between;align-items:center;padding:calc(18px + env(safe-area-inset-top)) 4vw 14px;border-bottom:1px solid var(--line);margin:0 0;z-index:3}
 .top img{height:20px;width:auto;display:block}
@@ -33,16 +35,13 @@ h1{font-size:clamp(46px,6.4vw,118px)}
 .copy .clock.beat{top:0;transform:none}
 .clock b{font-family:'Archivo';font-stretch:62%;font-weight:900;font-size:clamp(88px,11vw,210px);letter-spacing:-.02em;line-height:1;display:block}
 .clock span{color:var(--dim)}
-svg.lead{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:visible}
-svg.lead path{fill:none;stroke:var(--red);stroke-width:1.5}
-svg.lead circle{fill:var(--red)}
 .next{padding:18vh 4vw;border-top:1px solid var(--line);color:var(--dim)}
 /* no-JS / reduced motion: everything readable, stacked */
 html:not(.js) .act{height:auto}
 html:not(.js) .stage{position:relative;height:auto;min-height:100svh}
 html:not(.js) .copy{position:relative;right:auto;top:auto;transform:none;width:auto;padding:120px 4vw 8vh;margin-left:auto;max-width:620px}
 html:not(.js) .beat{position:relative;top:auto;transform:none;margin-bottom:8vh}
-html:not(.js) svg.lead,html:not(.js) .hint{display:none}
+html:not(.js) .hint{display:none}
 @media (max-aspect-ratio:1/1){
   .copy{left:6vw;right:6vw;width:auto;top:auto;bottom:calc(64px + env(safe-area-inset-bottom));transform:none;height:38svh}
   .beat{top:auto;bottom:0;transform:none}
@@ -57,3 +56,13 @@ html:not(.js) .clock{display:none}
 @media (max-aspect-ratio:1/1){ .clock b{font-size:clamp(64px,24vw,120px)} }
 @media (min-aspect-ratio:1/1){ .act.narrow .copy{width:min(31vw,480px)} .act.narrow .say{font-size:clamp(40px,4.5vw,86px)} }
 @media (min-aspect-ratio:1/1){ .act.tight .copy{width:min(26.5vw,420px)} .act.tight .say{font-size:clamp(36px,3.9vw,74px)} .act.tight .sub{font-size:clamp(15px,1.1vw,18px)} }
+
+/* v2: every act is its own world: own colours, text side, crop */
+.act.L .copy{left:4vw;right:auto}
+.act.L .clock{text-align:left}
+@media (max-aspect-ratio:1/1){
+  .stage::after,.act.L .stage::after{opacity:1;background:linear-gradient(to top,var(--bg) 0,var(--bg) 40%,transparent 56%)}
+  .act.L .copy{left:6vw;right:6vw}
+  .fallback{height:60svh}
+}
+@media (max-aspect-ratio:1/1){ .top{border-bottom:0} .copy{height:36svh} }
