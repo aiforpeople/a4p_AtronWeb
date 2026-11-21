@@ -13,6 +13,7 @@ var acts=[].map.call(document.querySelectorAll('.act'),function(el){
 acts.forEach(function(a,i){ a.next=acts[i+1]||null; a.prev=acts[i-1]||null; a.stage=a.el.querySelector('.stage'); });
 function load(a){
   if(a.imgs) return; a.imgs=[];
+  if(a.n>=5){ a.hiA=new Image(); a.hiB=new Image(); a.hiA.onload=a.hiB.onload=function(){ a.last=''; draw(a); }; a.hiA.src=a.dir+'/a.webp'; a.hiB.src=a.dir+'/b.webp'; }   // crisp stills for the resting poses; the softer video frames only show while things move
   for(var i=1;i<=a.n;i++){ (function(i){ var im=new Image(); im.decoding='async'; im.onload=function(){ a.last=''; draw(a); }; im.src=a.dir+'/'+('0'+i).slice(-2)+'.webp'; a.imgs[i-1]=im; })(i); }
 }
 function size(a){
@@ -20,7 +21,7 @@ function size(a){
   a.portrait=a.W/a.H<1; a.last=''; draw(a);
 }
 function rect(a,im){
-  var ar=im.naturalWidth/im.naturalHeight, w,h,x,y;
+  var ar=16/9, w,h,x,y;   // every scene is 16:9; video frames are a hair off and get stretched to match the stills
   if(a.portrait){ h=a.H*.60; w=h*ar; x=clamp(a.W/2-a.fx*w,a.W-w,0); y=0; }        // portrait: top 60%, centred on the act's subject
   else { var s=Math.max(a.W/(ar*900),a.H/900); w=ar*900*s; h=900*s; x=(a.W-w)*(a.fx<.5?0:1); y=(a.H-h)/2; }   // landscape: cover, pinned to the subject's side
   return {x:x,y:y,w:w,h:h};
@@ -39,8 +40,10 @@ function draw(a){
   if(!a.W) return;
   var p=a.p, cx=a.cx, im, im2=null, al=0, nx=a.next, t=nx&&a.ax!==null?band(p,.90,1):0;
   if(a.n<5){ al=ease(band(p,.24,.42)); im=nearest(a,0); if(al>0&&a.imgs&&ok(a.imgs[a.n-1])) im2=a.imgs[a.n-1]; al=Math.round(al*50)/50; }   // stills: cross-dissolve
-  else { im=nearest(a,clamp(Math.floor(band(p,.16,.50)*(a.n-1)),0,a.n-1)); }                                                              // video frames: scrub
-  var nim=t>0&&nx.imgs?nearest(nx,0):null;
+  else { im=nearest(a,clamp(Math.floor(band(p,.16,.50)*(a.n-1)),0,a.n-1));
+    if(p<.16&&ok(a.hiA)){ im2=a.hiA; al=1-ease(band(p,.12,.16)); } else if(p>.5&&ok(a.hiB)){ im2=a.hiB; al=ease(band(p,.5,.55)); }
+    al=Math.round(al*40)/40; if(al<=0) im2=null; }                                                              // video frames: scrub
+  var nim=t>0&&nx.imgs?(ok(nx.hiA)?nx.hiA:nearest(nx,0)):null;
   var key=(ok(im)?im.src:'-')+'|'+(im2?al:0)+'|'+(t>0?t.toFixed(3)+(ok(nim)?'y':'n'):'');
   if(key!==a.last){ a.last=key;
     cx.setTransform(a.dpr,0,0,a.dpr,0,0); cx.globalAlpha=1;

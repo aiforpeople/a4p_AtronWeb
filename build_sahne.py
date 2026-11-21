@@ -9,7 +9,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 LIGHT = dict(red="#ff5a47", ink="#f3efe6", dim="rgba(243,239,230,.62)", line="rgba(243,239,230,.2)")
 DARK = dict(red="#ca0013", ink="#0d0e11", dim="#5b5e66", line="rgba(13,14,17,.22)")
 ACTS = [
-    dict(id="ses", n=2, more=('Örnek: bir sağlık turizmi şirketi', [('23:40', "İtalya'dan bir hasta arıyor. Ekip uyuyor."), ('ATRON', "Telefonu açar, İtalyanca konuşur, hangi tedaviyi ve ne zaman istediğini sorar. Talebi CRM'e yazar."), ('09:00', 'Kayıt satış ekibinin önünde.')]), iris=(.429, .586, .022), w="narrow", dir="/sahne/s2/ses", tag="01 / SES", label="SES AJANI", side="R", fx=.22, bg="#030d1e", scrim=.0, **LIGHT,
+    dict(id="ses", n=65, more=('Örnek: bir sağlık turizmi şirketi', [('23:40', "İtalya'dan bir hasta arıyor. Ekip uyuyor."), ('ATRON', "Telefonu açar, İtalyanca konuşur, hangi tedaviyi ve ne zaman istediğini sorar. Talebi CRM'e yazar."), ('09:00', 'Kayıt satış ekibinin önünde.')]), iris=(.429, .586, .022), w="narrow", dir="/sahne/s2/ses", tag="01 / SES", label="SES AJANI", side="R", fx=.22, bg="#030d1e", scrim=.0, **LIGHT,
          intro=("Sürecinizi söyleyin. Gelecek hafta çalışsın.",
                 "ATRON, ekibinizin her gün tekrar ettiği işi yapan yapay zekâ çalışanlarıdır. Gece gelen aramayı açar, yüzlerce WhatsApp konuşmasını okur, Excel'de unutulmuş listeyi arar. Sonucu sabah CRM'inizde bulursunuz."),
          mid=("23:40", "TELEFON ÇALIYOR · EKİP UYUYOR"),
@@ -17,13 +17,13 @@ ACTS = [
          sub="Arayanın dilinde konuşur, ne istediğini sorar, talebi CRM'inize yazar. Sabah kayıt ekibinizin önündedir.",
          cta=("AJANLA ŞİMDİ KONUŞ", "/#canli"),
          alt="Gece, masa lambasının altında ATRON kuklası telefonu açmış, bir koluyla not alıyor"),
-    dict(id="whatsapp", n=2, more=('Örnek: aynı şirket, ertesi sabah', [('DÜN', 'Yüzlerce WhatsApp konuşması yapıldı. Kimse hepsini okuyamaz.'), ('ATRON', 'Hepsini okudu. Fiyat sorusu cevapsız kalan konuşmaları ve iki kez dönüp cevap alamayan müşterileri ayrı bir listeye koydu.'), ('10:20', 'Liste satış müdürünün ekranında.')]), iris=(.84, .36, .055), dir="/sahne/s2/wa", tag="02 / WHATSAPP", label="WHATSAPP KALİTE KONTROL", side="L", fx=.78, bg="#f1dcc7", scrim=.0, **DARK,
+    dict(id="whatsapp", n=65, more=('Örnek: aynı şirket, ertesi sabah', [('DÜN', 'Yüzlerce WhatsApp konuşması yapıldı. Kimse hepsini okuyamaz.'), ('ATRON', 'Hepsini okudu. Fiyat sorusu cevapsız kalan konuşmaları ve iki kez dönüp cevap alamayan müşterileri ayrı bir listeye koydu.'), ('10:20', 'Liste satış müdürünün ekranında.')]), iris=(.84, .36, .055), dir="/sahne/s2/wa", tag="02 / WHATSAPP", label="WHATSAPP KALİTE KONTROL", side="L", fx=.78, bg="#f1dcc7", scrim=.0, **DARK,
          mid=("09:00", "DÜNKÜ YAZIŞMALARI KİM OKUDU?"),
          say="Her yazışmayı okur.",
          sub="Ekibinizin WhatsApp görüşmelerini tek tek okur; geç kalan cevabı, yanlış bilgiyi, kaçan satışı işaretler. Yönetici sabah özetini görür.",
          cta=("NASIL ÇALIŞIYOR", "/ajanlar/whatsapp-kalite-kontrol/"),
          alt="ATRON kuklası çok yakından: büyüteçle telefondaki yazışmaya bakıyor, gözü mercekte kocaman"),
-    dict(id="outbound", n=2, more=('Örnek: aynı gün, öğleden sonra', [('EXCEL', 'Geçen yıl ilgilenip vazgeçen binlerce kişi bir listede duruyor.'), ('ATRON', 'Herkesi kendi dilinde ve kendi saatinde arar. Aranmak istemeyenleri bir daha aramaz.'), ('18:00', "Hâlâ ilgilenenler CRM'de, sırada.")]), iris=(.118, .303, .006), w="narrow", dir="/sahne/s2/out", tag="03 / OUTBOUND", label="OUTBOUND GERİ KAZANIM", side="R", fx=.36, bg="#2e371e", scrim=.0, **LIGHT,
+    dict(id="outbound", n=65, more=('Örnek: aynı gün, öğleden sonra', [('EXCEL', 'Geçen yıl ilgilenip vazgeçen binlerce kişi bir listede duruyor.'), ('ATRON', 'Herkesi kendi dilinde ve kendi saatinde arar. Aranmak istemeyenleri bir daha aramaz.'), ('18:00', "Hâlâ ilgilenenler CRM'de, sırada.")]), iris=(.118, .303, .006), w="narrow", dir="/sahne/s2/out", tag="03 / OUTBOUND", label="OUTBOUND GERİ KAZANIM", side="R", fx=.36, bg="#2e371e", scrim=.0, **LIGHT,
          mid=("6 HAT", "ESKİ LİSTE ARANMAYI BEKLİYOR"),
          say="Aramadığınız listeyi arar.",
          sub="Cevap vermemiş eski başvuruları kendi dillerinde arar, ilgileneni ekibinize sıcak devreder. Aynı anda birden çok hat.",
@@ -58,7 +58,7 @@ def nav(a):
 
 
 def act_html(a, first):
-    last = "%02d" % a["n"]
+    last = "b" if a["n"] > 5 else "%02d" % a["n"]
     intro = ""
     if a.get("intro"):
         intro = f'''
