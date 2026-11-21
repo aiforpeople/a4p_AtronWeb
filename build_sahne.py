@@ -11,7 +11,7 @@ DARK = dict(red="#ca0013", ink="#0d0e11", dim="#5b5e66", line="rgba(13,14,17,.22
 ACTS = [
     dict(id="ses", n=2, more=('Örnek: bir sağlık turizmi şirketi', [('23:40', "İtalya'dan bir hasta arıyor. Ekip uyuyor."), ('ATRON', "Telefonu açar, İtalyanca konuşur, hangi tedaviyi ve ne zaman istediğini sorar. Talebi CRM'e yazar."), ('09:00', 'Kayıt satış ekibinin önünde.')]), iris=(.429, .586, .022), w="narrow", dir="/sahne/s2/ses", tag="01 / SES", label="SES AJANI", side="R", fx=.22, bg="#030d1e", scrim=.0, **LIGHT,
          intro=("Sürecinizi söyleyin. Gelecek hafta çalışsın.",
-                "ATRON, ekibinizin her gün tekrar ettiği işi yapan yapay zekâ çalışanlarıdır."),
+                "ATRON, ekibinizin her gün tekrar ettiği işi yapan yapay zekâ çalışanlarıdır. Gece gelen aramayı açar, yüzlerce WhatsApp konuşmasını okur, Excel'de unutulmuş listeyi arar. Sonucu sabah CRM'inizde bulursunuz."),
          mid=("23:40", "TELEFON ÇALIYOR · EKİP UYUYOR"),
          say="Gece gelen aramayı açar.",
          sub="Arayanın dilinde konuşur, ne istediğini sorar, talebi CRM'inize yazar. Sabah kayıt ekibinizin önündedir.",
@@ -46,6 +46,17 @@ ACTS = [
 e = html.escape
 
 
+NAVN = {"ses": "SES", "whatsapp": "WHATSAPP", "outbound": "OUTBOUND", "brain": "BRAIN", "derin": "RENAULT"}
+
+
+def nav(a):
+    out = []
+    for i, b in enumerate(ACTS):
+        cur = b["id"] == a["id"]
+        out.append(f'<a href="#{b["id"]}"{' class="on" aria-current="true"' if cur else ''}><b>{i + 1:02d}</b> {NAVN[b["id"]]}</a>')
+    return "".join(out)
+
+
 def act_html(a, first):
     last = "%02d" % a["n"]
     intro = ""
@@ -62,7 +73,7 @@ def act_html(a, first):
   <div class="stage">
     <img class="fallback" src="{a["dir"]}/{last}.webp" alt="{e(a["alt"])}" loading="{'eager' if first else 'lazy'}" style="object-position:{int(a["fx"]*100)}% 50%">
     <canvas aria-hidden="true"></canvas>
-    <header class="top"><a href="/"><img src="/logo.png" alt="ATRON" width="1037" height="266"></a><span class="mono r">OPERASYON KATMANI · {e(a["tag"])}</span></header>
+    <header class="top"><a href="/"><img src="/logo.png" alt="ATRON" width="1037" height="266"></a><nav class="mono r" aria-label="Bölümler">{nav(a)}</nav></header>
     <div class="copy">{intro}
       <p class="beat clock"><b>{e(a["mid"][0])}</b><span class="mono">{e(a["mid"][1])}</span></p>
       <div class="beat b2">
