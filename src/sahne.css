@@ -10,7 +10,7 @@ html{-webkit-text-size-adjust:100%}
 body{background:var(--paper);color:var(--ink);font-family:'Geist',system-ui,sans-serif;font-size:17px;line-height:1.45;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 .mono{font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.06em}
-.act{position:relative;height:460vh}
+.act{position:relative;height:580vh}
 .js .act+.act{margin-top:-100svh}   /* next stage is already in place when the previous one finishes its exit */
 .stage{position:sticky;top:0;height:100svh;overflow:hidden;background:var(--bg,var(--paper));color:var(--ink)}
 
@@ -65,3 +65,26 @@ html:not(.js) .clock{display:none}
   .fallback{height:60svh}
 }
 @media (max-aspect-ratio:1/1){ .top{border-bottom:0} .copy{height:36svh} }
+
+/* third beat: the concrete example behind each line */
+.mh{font-family:'Archivo',sans-serif;font-stretch:62%;font-weight:900;font-size:clamp(26px,2.6vw,46px);line-height:.95;letter-spacing:-.01em;margin-bottom:18px}
+.rows{display:grid;gap:0}
+.row{display:grid;grid-template-columns:var(--kw,84px) 1fr;gap:16px;border-top:1px solid var(--line);padding:11px 0}
+.row dt{color:var(--red);padding-top:3px}
+.row dd{font-size:clamp(14px,1.08vw,17px);line-height:1.4}
+.b3 .go{margin-top:18px}
+#brain,#derin{--kw:118px}
+.how{padding:18vh 4vw 6vh;max-width:1200px}
+.how .say{max-width:16ch}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:6vh}
+.steps div{border-top:1.5px solid var(--ink);padding-top:16px}
+.steps dt{color:var(--red);margin-bottom:12px}
+.end{border-top:0}
+html:not(.js) .b3{margin-top:4vh}
+@media (max-aspect-ratio:1/1){
+  .copy{height:42svh} .mh{font-size:clamp(22px,6.6vw,30px);margin-bottom:10px}
+  .row{grid-template-columns:var(--kwm,62px) 1fr;gap:12px;padding:8px 0} .row dd{font-size:13.5px;line-height:1.35} .row dt{font-size:10.5px}
+  #brain,#derin{--kwm:84px} #brain .mh,#derin .mh{display:none}
+  .b3 .go{margin-top:10px}
+  .steps{grid-template-columns:1fr}
+}
