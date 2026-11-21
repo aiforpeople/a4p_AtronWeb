@@ -9,7 +9,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 LIGHT = dict(red="#ff5a47", ink="#f3efe6", dim="rgba(243,239,230,.62)", line="rgba(243,239,230,.2)")
 DARK = dict(red="#ca0013", ink="#0d0e11", dim="#5b5e66", line="rgba(13,14,17,.22)")
 ACTS = [
-    dict(id="ses", n=2, w="narrow", dir="/sahne/s2/ses", tag="01 / SES", label="SES AJANI", side="R", fx=.22, bg="#030d1e", scrim=.0, **LIGHT,
+    dict(id="ses", n=2, iris=(.429, .586, .022), w="narrow", dir="/sahne/s2/ses", tag="01 / SES", label="SES AJANI", side="R", fx=.22, bg="#030d1e", scrim=.0, **LIGHT,
          intro=("Sürecinizi söyleyin. Gelecek hafta çalışsın.",
                 "ATRON, ekibinizin her gün tekrar ettiği işi yapan yapay zekâ çalışanlarıdır."),
          mid=("23:40", "TELEFON ÇALIYOR · EKİP UYUYOR"),
@@ -17,19 +17,19 @@ ACTS = [
          sub="Arayanın dilinde konuşur, ne istediğini sorar, talebi CRM'inize yazar. Sabah kayıt ekibinizin önündedir.",
          cta=("AJANLA ŞİMDİ KONUŞ", "/#canli"),
          alt="Gece, masa lambasının altında ATRON kuklası telefonu açmış, bir koluyla not alıyor"),
-    dict(id="whatsapp", n=2, dir="/sahne/s2/wa", tag="02 / WHATSAPP", label="WHATSAPP KALİTE KONTROL", side="L", fx=.78, bg="#f1dcc7", scrim=.0, **DARK,
+    dict(id="whatsapp", n=2, iris=(.84, .36, .055), dir="/sahne/s2/wa", tag="02 / WHATSAPP", label="WHATSAPP KALİTE KONTROL", side="L", fx=.78, bg="#f1dcc7", scrim=.0, **DARK,
          mid=("09:00", "DÜNKÜ YAZIŞMALARI KİM OKUDU?"),
          say="Her yazışmayı okur.",
          sub="Ekibinizin WhatsApp görüşmelerini tek tek okur; geç kalan cevabı, yanlış bilgiyi, kaçan satışı işaretler. Yönetici sabah özetini görür.",
          cta=("NASIL ÇALIŞIYOR", "/ajanlar/whatsapp-kalite-kontrol/"),
          alt="ATRON kuklası çok yakından: büyüteçle telefondaki yazışmaya bakıyor, gözü mercekte kocaman"),
-    dict(id="outbound", n=2, w="narrow", dir="/sahne/s2/out", tag="03 / OUTBOUND", label="OUTBOUND GERİ KAZANIM", side="R", fx=.36, bg="#2e371e", scrim=.0, **LIGHT,
+    dict(id="outbound", n=2, iris=(.118, .303, .006), w="narrow", dir="/sahne/s2/out", tag="03 / OUTBOUND", label="OUTBOUND GERİ KAZANIM", side="R", fx=.36, bg="#2e371e", scrim=.0, **LIGHT,
          mid=("6 HAT", "ESKİ LİSTE ARANMAYI BEKLİYOR"),
          say="Aramadığınız listeyi arar.",
          sub="Cevap vermemiş eski başvuruları kendi dillerinde arar, ilgileneni ekibinize sıcak devreder. Aynı anda birden çok hat.",
          cta=("NASIL ÇALIŞIYOR", "/ajanlar/outbound-geri-kazanim/"),
          alt="Dev bir telefon santralinin önünde küçük ATRON kuklası altı koluyla altı kabloyu takmış, lambalar yanıyor"),
-    dict(id="brain", n=2, w="tight", dir="/sahne/s2/brain", tag="04 / ATRON BRAIN", label="ATRON BRAIN", side="R", fx=.30, bg="#4a2210", scrim=.55, **LIGHT,
+    dict(id="brain", n=2, iris=(.31, .068, .028), w="tight", dir="/sahne/s2/brain", tag="04 / ATRON BRAIN", label="ATRON BRAIN", side="R", fx=.30, bg="#4a2210", scrim=.55, **LIGHT,
          mid=("TEK YER", "BİLGİ ON AYRI YERDE DURUYORDU"),
          say="Hepsi tek hafızada.",
          sub="Kim ne konuştu, ne karar verildi, hangi iş nerede. İnsan da ajan da aynı yerden okur. Biz kendi şirketimizi böyle yönetiyoruz; aynısının sizde kurulduğunu düşünün.",
@@ -58,7 +58,7 @@ def act_html(a, first):
     hint = '<p class="hint mono"><span>↓</span><span>KAYDIRIN</span></p>' if first else ""
     tag = "p" if a.get("intro") else "h2"
     style = f'--bg:{a["bg"]};--ink:{a["ink"]};--dim:{a["dim"]};--line:{a["line"]};--scrim:{a["scrim"]};--red:{a["red"]}'
-    return f'''<section class="act {a["side"]} {a.get("w","")}" id="{a["id"]}" aria-label="{e(a["label"].title())}" data-n="{a["n"]}" data-dir="{a["dir"]}" data-fx="{a["fx"]}" data-bg="{a["bg"]}" style="{style}">
+    return f'''<section class="act {a["side"]} {a.get("w","")}" id="{a["id"]}" aria-label="{e(a["label"].title())}" data-n="{a["n"]}" data-dir="{a["dir"]}" data-fx="{a["fx"]}" data-bg="{a["bg"]}" data-scrim="{a["scrim"]}"{' data-ax="%s" data-ay="%s" data-ar="%s"' % a["iris"] if a.get("iris") else ''} style="{style}">
   <div class="stage">
     <img class="fallback" src="{a["dir"]}/{last}.webp" alt="{e(a["alt"])}" loading="{'eager' if first else 'lazy'}" style="object-position:{int(a["fx"]*100)}% 50%">
     <canvas aria-hidden="true"></canvas>
