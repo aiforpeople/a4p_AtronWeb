@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ATRON · sahne denemesi</title>
+<meta name="robots" content="noindex">
+<link rel="preload" href="/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+@font-face{font-family:'Archivo';font-style:normal;font-display:swap;font-weight:100 900;font-stretch:62% 125%;src:url(/fonts/archivo-latin-wdth-normal.woff2) format('woff2-variations');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Archivo';font-style:normal;font-display:swap;font-weight:100 900;font-stretch:62% 125%;src:url(/fonts/archivo-latin-ext-wdth-normal.woff2) format('woff2-variations');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Geist Mono';font-style:normal;font-display:swap;font-weight:100 900;src:url(/fonts/geist-mono-latin-wght-normal.woff2) format('woff2-variations');unicode-range:U+0000-00FF,U+0131,U+2000-206F,U+2191,U+2193}
+@font-face{font-family:'Geist Mono';font-style:normal;font-display:swap;font-weight:100 900;src:url(/fonts/geist-mono-latin-ext-wght-normal.woff2) format('woff2-variations');unicode-range:U+0100-02BA,U+1E00-1E9F}
+@font-face{font-family:'Geist';font-style:normal;font-display:swap;font-weight:100 900;src:url(/fonts/geist-latin-wght-normal.woff2) format('woff2-variations');unicode-range:U+0000-00FF,U+0131,U+2000-206F}
+@font-face{font-family:'Geist';font-style:normal;font-display:swap;font-weight:100 900;src:url(/fonts/geist-latin-ext-wght-normal.woff2) format('woff2-variations');unicode-range:U+0100-02BA,U+1E00-1E9F}
+:root{--paper:#d6d8dd;--ink:#0d0e11;--dim:#5b5e66;--red:#ca0013;--line:rgba(13,14,17,.22)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:'Geist',system-ui,sans-serif;font-size:17px;line-height:1.45;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.06em}
+.act{position:relative;height:420vh}
+.stage{position:sticky;top:0;height:100svh;overflow:hidden}
+canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:0 50%}
+.js .fallback{display:none}
+.top{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space-between;align-items:center;padding:calc(18px + env(safe-area-inset-top)) 4vw 14px;border-bottom:1px solid var(--line);margin:0 0;z-index:3}
+.top img{height:20px;width:auto;display:block}
+.top .r{color:var(--dim)}
+.copy{position:absolute;z-index:2;right:4vw;top:50%;transform:translateY(-50%);width:min(38vw,560px)}
+.beat{position:absolute;right:0;top:50%;width:100%;transform:translateY(-50%);will-change:opacity,transform}
+h1,.say{font-family:'Archivo',sans-serif;font-stretch:62%;font-weight:900;line-height:.9;letter-spacing:-.02em}
+h1{font-size:clamp(46px,6.4vw,118px)}
+.say{font-size:clamp(44px,5.6vw,104px)}
+.k{color:var(--red);display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.k i{width:8px;height:8px;border-radius:50%;background:var(--red);display:block}
+.sub{margin-top:22px;max-width:34ch;color:var(--ink);font-size:clamp(16px,1.25vw,20px)}
+.go{display:inline-flex;gap:14px;align-items:center;margin-top:30px;padding-bottom:8px;border-bottom:1.5px solid var(--red);color:var(--ink)}
+.go span:last-child{color:var(--red)}
+.hint{position:absolute;left:4vw;bottom:calc(22px + env(safe-area-inset-bottom));color:var(--dim);z-index:2;display:flex;gap:10px;align-items:center}
+.clock{color:var(--ink);text-align:right}
+.copy .clock.beat{top:0;transform:none}
+.clock b{font-family:'Archivo';font-stretch:62%;font-weight:900;font-size:clamp(88px,11vw,210px);letter-spacing:-.02em;line-height:1;display:block}
+.clock span{color:var(--dim)}
+svg.lead{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:visible}
+svg.lead path{fill:none;stroke:var(--red);stroke-width:1.5}
+svg.lead circle{fill:var(--red)}
+.next{padding:18vh 4vw;border-top:1px solid var(--line);color:var(--dim)}
+/* no-JS / reduced motion: everything readable, stacked */
+html:not(.js) .act{height:auto}
+html:not(.js) .stage{position:relative;height:auto;min-height:100svh}
+html:not(.js) .copy{position:relative;right:auto;top:auto;transform:none;width:auto;padding:120px 4vw 8vh;margin-left:auto;max-width:620px}
+html:not(.js) .beat{position:relative;top:auto;transform:none;margin-bottom:8vh}
+html:not(.js) svg.lead,html:not(.js) .hint{display:none}
+@media (max-aspect-ratio:1/1){
+  .copy{left:6vw;right:6vw;width:auto;top:auto;bottom:calc(64px + env(safe-area-inset-bottom));transform:none;height:38svh}
+  .beat{top:auto;bottom:0;transform:none}
+  h1{font-size:clamp(40px,12.5vw,72px)} .say{font-size:clamp(38px,11.5vw,68px)}
+  .top .r{display:none} .clock{text-align:left} .copy .clock.beat{top:auto;bottom:0} .clock b{font-size:30vw}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+<main>
+<section class="act" id="ses" aria-label="Ses ajanı">
+  <div class="stage">
+    <img class="fallback" src="/sahne/f/22.webp" alt="ATRON kuklası bir koluyla telefon ahizesini kulağına tutuyor">
+    <canvas id="cv" aria-hidden="true"></canvas>
+    <svg class="lead" aria-hidden="true"><path id="lp"/><circle id="lc" r="4"/></svg>
+    <header class="top"><a href="/"><img src="/logo.png" alt="ATRON" width="1037" height="266"></a><span class="mono r">OPERASYON KATMANI · 01 / SES</span></header>
+    <div class="copy">
+      <div class="beat" id="b1">
+        <h1>Sürecinizi söyleyin. Gelecek hafta çalışsın.</h1>
+        <p class="sub">ATRON, ekibinizin her gün tekrar ettiği işi yapan yapay zekâ çalışanlarıdır.</p>
+      </div>
+      <p class="beat clock" id="clock"><b>23:40</b><span class="mono">TELEFON ÇALIYOR · EKİP UYUYOR</span></p>
+      <div class="beat" id="b2">
+        <p class="mono k"><i></i>SES AJANI</p>
+        <p class="say">Gece gelen aramayı açar.</p>
+        <p class="sub">Arayanın dilinde konuşur, ne istediğini sorar, talebi CRM'inize yazar. Sabah kayıt ekibinizin önündedir.</p>
+        <a class="go mono" href="/#canli"><span>AJANLA ŞİMDİ KONUŞ</span><span>→</span></a>
+      </div>
+    </div>
+    <p class="hint mono" id="hint"><span>↓</span><span>KAYDIRIN</span></p>
+  </div>
+</section>
+<section class="next mono">02 / WHATSAPP · sıradaki sahne</section>
+</main>
+<script type="importmap">{"imports":{"three":"/vendor/three/three.module.min.js"}}</script>
+<script type="module">
+import * as THREE from 'three';
+const N=22, IW=1624, IH=893, PAPER=0xd6d8dd;
+const cv=document.getElementById('cv'), act=document.getElementById('ses');
+const b1=document.getElementById('b1'), b2=document.getElementById('b2'), clock=document.getElementById('clock'), hint=document.getElementById('hint');
+const lp=document.getElementById('lp'), lc=document.getElementById('lc');
+let renderer;
+try { renderer=new THREE.WebGLRenderer({canvas:cv,antialias:false,alpha:true,premultipliedAlpha:true,powerPreference:'low-power'}); }
+catch(e){ document.documentElement.classList.remove('js'); throw e; }   // no WebGL: static frame + text
+renderer.outputColorSpace=THREE.LinearSRGBColorSpace;   // textures pass through untouched
+renderer.setClearColor(0x000000,0);   // page paper shows through; avoids clear-colour colourspace mismatch
+const scene=new THREE.Scene(), cam=new THREE.OrthographicCamera(0,1,0,1,-1,1);
+const uni={ tC:{value:null}, tD:{value:null}, uOff:{value:new THREE.Vector2()}, uT:{value:0}, uBreath:{value:1}, uFade:{value:0} };
+const mat=new THREE.ShaderMaterial({ uniforms:uni, transparent:true, blending:THREE.NoBlending,
+  vertexShader:'varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.); }',
+  fragmentShader:`precision highp float; varying vec2 vUv; uniform sampler2D tC,tD; uniform vec2 uOff; uniform float uT,uBreath,uFade;
+    void main(){
+      // depth parallax: near things slide more than far things (two refinement steps)
+      float d=texture2D(tD,vUv).r; vec2 uv=vUv-uOff*(d-.22);
+      d=texture2D(tD,uv).r; uv=vUv-uOff*(d-.22);
+      d=texture2D(tD,uv).r;
+      // breathing: the mantle swells very slightly around its centre
+      vec2 c=vec2(.215,.70); float r=distance(vec2(uv.x*1.82,uv.y),vec2(c.x*1.82,c.y));
+      float w=smoothstep(.36,.08,r)*smoothstep(.30,.48,d);
+      uv+=(uv-c)*(-.011*sin(uT*1.25))*w*uBreath;
+      float a=mix(1.,smoothstep(0.,.09,vUv.y)*smoothstep(1.,.91,vUv.y),uFade);
+      gl_FragColor=vec4(texture2D(tC,clamp(uv,0.,1.)).rgb*a,a);
+    }` });
+const quad=new THREE.Mesh(new THREE.PlaneGeometry(1,1),mat); scene.add(quad);
+const small=Math.min(innerWidth,innerHeight)*Math.min(devicePixelRatio||1,2)<900;
+const loader=new THREE.TextureLoader(), col=[], dep=[];
+function tex(url,i,arr){ loader.load(url,t=>{ t.colorSpace=THREE.NoColorSpace; t.minFilter=THREE.LinearFilter; t.generateMipmaps=false; arr[i]=t; dirty=true; }); }
+for(let i=0;i<N;i++){ const n=String(i+1).padStart(2,'0'); tex('/sahne/f/'+n+(small?'-m':'')+'.webp',i,col); tex('/sahne/d/'+n+'.webp',i,dep); }
+let W=0,H=0,rect={x:0,y:0,w:0,h:0},p=0,portrait=false,dirty=true,visible=true;
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)), band=(v,a,b)=>clamp((v-a)/(b-a),0,1), ease=t=>t*t*(3-2*t);
+function size(){
+  const dpr=Math.min(devicePixelRatio||1,2); W=cv.clientWidth; H=cv.clientHeight; renderer.setPixelRatio(dpr); renderer.setSize(W,H,false);
+  portrait=W/H<1; let s,x,y;
+  if(portrait){ s=(W*1.55)/IW; x=-W*0.04; y=H*0.13; } else { s=Math.max(W/IW,H/IH); x=0; y=(H-IH*s)/2; }
+  // 3% overscan so the parallax never shows the edge of the photo
+  const o=portrait?0:0.03; rect={x:x-IW*s*o,y:y-IH*s*o,w:IW*s*(1+2*o),h:IH*s*(1+2*o)};
+  cam.left=0; cam.right=W; cam.top=H; cam.bottom=0; cam.updateProjectionMatrix();
+  quad.scale.set(rect.w,rect.h,1); quad.position.set(rect.x+rect.w/2,H-(rect.y+rect.h/2),0);
+  layout();
+}
+// pointer / tilt -> parallax target; plus a slow idle drift so the puppet is never frozen
+let tx=0,ty=0,ox=0,oy=0;
+addEventListener('pointermove',e=>{ if(e.pointerType==='touch') return; tx=(e.clientX/innerWidth-.5)*2; ty=(e.clientY/innerHeight-.5)*2; },{passive:true});
+addEventListener('deviceorientation',e=>{ if(e.gamma==null) return; tx=clamp(e.gamma/22,-1,1); ty=clamp((e.beta-45)/28,-1,1); },{passive:true});
+function layout(){
+  const o1=1-ease(band(p,.14,.26)), o2=ease(band(p,.70,.82));
+  b1.style.opacity=o1; b1.style.transform=(portrait?'':'translateY(-50%) ')+'translateY('+(-24*(1-o1))+'px)'; b1.style.pointerEvents=o1<.5?'none':'auto';
+  b2.style.opacity=o2; b2.style.transform=(portrait?'':'translateY(-50%) ')+'translateY('+(24*(1-o2))+'px)'; b2.style.pointerEvents=o2<.5?'none':'auto';
+  hint.style.opacity=1-band(p,.02,.1);
+  const oc=ease(band(p,.24,.32))*(1-ease(band(p,.62,.70))); clock.style.opacity=oc; clock.style.transform=portrait?'':'translateY(calc(-50svh + 110px))';
+  let hx=rect.x+rect.w*0.372, hy=rect.y+rect.h*0.395;
+  const kb=b2.querySelector('.k').getBoundingClientRect(), sb=cv.getBoundingClientRect();
+  let ax=kb.left-sb.left-14; const ay=kb.top-sb.top+kb.height/2;
+  if(portrait){ hx=rect.x+rect.w*0.40; ax=kb.left-sb.left+3; lp.setAttribute('d','M'+hx+' '+hy+' L'+hx+' '+(ay-34)+' L'+ax+' '+(ay-34)+' L'+ax+' '+(ay-12)); }
+  else { const mx=hx+(ax-hx)*.45; lp.setAttribute('d','M'+hx+' '+hy+' L'+mx+' '+ay+' L'+ax+' '+ay); }
+  const L=lp.getTotalLength(); lp.style.strokeDasharray=L; lp.style.strokeDashoffset=L*(1-ease(band(p,.72,.84)));
+  lc.setAttribute('cx',hx); lc.setAttribute('cy',hy); lc.style.opacity=band(p,.71,.74);
+}
+let lastTop=null, t0=performance.now();
+function frame(now){
+  requestAnimationFrame(frame);
+  const r=act.getBoundingClientRect();
+  if(r.top!==lastTop){ lastTop=r.top; p=clamp(-r.top/(r.height-innerHeight),0,1); visible=r.bottom>0&&r.top<innerHeight; layout(); }
+  if(!visible) return;
+  const t=(now-t0)/1000;
+  const gx=tx*.75+.35*Math.sin(t*.43), gy=ty*.6+.25*Math.cos(t*.31);
+  ox+=(gx-ox)*.06; oy+=(gy-oy)*.06;
+  const i=clamp(Math.round(band(p,.22,.72)*(N-1)),0,N-1);
+  // nearest loaded frame (while images are still arriving)
+  let k=i; while(k>0&&!(col[k]&&dep[k])) k--;
+  if(!(col[k]&&dep[k])) return;
+  uni.tC.value=col[k]; uni.tD.value=dep[k]; uni.uT.value=t;
+  uni.uFade.value=portrait?1:0; uni.uOff.value.set(ox*(portrait?.016:.011), oy*.008);
+  renderer.render(scene,cam);
+}
+addEventListener('resize',size);
+window.__setP=v=>{ const r=act.getBoundingClientRect(); scrollTo(0, scrollY + r.top + v*(r.height-innerHeight)); };
+size(); requestAnimationFrame(frame);
+if(document.fonts&&document.fonts.ready) document.fonts.ready.then(layout);
+window.__ready=true;
+</script>
+</body>
+</html>

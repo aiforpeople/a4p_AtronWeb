@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{{HEAD}}
+<link rel="preload" href="/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<!-- Netlify Forms: static copy so the form is detected at deploy time -->
+<form name="brief" netlify netlify-honeypot="bot-field" hidden>
+  <input name="bot-field"><input name="company"><input name="process"><input name="volume"><input name="channel"><input name="systems"><input name="success"><input name="name"><input name="contact"><textarea name="summary"></textarea><textarea name="transcript"></textarea><input name="lang"><input name="source">
+</form>
+
+<header id="top">
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="ATRON"><img src="/logo.png" alt="ATRON" width="1037" height="266"></a>
+    <nav class="mono">
+      <a class="hide-m" href="#canli" data-k="nav.live">Canlı dene</a>
+      <a class="hide-m" href="#mimari" data-k="nav.arch">Mimari</a>
+      <a class="hide-m" href="#kanit" data-k="nav.proof">Kanıt</a>
+      <a class="hide-m" href="#nasil" data-k="nav.how">Nasıl</a>
+      {{LANGSW}}
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="h1">
+  <div class="bg"><picture><source srcset="/img/hero.webp" type="image/webp"><img src="/img/hero.jpg" alt="" fetchpriority="high"></picture></div>
+  <div class="wrap">
+    <p class="mono label"><span class="dot"></span><span data-k="hero.label">ATRON · Operasyon katmanı · Canlıda</span></p>
+    <h1 id="h1" class="display" data-k="hero.h1" data-html><span class="rise"><span>Sürecinizi söyleyin.</span></span><span class="rise"><span><em>Gelecek hafta</em></span></span><span class="rise"><span>çalışsın.</span></span></h1>
+    <p class="body fade" data-k="hero.body">Ekibinizin her gün telefonda, WhatsApp'ta ve formlarda tekrar ettiği işi ATRON ajanları devralır. İlk görüşmeye slaytla değil, sizin sürecinizde çalışan bir prototiple geliriz.</p>
+    <div class="ctas fade">
+      <a class="chip solid mono" href="#canli"><span data-k="hero.cta1">Ajanla şimdi konuş</span><span class="arr">→</span></a>
+      <a class="chip mono" href="#iletisim"><span data-k="hero.cta2">Görüşme ayarla</span><span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="gun" aria-labelledby="h-day">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono"><span data-k="day.label">01</span><span data-k="day.label2"></span></p>
+      <h2 id="h-day" class="wide fade" data-k="day.h" data-html></h2>
+      <p class="body dim fade" data-k="day.body"></p>
+    </div>
+    <ol class="day">
+      <li class="fade"><span class="display tm" data-k="day.1t"></span><div><h3 data-k="day.1h"></h3><p data-k="day.1p"></p></div><p class="mono res"><span class="dot"></span><span data-k="day.1r"></span></p></li>
+      <li class="fade"><span class="display tm" data-k="day.2t"></span><div><h3 data-k="day.2h"></h3><p data-k="day.2p"></p></div><p class="mono res"><span class="dot"></span><span data-k="day.2r"></span></p></li>
+      <li class="fade"><span class="display tm" data-k="day.3t"></span><div><h3 data-k="day.3h"></h3><p data-k="day.3p"></p></div><p class="mono res"><span class="dot"></span><span data-k="day.3r"></span></p></li>
+    </ol>
+    <p class="body dim fade day-foot"><span data-k="day.foot"></span> <a class="link" href="#canli">↓</a></p>
+  </div>
+</section>
+
+<section id="canli" aria-labelledby="h-live">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono"><span data-k="live.label">01 · Canlı · Video değil</span><span data-k="live.label2">Mikrofon gerekir</span></p>
+      <h2 id="h-live" class="wide fade" data-k="live.h" data-html>Şu an bir ATRON ajanıyla <em>konuşabilirsiniz.</em></h2>
+      <p class="body dim fade" data-k="live.body">Ajan size operasyonunuzu soracak: hangi iş, ne sıklıkla, hangi sistemlerde, başarıyı neyle ölçüyorsunuz. Konuştukça sağdaki brief kendiliğinden dolar. Gerçek müşterilerimizde CRM'e düşen kayıt da tam böyle oluşur.</p>
+    </div>
+
+    <div class="panel fade">
+      <div class="side">
+        <div class="status mono" id="status"><span class="st"><span class="dot"></span><span id="stText" data-k="live.idle">Hazır</span></span><span class="timer" id="timer">0:00 / 3:00</span></div>
+        <button class="start" id="startBtn" type="button"><span class="ring"></span><span class="t" id="startText" data-k="live.start">Konuşmayı başlat</span></button>
+        <div class="wave" id="wave" aria-hidden="true"></div>
+        <div class="log" id="log" aria-live="polite"><p class="empty" data-k="live.empty">Konuşma burada yazıya dökülecek.</p></div>
+        <p class="note" data-k="live.note">Görüşme en fazla 3 dakika sürer. Ses kaydı tutmuyoruz. Brief'i göndermek tamamen size kalmış; göndermezseniz hiçbir şey bize ulaşmaz.</p>
+      </div>
+      <div class="side brief">
+        <div>
+          <h3 data-k="brief.h">Sizin brief'iniz</h3>
+          <p class="sub" data-k="brief.sub">Konuşmak istemiyorsanız alanları yazarak da doldurabilirsiniz.</p>
+        </div>
+        <dl id="briefFields"></dl>
+        <p class="summary" id="summary"></p>
+        <div class="send">
+          <button class="chip solid mono" id="sendBtn" type="button"><span data-k="brief.send">Brief'i Can'a gönder</span><span class="arr">→</span></button>
+          <span class="mono ok" id="sendOk" hidden></span>
+        </div>
+      </div>
+    </div>
+    <audio id="agentAudio" autoplay playsinline></audio>
+  </div>
+</section>
+
+<section id="mimari" aria-labelledby="h-arch">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono"><span data-k="arch.label">02 · Mimari</span><span lang="en">ATRON Brain</span></p>
+      <h2 id="h-arch" class="wide fade" data-k="arch.h" data-html>Bir merkez. <em>Kendi başına düşünen</em> kollar.</h2>
+      <p class="body dim fade" data-k="arch.body">Bir ahtapotun nöronlarının çoğu kollarındadır. Her kol kendi işini çözer, merkez hepsini aynı hedefe bağlar. ATRON da böyle kurulu: ortak bir çekirdek (hafıza, kurallar, kalite kontrol, entegrasyonlar) ve her biri tek bir işi üstlenen ajanlar. Yeni bir iş için yeni bir sistem kurulmaz, yeni bir kol takılır.</p>
+    </div>
+    <div class="brain">
+      <ol class="layers fade">
+        <li><span class="mono n">01</span><h3 data-k="br.l1"></h3><p data-k="br.l1d"></p></li>
+        <li class="core"><span class="mono n">02</span><h3 data-k="br.l2"></h3><p data-k="br.l2d"></p></li>
+        <li><span class="mono n">03</span><h3 data-k="br.l3"></h3><p data-k="br.l3d"></p></li>
+        <li><span class="mono n">04</span><h3 data-k="br.l4"></h3><p data-k="br.l4d"></p></li>
+      </ol>
+      <div class="outs">
+        <p class="mono proofline fade"><span class="dot"></span><span data-k="br.proof"></span></p>
+        <dl class="fade">
+          <dt class="mono" data-k="br.o1k"></dt><dd data-k="br.o1"></dd>
+          <dt class="mono" data-k="br.o2k"></dt><dd data-k="br.o2"></dd>
+          <dt class="mono" data-k="br.o3k"></dt><dd data-k="br.o3"></dd>
+          <dt class="mono" data-k="br.o4k"></dt><dd data-k="br.o4"></dd>
+        </dl>
+      </div>
+    </div>
+    <figure class="fade">
+      <div class="frame-img r169"><picture><source srcset="/img/core.webp" type="image/webp"><img src="/img/core.jpg" alt="" loading="lazy"></picture></div>
+      <figcaption class="mono cap"><span data-k="arch.cap">Tek çekirdek, sekiz kol</span><span>16:9</span></figcaption>
+    </figure>
+    <div class="arms">{{ARMS}}</div>
+  </div>
+</section>
+
+<section id="kanit" aria-labelledby="h-proof">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono"><span data-k="proof.label">03 · Kanıt</span><span data-k="proof.label2">Slayt değil</span></p>
+      <h2 id="h-proof" class="wide fade" data-k="proof.h" data-html>Gösterdiğimiz her şey <em>çalışıyor.</em></h2>
+    </div>
+    <div class="gal">
+      <figure class="a fade"><div class="frame-img r45"><picture><source srcset="/img/voice.webp" type="image/webp"><img src="/img/voice.jpg" alt="" loading="lazy"></picture></div><figcaption class="mono cap"><span data-k="proof.cap1">Ses</span><span>4:5</span></figcaption></figure>
+      <figure class="b fade"><div class="frame-img r45"><picture><source srcset="/img/record.webp" type="image/webp"><img src="/img/record.jpg" alt="" loading="lazy"></picture></div><figcaption class="mono cap"><span data-k="proof.cap2">Kayıt</span><span>4:5</span></figcaption></figure>
+      <div class="proof">
+        <article class="fade">
+          <p class="mono" style="color:var(--dim)" data-k="proof.a.k">Otomotiv · Renault Innovation Hub</p>
+          <h3 class="display" data-k="proof.a.h" data-html>İki projeyle <em>global shortlist.</em></h3>
+          <p class="body dim" data-k="proof.a.p">Renault'nun inovasyon programına geliştirdiğimiz iki proje, dünya çapındaki kısa listeye girdi. Masaya her seferinde çalışan bir demo koyduk.</p>
+        </article>
+        <article class="fade">
+          <p class="mono" style="color:var(--dim)" data-k="proof.b.k">Sağlık turizmi · Kurumsal operatör (NDA)</p>
+          <h3 class="display" data-k="proof.b.h" data-html>Canlıda. <em>Pilot değil.</em></h3>
+          <p class="body dim" data-k="proof.b.p">Gelen aramalar, WhatsApp satış konuşmalarının kalite kontrolü ve soğumuş lead'lere geri dönüş aynı çekirdek üzerinde, operatörün kendi CRM'iyle entegre çalışıyor.</p>
+        </article>
+      </div>
+      <figure class="moment fade" aria-labelledby="m-h">
+        <p class="mono m-label"><span class="dot"></span><span data-k="m.label"></span></p>
+        <h3 id="m-h" class="wide" data-k="m.h"></h3>
+        <div class="m-grid">
+          <div class="m-said">
+            <p class="mono k" data-k="m.said"></p>
+            <blockquote lang="es" data-k="m.quote"></blockquote>
+            <p class="tr" data-k="m.quote_tr"></p>
+          </div>
+          <div class="m-arrow" aria-hidden="true">→</div>
+          <div class="m-rec">
+            <p class="mono k" data-k="m.rec"></p>
+            <dl>
+              <dt class="mono" data-k="m.k1"></dt><dd class="hot" data-k="m.v1"></dd>
+              <dt class="mono" data-k="m.k2"></dt><dd data-k="m.v2"></dd>
+              <dt class="mono" data-k="m.k3"></dt><dd data-k="m.v3"></dd>
+              <dt class="mono" data-k="m.k4"></dt><dd data-k="m.v4"></dd>
+              <dt class="mono" data-k="m.k5"></dt><dd data-k="m.v5"></dd>
+            </dl>
+          </div>
+        </div>
+        <figcaption class="mono cap"><span data-k="m.cap"></span><span>ATRON Outbound</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="derin" aria-labelledby="h-deep">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono"><span data-k="deep.label"></span><span data-k="deep.label2"></span></p>
+      <h2 id="h-deep" class="wide fade" data-k="deep.h" data-html></h2>
+      <p class="body dim fade" data-k="deep.body"></p>
+    </div>
+    <div class="dts">
+      <article class="dt fade">
+        <p class="mono dt-st live"><span class="dot"></span><span data-k="deep.prosem.st"></span></p>
+        <h3 class="display" lang="en">PROSEM</h3>
+        <p class="dt-d" data-k="deep.prosem.d"></p>
+        <div class="dt-io">
+          <p class="mono k"><span data-k="deep.ex"></span></p>
+          <p class="dt-in" data-k="deep.prosem.in"></p>
+          <p class="dt-arr" aria-hidden="true">↓</p>
+          <dl><dt class="mono" data-k="deep.prosem.k0"></dt><dd class="warn" data-k="deep.prosem.v0"></dd><dt class="mono" data-k="deep.prosem.k1"></dt><dd data-k="deep.prosem.v1"></dd><dt class="mono" data-k="deep.prosem.k2"></dt><dd data-k="deep.prosem.v2"></dd></dl>
+        </div>
+      </article>
+      <article class="dt fade">
+        <p class="mono dt-st live"><span class="dot"></span><span data-k="deep.fic.st"></span></p>
+        <h3 class="display" lang="en">VOICE4FIC</h3>
+        <p class="dt-d" data-k="deep.fic.d"></p>
+        <div class="dt-io">
+          <p class="mono k"><span data-k="deep.ex"></span></p>
+          <p class="dt-in" data-k="deep.fic.in"></p>
+          <p class="dt-arr" aria-hidden="true">↓</p>
+          <dl><dt class="mono" data-k="deep.fic.k0"></dt><dd data-k="deep.fic.v0"></dd><dt class="mono" data-k="deep.fic.k1"></dt><dd data-k="deep.fic.v1"></dd><dt class="mono" data-k="deep.fic.k2"></dt><dd class="hot" data-k="deep.fic.v2"></dd></dl>
+        </div>
+      </article>
+      <article class="dt fade">
+        <p class="mono dt-st live"><span class="dot"></span><span data-k="deep.mw.st"></span></p>
+        <h3 class="display" lang="en">Mind Wandering</h3>
+        <p class="dt-d" data-k="deep.mw.d"></p>
+        <div class="dt-io">
+          <p class="mono k"><span data-k="deep.ex"></span></p>
+          <p class="dt-in" data-k="deep.mw.in"></p>
+          <p class="dt-arr" aria-hidden="true">↓</p>
+          <dl><dt class="mono" data-k="deep.mw.k0"></dt><dd data-k="deep.mw.v0"></dd><dt class="mono" data-k="deep.mw.k1"></dt><dd data-k="deep.mw.v1"></dd><dt class="mono" data-k="deep.mw.k2"></dt><dd class="hot" data-k="deep.mw.v2"></dd></dl>
+        </div>
+      </article>
+      <article class="dt fade">
+        <p class="mono dt-st proto"><span class="dot"></span><span data-k="deep.rc.st"></span></p>
+        <h3 class="display" lang="en">Ready Check</h3>
+        <p class="dt-d" data-k="deep.rc.d"></p>
+        <div class="dt-io">
+          <p class="mono k"><span data-k="deep.ex"></span></p>
+          <p class="dt-in" data-k="deep.rc.in"></p>
+          <p class="dt-arr" aria-hidden="true">↓</p>
+          <dl><dt class="mono" data-k="deep.rc.k0"></dt><dd data-k="deep.rc.v0"></dd><dt class="mono" data-k="deep.rc.k1"></dt><dd class="hot" data-k="deep.rc.v1"></dd><dt class="mono" data-k="deep.rc.k2"></dt><dd data-k="deep.rc.v2"></dd></dl>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="nasil" aria-labelledby="h-how">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono"><span data-k="how.label">04 · Nasıl çalışıyoruz</span><span data-k="how.label2">Bir hafta</span></p>
+      <h2 id="h-how" class="wide fade" data-k="how.h" data-html>Önce çalışan şey. <em>Sonra</em> gerçek veri.</h2>
+    </div>
+    <div class="how">
+      <figure class="img fade"><div class="frame-img r45"><picture><source srcset="/img/week.webp" type="image/webp"><img src="/img/week.jpg" alt="" loading="lazy"></picture></div></figure>
+      <div class="steps">
+        <div class="step fade"><span class="mono k" data-k="how.1k">Hafta 1</span><div><h4 data-k="how.1h">Prototip</h4><p data-k="how.1p">Sürecinizi dışarıdan inceleriz, brief'i kendimize yazarız. Hafta sonunda kendi akışınızda çalışan bir ajan görürsünüz.</p></div></div>
+        <div class="step fade"><span class="mono k" data-k="how.2k">Pilot</span><div><h4 data-k="how.2h">Gerçek veri, tek ölçüt</h4><p data-k="how.2p">Ajan gerçek verinizle, canlıya yakın bir ortamda çalışır. Başarıyı baştan birlikte seçtiğimiz tek bir ölçüte göre değerlendiririz.</p></div></div>
+        <div class="step fade"><span class="mono k" data-k="how.3k">Canlı</span><div><h4 data-k="how.3h">Sizin sistemlerinizde</h4><p data-k="how.3p">CRM'inize, santralinize ve mesajlaşma kanallarınıza bağlanır, uyum kurallarınızın içinde çalışır. İzlemeyi ve iyileştirmeyi biz sürdürürüz.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+{{FAQ}}
+</main>
+
+<section class="contact" id="iletisim" aria-labelledby="h-contact">
+  <div class="wrap">
+    <p class="mono" style="opacity:.8" data-k="contact.label">Sıra sizde</p>
+    <h2 id="h-contact" class="display" style="margin-top:24px" data-k="contact.h">Hangi süreç sizi en çok yoruyor?</h2>
+    <p class="body" data-k="contact.body">Bize o süreci anlatın. Google Meet'te yarım saat konuşalım, bir hafta sonra çalışır halini görün.</p>
+    <div class="row">
+      <a class="chip solid mono" id="meetLink" href="mailto:can@atronai.co?subject=ATRON%20%C2%B7%20G%C3%B6r%C3%BC%C5%9Fme"><span data-k="contact.cta">Görüşme ayarla</span><span class="arr">→</span></a>
+      <button class="chip mono" id="copyMail" type="button"><span id="copyText">can@atronai.co</span></button>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap mono">
+    <span data-k="foot.a">ATRON, AI for People Teknoloji A.Ş. ürünüdür</span>
+    <span>Vadi İstanbul · Sarıyer / İstanbul</span>
+    <span data-k="foot.b">Görseller yapay zekâ destekli üretimdir</span>
+    <span>© 2026</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+/* ---------------- copy ---------------- */
+var T = {{RUNTIME}};
+var FIELDS = ['company','process','volume','channel','systems','success','name','contact'];
+
+/* ---------------- language ---------------- */
+var lang = document.documentElement.lang;
+
+function t(k){ return T[k] || k; }
+
+var briefDl = document.getElementById('briefFields');
+FIELDS.forEach(function(f){
+  var dt = document.createElement('dt'); dt.className = 'mono'; dt.setAttribute('data-k','f.'+f);
+  var dd = document.createElement('dd'); dd.id = 'dd-'+f;
+  var inp = document.createElement('input'); inp.id = 'f-'+f; inp.name = f; inp.autocomplete = f === 'name' ? 'name' : (f === 'contact' ? 'email' : 'off');
+  dd.appendChild(inp); briefDl.appendChild(dt); briefDl.appendChild(dd);
+});
+
+function applyLang(){
+  FIELDS.forEach(function(f){ document.getElementById('f-'+f).placeholder = t('p.'+f); });
+  document.querySelectorAll('#briefFields dt').forEach(function(dt){ dt.textContent = t(dt.getAttribute('data-k')); });
+  setStateText(state);
+  var h1 = document.getElementById('h1'); if (h1) h1.classList.add('in');
+}
+
+/* ---------------- reveals + header ---------------- */
+var io = 'IntersectionObserver' in window ? new IntersectionObserver(function(es){
+  es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{rootMargin:'0px 0px -10% 0px'}) : null;
+function observe(){ document.querySelectorAll('.fade:not(.in),.rise:not(.in)').forEach(function(el){ io ? io.observe(el) : el.classList.add('in'); }); }
+var header = document.querySelector('header');
+addEventListener('scroll', function(){ header.classList.toggle('solid', scrollY > 40); }, {passive:true});
+
+/* ---------------- copy email ---------------- */
+document.getElementById('copyMail').addEventListener('click', function(){
+  var el = document.getElementById('copyText');
+  var done = function(){ el.textContent = t('copy.done'); setTimeout(function(){ el.textContent = 'can@atronai.co'; }, 1600); };
+  if (navigator.clipboard) navigator.clipboard.writeText('can@atronai.co').then(done, function(){ location.href = 'mailto:can@atronai.co'; });
+  else location.href = 'mailto:can@atronai.co';
+});
+
+/* ---------------- live agent ---------------- */
+var MAX_SEC = 180;
+var CALLS_URL = 'https://api.openai.com/v1/realtime/calls';
+var state = 'idle', call = null, transcript = [], timerId = null, startedMs = 0;
+var statusEl = document.getElementById('status'), stText = document.getElementById('stText');
+var startBtn = document.getElementById('startBtn'), startText = document.getElementById('startText');
+var logEl = document.getElementById('log'), timerEl = document.getElementById('timer');
+var wave = document.getElementById('wave');
+for (var i=0;i<36;i++) wave.appendChild(document.createElement('i'));
+
+function fmt(s){ return Math.floor(s/60)+':'+('0'+(s%60)).slice(-2); }
+function setStateText(s){
+  stText.textContent = t('live.'+s);
+  statusEl.classList.toggle('live', s === 'live');
+  startBtn.classList.toggle('on', s === 'live' || s === 'connecting');
+  startText.textContent = (s === 'live' || s === 'connecting') ? t('live.stop') : (s === 'ended' ? t('live.again') : t('live.start'));
+}
+function setState(s){ state = s; setStateText(s); }
+
+function addLine(role, text){
+  text = (text||'').trim(); if (!text) return;
+  var empty = logEl.querySelector('.empty'); if (empty) empty.remove();
+  var p = document.createElement('p'); p.className = role;
+  var w = document.createElement('span'); w.className = 'mono who'; w.textContent = role === 'agent' ? t('who.agent') : t('who.you');
+  p.appendChild(w); p.appendChild(document.createTextNode(text));
+  logEl.appendChild(p); logEl.scrollTop = logEl.scrollHeight;
+  transcript.push((role === 'agent' ? 'ATRON: ' : 'Visitor: ') + text);
+}
+function sysLine(text){
+  var empty = logEl.querySelector('.empty'); if (empty) empty.remove();
+  var p = document.createElement('p'); p.className = 'empty'; p.textContent = text; logEl.appendChild(p);
+}
+
+function setField(f, v){
+  var inp = document.getElementById('f-'+f); if (!inp || typeof v !== 'string' || !v.trim()) return;
+  inp.value = v.trim();
+  var dd = document.getElementById('dd-'+f); dd.classList.add('flash'); setTimeout(function(){ dd.classList.remove('flash'); }, 900);
+}
+
+function sendEvt(payload){ if (call && call.dc.readyState === 'open') call.dc.send(JSON.stringify(payload)); }
+
+function runTool(name, args){
+  if (name === 'update_brief'){ FIELDS.forEach(function(f){ if (args[f]) setField(f, args[f]); }); return {ok:true}; }
+  if (name === 'finish_brief'){ document.getElementById('summary').textContent = args.summary || ''; return {ok:true}; }
+  return {ok:false, error:'unknown tool'};
+}
+
+function onEvent(ev){
+  var type = ev.type || '';
+  if (type === 'conversation.item.input_audio_transcription.completed') return addLine('caller', ev.transcript);
+  if (type === 'response.output_audio_transcript.done' || type === 'response.audio_transcript.done') return addLine('agent', ev.transcript);
+  if (type === 'response.function_call_arguments.done'){
+    var args = {}; try { args = JSON.parse(ev.arguments || '{}'); } catch(e) {}
+    var out = runTool(ev.name, args);
+    sendEvt({type:'conversation.item.create', item:{type:'function_call_output', call_id:ev.call_id, output:JSON.stringify(out)}});
+    sendEvt({type:'response.create'});
+  }
+}
+
+function meter(stream){
+  try {
+    var AC = window.AudioContext || window.webkitAudioContext; var ac = new AC();
+    var an = ac.createAnalyser(); an.fftSize = 128; ac.createMediaStreamSource(stream).connect(an);
+    var data = new Uint8Array(an.frequencyBinCount), bars = wave.children;
+    (function loop(){
+      if (!call) { for (var j=0;j<bars.length;j++) bars[j].style.height = '4px'; ac.close(); return; }
+      an.getByteFrequencyData(data);
+      for (var j=0;j<bars.length;j++){ var v = data[j+2] || 0; bars[j].style.height = Math.max(4, v/255*42)+'px'; }
+      requestAnimationFrame(loop);
+    })();
+    return ac;
+  } catch(e) { return null; }
+}
+
+async function startCall(){
+  setState('connecting');
+  var secret;
+  try {
+    var res = await fetch('/api/realtime-session', {method:'POST', headers:{'content-type':'application/json'}, body:JSON.stringify({lang:lang})});
+    if (!res.ok) throw new Error('session '+res.status);
+    secret = (await res.json()).value;
+  } catch(e) { setState('error'); sysLine(t('live.unavail')); return; }
+
+  var mic;
+  try { mic = await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true, noiseSuppression:true, autoGainControl:true}}); }
+  catch(e) { setState('error'); sysLine(t('live.mic')); return; }
+
+  var pc = new RTCPeerConnection(), dc = pc.createDataChannel('oai-events');
+  call = {pc:pc, dc:dc, mic:mic};
+  var audio = document.getElementById('agentAudio');
+  pc.ontrack = function(e){ audio.srcObject = e.streams[0]; audio.play().catch(function(){}); };
+  mic.getAudioTracks().forEach(function(tr){ pc.addTrack(tr, mic); });
+  dc.onopen = function(){
+    setState('live'); startedMs = Date.now();
+    timerId = setInterval(function(){
+      var s = Math.round((Date.now()-startedMs)/1000); timerEl.textContent = fmt(Math.min(s,MAX_SEC))+' / '+fmt(MAX_SEC);
+      if (s >= MAX_SEC) endCall();
+    }, 500);
+    sendEvt({type:'response.create'});
+  };
+  dc.onmessage = function(e){ try { onEvent(JSON.parse(e.data)); } catch(err) {} };
+  pc.onconnectionstatechange = function(){ if (pc.connectionState === 'failed' && call){ endCall(); setState('error'); } };
+  call.ac = meter(mic);
+  try {
+    var offer = await pc.createOffer(); await pc.setLocalDescription(offer);
+    var sdp = await fetch(CALLS_URL, {method:'POST', body:offer.sdp, headers:{Authorization:'Bearer '+secret, 'Content-Type':'application/sdp'}});
+    if (!sdp.ok) throw new Error('sdp '+sdp.status);
+    await pc.setRemoteDescription({type:'answer', sdp: await sdp.text()});
+  } catch(e) { endCall(); setState('error'); sysLine(t('live.unavail')); }
+}
+
+function endCall(){
+  if (!call) return;
+  var c = call; call = null; clearInterval(timerId);
+  c.mic.getTracks().forEach(function(tr){ tr.stop(); });
+  try { c.dc.close(); } catch(e) {}
+  c.pc.close();
+  if (state !== 'error') setState('ended');
+}
+
+startBtn.addEventListener('click', function(){
+  if (call || state === 'connecting') { endCall(); return; }
+  if (!window.RTCPeerConnection || !navigator.mediaDevices) { setState('error'); sysLine(t('live.unavail')); return; }
+  startCall();
+});
+
+/* ---------------- send brief (Netlify Forms) ---------------- */
+document.getElementById('sendBtn').addEventListener('click', async function(){
+  var ok = document.getElementById('sendOk');
+  var data = {'form-name':'brief', lang:lang, source: transcript.length ? 'voice' : 'typed', summary: document.getElementById('summary').textContent, transcript: transcript.join('\n')};
+  FIELDS.forEach(function(f){ data[f] = document.getElementById('f-'+f).value.trim(); });
+  if (!data.contact){ ok.hidden = false; ok.style.color = 'var(--bone)'; ok.textContent = t('brief.need'); document.getElementById('f-contact').focus(); return; }
+  try {
+    var res = await fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: new URLSearchParams(data).toString()});
+    if (!res.ok) throw new Error(res.status);
+    ok.hidden = false; ok.style.color = 'var(--live)'; ok.textContent = t('brief.sent');
+  } catch(e) { ok.hidden = false; ok.style.color = 'var(--bone)'; ok.textContent = t('brief.fail'); }
+});
+
+applyLang();
+observe();
+})();
+</script>
+</body>
+</html>

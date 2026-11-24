@@ -1,0 +1,790 @@
+{
+ "T": {
+  "nav.live": {
+   "tr": "Canlı dene",
+   "en": "Try it live"
+  },
+  "nav.arch": {
+   "tr": "Mimari",
+   "en": "Architecture"
+  },
+  "nav.proof": {
+   "tr": "Kanıt",
+   "en": "Proof"
+  },
+  "nav.how": {
+   "tr": "Nasıl",
+   "en": "How"
+  },
+  "hero.label": {
+   "tr": "ATRON · Operasyon katmanı · Canlıda",
+   "en": "ATRON · Operations layer · In production"
+  },
+  "hero.h1": {
+   "tr": "<span class=\"rise\"><span>Sürecinizi söyleyin.</span></span><span class=\"rise\"><span><em>Gelecek hafta</em></span></span><span class=\"rise\"><span>çalışsın.</span></span>",
+   "en": "<span class=\"rise\"><span>Name the process.</span></span><span class=\"rise\"><span><em>Watch it run</em></span></span><span class=\"rise\"><span>next week.</span></span>"
+  },
+  "hero.body": {
+   "tr": "ATRON, ekibinizin her gün tekrar ettiği işi yapan yapay zekâ çalışanlarıdır. Gece gelen aramayı açar, yüzlerce WhatsApp konuşmasını okur, Excel'de unutulmuş listeyi arar. Sonucu sabah CRM'inizde bulursunuz.",
+   "en": "ATRON is a team of AI workers that do the work your team repeats every day. It answers the call that comes in at night, reads hundreds of WhatsApp chats, and calls the list forgotten in a spreadsheet. In the morning, the results are in your CRM."
+  },
+  "hero.cta1": {
+   "tr": "Ajanla şimdi konuş",
+   "en": "Talk to the agent now"
+  },
+  "hero.cta2": {
+   "tr": "Görüşme ayarla",
+   "en": "Book a call"
+  },
+  "live.label": {
+   "tr": "02 · Canlı · Video değil",
+   "en": "02 · Live · Not a video"
+  },
+  "live.label2": {
+   "tr": "Mikrofon gerekir",
+   "en": "Needs a microphone"
+  },
+  "live.h": {
+   "tr": "Şu an bir ATRON ajanıyla <em>konuşabilirsiniz.</em>",
+   "en": "You can talk to an ATRON agent <em>right now.</em>"
+  },
+  "live.body": {
+   "tr": "Ajan size operasyonunuzu soracak: hangi iş, ne sıklıkla, hangi sistemlerde, başarıyı neyle ölçüyorsunuz. Konuştukça sağdaki brief kendiliğinden dolar. Gerçek müşterilerimizde CRM'e düşen kayıt da tam böyle oluşur.",
+   "en": "The agent will ask about your operation: which work, how often, in which systems, how you measure success. As you talk, the brief on the right fills itself in. That is exactly how the record lands in the CRM for our real customers."
+  },
+  "live.idle": {
+   "tr": "Hazır",
+   "en": "Ready"
+  },
+  "live.connecting": {
+   "tr": "Bağlanıyor",
+   "en": "Connecting"
+  },
+  "live.live": {
+   "tr": "Canlı",
+   "en": "Live"
+  },
+  "live.ended": {
+   "tr": "Bitti",
+   "en": "Ended"
+  },
+  "live.error": {
+   "tr": "Bağlanamadı",
+   "en": "Could not connect"
+  },
+  "live.start": {
+   "tr": "Konuşmayı başlat",
+   "en": "Start talking"
+  },
+  "live.stop": {
+   "tr": "Bitir",
+   "en": "End"
+  },
+  "live.again": {
+   "tr": "Yeniden konuş",
+   "en": "Talk again"
+  },
+  "live.empty": {
+   "tr": "Konuşma burada yazıya dökülecek.",
+   "en": "The conversation will be transcribed here."
+  },
+  "live.note": {
+   "tr": "Görüşme en fazla 3 dakika sürer. Ses kaydı tutmuyoruz. Brief'i göndermek tamamen size kalmış; göndermezseniz hiçbir şey bize ulaşmaz.",
+   "en": "A call lasts at most 3 minutes. We don't keep audio. Sending the brief is entirely up to you; if you don't, nothing reaches us."
+  },
+  "live.unavail": {
+   "tr": "Canlı ajan şu an bu tarayıcıda bağlanamıyor. Brief'i yazarak doldurup gönderebilirsiniz.",
+   "en": "The live agent can't connect in this browser right now. You can type the brief and send it instead."
+  },
+  "live.mic": {
+   "tr": "Mikrofon izni verilmedi. İzin verip yeniden deneyin ya da brief'i yazarak doldurun.",
+   "en": "Microphone permission was denied. Allow it and try again, or type the brief."
+  },
+  "who.agent": {
+   "tr": "ATRON",
+   "en": "ATRON"
+  },
+  "who.you": {
+   "tr": "Siz",
+   "en": "You"
+  },
+  "brief.h": {
+   "tr": "Sizin brief'iniz",
+   "en": "Your brief"
+  },
+  "brief.sub": {
+   "tr": "Konuşmak istemiyorsanız alanları yazarak da doldurabilirsiniz.",
+   "en": "If you'd rather not talk, you can type into the fields."
+  },
+  "brief.send": {
+   "tr": "Brief'i Can'a gönder",
+   "en": "Send the brief to Can"
+  },
+  "brief.sent": {
+   "tr": "Gönderildi. Can size dönecek.",
+   "en": "Sent. Can will get back to you."
+  },
+  "brief.fail": {
+   "tr": "Gönderilemedi. can@atronai.co adresine yazabilirsiniz.",
+   "en": "Could not send. You can write to can@atronai.co."
+  },
+  "brief.need": {
+   "tr": "Size dönebilmemiz için bir iletişim bilgisi ekleyin.",
+   "en": "Add a way to reach you so we can get back to you."
+  },
+  "f.company": {
+   "tr": "Şirket",
+   "en": "Company"
+  },
+  "f.process": {
+   "tr": "Süreç",
+   "en": "Process"
+  },
+  "f.volume": {
+   "tr": "Hacim",
+   "en": "Volume"
+  },
+  "f.channel": {
+   "tr": "Kanal",
+   "en": "Channel"
+  },
+  "f.systems": {
+   "tr": "Sistemler",
+   "en": "Systems"
+  },
+  "f.success": {
+   "tr": "Başarı ölçütü",
+   "en": "Success metric"
+  },
+  "f.name": {
+   "tr": "Ad",
+   "en": "Name"
+  },
+  "f.contact": {
+   "tr": "İletişim",
+   "en": "Contact"
+  },
+  "p.company": {
+   "tr": "Şirket ya da sektör",
+   "en": "Company or sector"
+  },
+  "p.process": {
+   "tr": "En çok vakit alan, tekrar eden iş",
+   "en": "The repetitive work that takes the most time"
+  },
+  "p.volume": {
+   "tr": "Günde / haftada kaç kez",
+   "en": "Times per day / week"
+  },
+  "p.channel": {
+   "tr": "Telefon, WhatsApp, form, saha…",
+   "en": "Phone, WhatsApp, forms, field…"
+  },
+  "p.systems": {
+   "tr": "CRM, ERP, Excel…",
+   "en": "CRM, ERP, spreadsheets…"
+  },
+  "p.success": {
+   "tr": "Neyi ölçerek anlarsınız",
+   "en": "What you would measure"
+  },
+  "p.name": {
+   "tr": "Adınız",
+   "en": "Your name"
+  },
+  "p.contact": {
+   "tr": "E-posta ya da telefon",
+   "en": "Email or phone"
+  },
+  "arch.label": {
+   "tr": "03 · Operasyon katmanı",
+   "en": "03 · Operations layer"
+  },
+  "arch.h": {
+   "tr": "Herkesin ve her ajanın baktığı <em>tek bir beyin.</em>",
+   "en": "One brain that <em>every person and every agent</em> works from."
+  },
+  "arch.body": {
+   "tr": "Biz kendi şirketimizi böyle yönetiyoruz. Her konuşma, her karar, her ajanın yaptığı iş ATRON Brain'e yazılıyor; insan da ajan da aynı yerden okuyor. Şimdi aynısının sizin şirketinizde kurulduğunu düşünün.",
+   "en": "This is how we run our own company. Every conversation, every decision and every piece of work an agent does is written to ATRON Brain; people and agents read from the same place. Now picture the same thing set up in your company."
+  },
+  "arch.cap": {
+   "tr": "Kollar: her ajan bir iş",
+   "en": "The arms: one agent, one job"
+  },
+  "proof.label": {
+   "tr": "04 · Kanıt",
+   "en": "04 · Proof"
+  },
+  "proof.label2": {
+   "tr": "Slayt değil",
+   "en": "Not slides"
+  },
+  "proof.h": {
+   "tr": "Gösterdiğimiz her şey <em>çalışıyor.</em>",
+   "en": "Everything we show <em>runs.</em>"
+  },
+  "proof.cap1": {
+   "tr": "Ses",
+   "en": "Voice"
+  },
+  "proof.cap2": {
+   "tr": "Kayıt",
+   "en": "Record"
+  },
+  "proof.a.k": {
+   "tr": "OTOMOTİV · RENAULT INNOVATION HUB",
+   "en": "Automotive · Renault Innovation Hub"
+  },
+  "proof.a.h": {
+   "tr": "İki projeyle <em>global shortlist.</em>",
+   "en": "Two projects on the <em>global shortlist.</em>"
+  },
+  "proof.a.p": {
+   "tr": "Renault'nun inovasyon programına geliştirdiğimiz iki proje dünya çapındaki kısa listeye girdi; Renault bizden iki proje daha istedi. Hepsi aşağıda.",
+   "en": "Two projects we built for Renault's innovation programme made the worldwide shortlist, and Renault asked us for two more. All four are below."
+  },
+  "proof.b.k": {
+   "tr": "Sağlık turizmi · Kurumsal operatör (NDA)",
+   "en": "Health tourism · Enterprise operator (NDA)"
+  },
+  "proof.b.h": {
+   "tr": "Canlıda. <em>Pilot değil.</em>",
+   "en": "In production. <em>Not a pilot.</em>"
+  },
+  "proof.b.p": {
+   "tr": "Gelen aramalar, WhatsApp satış konuşmalarının kalite kontrolü ve soğumuş lead'lere geri dönüş aynı çekirdek üzerinde, operatörün kendi CRM'iyle entegre çalışıyor.",
+   "en": "Inbound calls, quality control of WhatsApp sales conversations and win-back calls to cold leads run on the same core, integrated with the operator's own CRM."
+  },
+  "how.label": {
+   "tr": "06 · Nasıl çalışıyoruz",
+   "en": "06 · How we work"
+  },
+  "how.label2": {
+   "tr": "Bir hafta",
+   "en": "One week"
+  },
+  "how.h": {
+   "tr": "Önce çalışan şey. <em>Sonra</em> gerçek veri.",
+   "en": "First something that runs. <em>Then</em> real data."
+  },
+  "how.1k": {
+   "tr": "Hafta 1",
+   "en": "Week 1"
+  },
+  "how.1h": {
+   "tr": "Prototip",
+   "en": "Prototype"
+  },
+  "how.1p": {
+   "tr": "Sürecinizi dışarıdan inceleriz, brief'i kendimize yazarız. Hafta sonunda kendi akışınızda çalışan bir ajan görürsünüz.",
+   "en": "We study your process from the outside and write the brief ourselves. By the end of the week you see an agent running in your own flow."
+  },
+  "how.2k": {
+   "tr": "Pilot",
+   "en": "Pilot"
+  },
+  "how.2h": {
+   "tr": "Gerçek veri, tek ölçüt",
+   "en": "Real data, one metric"
+  },
+  "how.2p": {
+   "tr": "Ajan gerçek verinizle, canlıya yakın bir ortamda çalışır. Başarıyı baştan birlikte seçtiğimiz tek bir ölçüte göre değerlendiririz.",
+   "en": "The agent works on your real data in a production-like setting. We judge it against one metric we agree on up front."
+  },
+  "how.3k": {
+   "tr": "Canlı",
+   "en": "Live"
+  },
+  "how.3h": {
+   "tr": "Sizin sistemlerinizde",
+   "en": "In your systems"
+  },
+  "how.3p": {
+   "tr": "CRM'inize, santralinize ve mesajlaşma kanallarınıza bağlanır, uyum kurallarınızın içinde çalışır. İzlemeyi ve iyileştirmeyi biz sürdürürüz.",
+   "en": "It connects to your CRM, phone system and messaging channels and works within your compliance rules. We keep monitoring and improving it."
+  },
+  "contact.label": {
+   "tr": "Sıra sizde",
+   "en": "Your turn"
+  },
+  "contact.h": {
+   "tr": "Hangi süreç sizi en çok yoruyor?",
+   "en": "Which process wears you out the most?"
+  },
+  "contact.body": {
+   "tr": "Bize o süreci anlatın. Google Meet'te yarım saat konuşalım, bir hafta sonra çalışır halini görün.",
+   "en": "Tell us about that process. Half an hour on Google Meet, and a week later you see it running."
+  },
+  "contact.cta": {
+   "tr": "Görüşme ayarla",
+   "en": "Book a call"
+  },
+  "copy.done": {
+   "tr": "Kopyalandı",
+   "en": "Copied"
+  },
+  "foot.a": {
+   "tr": "ATRON, AI for People Teknoloji A.Ş. ürünüdür",
+   "en": "ATRON is a product of AI for People Teknoloji A.Ş."
+  },
+  "foot.b": {
+   "tr": "Görseller yapay zekâ destekli üretimdir",
+   "en": "Visuals are AI-assisted renders"
+  },
+  "day.label": {
+   "tr": "01 · Örnek bir gün",
+   "en": "01 · An example day"
+  },
+  "day.label2": {
+   "tr": "Senaryo, müşteri değil",
+   "en": "A scenario, not a client"
+  },
+  "day.h": {
+   "tr": "ATRON sizin şirketinizde <em>ne yapar?</em>",
+   "en": "What does ATRON do <em>in your company?</em>"
+  },
+  "day.body": {
+   "tr": "Bir sağlık turizmi şirketi düşünün. Aşağıdakiler o şirketin sıradan bir günü; ATRON'un bugün yaptığı işlerden kurulmuş bir senaryo.",
+   "en": "Picture a health-tourism company. Below is an ordinary day there: a scenario built from the work ATRON does today."
+  },
+  "day.1t": {
+   "tr": "23:40",
+   "en": "23:40"
+  },
+  "day.1h": {
+   "tr": "İtalya'dan bir hasta arıyor. Ekip uyuyor.",
+   "en": "A patient calls from Italy. The team is asleep."
+  },
+  "day.1p": {
+   "tr": "ATRON telefonu açar, İtalyanca konuşur, hangi tedaviyi ve ne zaman istediğini sorar. Talebi CRM'e yazar.",
+   "en": "ATRON picks up, speaks Italian, and asks which treatment they want and when. It writes the request to the CRM."
+  },
+  "day.1r": {
+   "tr": "09:00 · Kayıt satış ekibinin önünde.",
+   "en": "09:00 · The record is waiting for the sales team."
+  },
+  "day.2t": {
+   "tr": "10:15",
+   "en": "10:15"
+  },
+  "day.2h": {
+   "tr": "Dün yüzlerce WhatsApp konuşması yapıldı. Kimse hepsini okuyamaz.",
+   "en": "Hundreds of WhatsApp chats happened yesterday. Nobody can read them all."
+  },
+  "day.2p": {
+   "tr": "ATRON hepsini okudu. Fiyat sorusu cevapsız kalan konuşmaları ve iki kez geri dönüp cevap alamayan müşterileri ayrı bir listeye koydu.",
+   "en": "ATRON read all of them. It put the chats where a price question went unanswered, and the customers who came back twice without a reply, on a separate list."
+  },
+  "day.2r": {
+   "tr": "10:20 · Liste satış müdürünün ekranında.",
+   "en": "10:20 · The list is on the sales manager's screen."
+  },
+  "day.3t": {
+   "tr": "14:00",
+   "en": "14:00"
+  },
+  "day.3h": {
+   "tr": "Geçen yıl ilgilenip vazgeçen binlerce kişi bir Excel'de duruyor.",
+   "en": "Thousands of people who showed interest last year sit in a spreadsheet."
+  },
+  "day.3p": {
+   "tr": "ATRON listeyi alır, herkesi kendi dilinde ve kendi saatinde arar. Hâlâ ilgilenenleri ekibe aktarır, aranmak istemeyenleri bir daha aramaz.",
+   "en": "ATRON takes the list and calls everyone in their own language, in their own time zone. It hands the still-interested ones to the team and never calls those who opt out again."
+  },
+  "day.3r": {
+   "tr": "18:00 · İlgilenenler CRM'de, sırada.",
+   "en": "18:00 · The interested ones are in the CRM, queued."
+  },
+  "day.foot": {
+   "tr": "Sizin şirketinizde bu sahneler başka olur. Hangisi olduğunu bulmak için aşağıdaki ajanla iki dakika konuşmanız yeterli.",
+   "en": "In your company these scenes look different. Two minutes with the agent below is enough to find out which."
+  },
+  "m.label": {
+   "tr": "Gerçek bir çağrı · Outbound",
+   "en": "A real call · Outbound"
+  },
+  "m.h": {
+   "tr": "Hastanın söylediği cümle, CRM'de bir kayıt oldu.",
+   "en": "What the patient said became a record in the CRM."
+  },
+  "m.said": {
+   "tr": "Hastanın kendi sözü · İspanyolca",
+   "en": "The patient's own words · Spanish"
+  },
+  "m.quote": {
+   "tr": "“Bueno, cualquier día a las 07:00 de la tarde.”",
+   "en": "“Bueno, cualquier día a las 07:00 de la tarde.”"
+  },
+  "m.quote_tr": {
+   "tr": "“Herhangi bir gün, akşam 7'de olur.”",
+   "en": "“Any day at 7 in the evening works.”"
+  },
+  "m.rec": {
+   "tr": "ATRON'un yazdığı kayıt",
+   "en": "The record ATRON wrote"
+  },
+  "m.k1": {
+   "tr": "Durum",
+   "en": "Status"
+  },
+  "m.v1": {
+   "tr": "İlgileniyor",
+   "en": "Interested"
+  },
+  "m.k2": {
+   "tr": "Tedavi",
+   "en": "Treatment"
+  },
+  "m.v2": {
+   "tr": "Diş · henüz yaptırmamış",
+   "en": "Dental · not done yet"
+  },
+  "m.k3": {
+   "tr": "Geri arama",
+   "en": "Call back"
+  },
+  "m.v3": {
+   "tr": "Ertesi gün 19:00 · Madrid saati",
+   "en": "Next day 19:00 · Madrid time"
+  },
+  "m.k4": {
+   "tr": "Kaynak",
+   "en": "Source"
+  },
+  "m.v4": {
+   "tr": "Hastanın kendisi",
+   "en": "The patient"
+  },
+  "m.k5": {
+   "tr": "Süre",
+   "en": "Duration"
+  },
+  "m.v5": {
+   "tr": "1 dk 10 sn",
+   "en": "1 min 10 s"
+  },
+  "m.cap": {
+   "tr": "Kasım 2026 · kişisel veriler çıkarıldı",
+   "en": "November 2026 · personal data removed"
+  },
+  "deep.label": {
+   "tr": "05 · Derin teknoloji",
+   "en": "05 · Deep tech"
+  },
+  "deep.label2": {
+   "tr": "RENAULT INNOVATION HUB",
+   "en": "Renault Innovation Hub"
+  },
+  "deep.h": {
+   "tr": "Renault bizden <em>dört proje</em> istedi.",
+   "en": "Renault asked us for <em>four projects.</em>"
+  },
+  "deep.body": {
+   "tr": "Hepsini kendi imkânımızla geliştirdik, ikisi dünya çapındaki kısa listede. Altta duran modelleri biz yaptığımız için ATRON'un ajanları sadece konuşmayı değil, konuşanı da anlıyor.",
+   "en": "We built all of them on our own dime; two are on the worldwide shortlist. Because we build the models underneath, ATRON's agents understand not just the words but the person saying them."
+  },
+  "deep.ex": {
+   "tr": "Örnek",
+   "en": "Example"
+  },
+  "deep.prosem.st": {
+   "tr": "GLOBAL SHORTLIST",
+   "en": "Global shortlist"
+  },
+  "deep.prosem.d": {
+   "tr": "Sesten duyguyu, cümle bitmeden okuyan model. Tamamen bizim eğittiğimiz bir model; ajanlarımız böylece karşısındakinin nasıl hissettiğini duyar.",
+   "en": "A model that reads emotion from the voice before the sentence ends. Trained entirely by us, so our agents hear how the other person feels."
+  },
+  "deep.prosem.in": {
+   "tr": "“Üçüncü kez arıyorum, hâlâ bir cevap yok.”",
+   "en": "“This is the third time I'm calling and still no answer.”"
+  },
+  "deep.prosem.k0": {
+   "tr": "Gerilim",
+   "en": "Tension"
+  },
+  "deep.prosem.v0": {
+   "tr": "Yüksek, artıyor",
+   "en": "High, rising"
+  },
+  "deep.prosem.k1": {
+   "tr": "Ton",
+   "en": "Tone"
+  },
+  "deep.prosem.v1": {
+   "tr": "Olumsuz",
+   "en": "Negative"
+  },
+  "deep.prosem.k2": {
+   "tr": "Ajana",
+   "en": "To the agent"
+  },
+  "deep.prosem.v2": {
+   "tr": "Özür dile, sözü kısa tut",
+   "en": "Apologise, keep it short"
+  },
+  "deep.fic.st": {
+   "tr": "GLOBAL SHORTLIST",
+   "en": "Global shortlist"
+  },
+  "deep.fic.d": {
+   "tr": "Servis teknisyeni telefona konuşur, arıza raporu kendini doldurur. Zorunlu bir alan eksikse sistem sesle sorar; raporu yine teknisyen onaylar.",
+   "en": "A service technician talks to their phone and the incident report fills itself in. If a mandatory field is missing, the system asks out loud; the technician still signs it off."
+  },
+  "deep.fic.in": {
+   "tr": "“Müşteri soğuk çalıştırmada titreme olduğunu söylüyor, kilometre kırk sekiz bin.”",
+   "en": "“The customer says it shakes on a cold start, mileage forty-eight thousand.”"
+  },
+  "deep.fic.k0": {
+   "tr": "Şikâyet",
+   "en": "Complaint"
+  },
+  "deep.fic.v0": {
+   "tr": "Soğuk çalıştırmada titreme",
+   "en": "Shakes on cold start"
+  },
+  "deep.fic.k1": {
+   "tr": "Kilometre",
+   "en": "Mileage"
+  },
+  "deep.fic.v1": {
+   "tr": "48.000",
+   "en": "48,000"
+  },
+  "deep.fic.k2": {
+   "tr": "Şasi no",
+   "en": "VIN"
+  },
+  "deep.fic.v2": {
+   "tr": "Eksik → “Şasi numarasını okur musunuz?”",
+   "en": "Missing → “Can you read me the VIN?”"
+  },
+  "deep.mw.st": {
+   "tr": "Canlı demo · Renault'ya teslim edildi",
+   "en": "Live demo · delivered to Renault"
+  },
+  "deep.mw.d": {
+   "tr": "Sürücünün aklının yoldan ayrıldığını sessizce fark eder. Güvenli bir anı bekler, önce fark ettirmeden yoklar, sonra sorar.",
+   "en": "Quietly notices when a driver's mind drifts from the road. It waits for a safe moment, probes without the driver noticing, then asks."
+  },
+  "deep.mw.in": {
+   "tr": "Bakış 30 saniyedir sabit. Yoldaki ışığa tepki yok.",
+   "en": "Gaze fixed for 30 seconds. No reaction to the light on the road."
+  },
+  "deep.mw.k0": {
+   "tr": "Bekler",
+   "en": "Waits"
+  },
+  "deep.mw.v0": {
+   "tr": "Güvenli an",
+   "en": "A safe moment"
+  },
+  "deep.mw.k1": {
+   "tr": "Sorar",
+   "en": "Asks"
+  },
+  "deep.mw.v1": {
+   "tr": "Kısa bir soru",
+   "en": "A short question"
+  },
+  "deep.mw.k2": {
+   "tr": "Sonuç",
+   "en": "Result"
+  },
+  "deep.mw.v2": {
+   "tr": "“Bilmiyorum” → dalgınlık teyit edildi",
+   "en": "“I don't know” → drift confirmed"
+  },
+  "deep.rc.st": {
+   "tr": "Prototip",
+   "en": "Prototype"
+  },
+  "deep.rc.d": {
+   "tr": "Sürücü yola çıkmadan önce üç dakikalık bir ısınma oynar. Sistem o gün ne kadar hazır olduğunu ölçer; kararı araç verir.",
+   "en": "Before setting off, the driver plays a three-minute warm-up. The system measures how ready they are today; the vehicle makes the call."
+  },
+  "deep.rc.in": {
+   "tr": "Üç tur: Kulak · Göz · Refleks",
+   "en": "Three rounds: Ear · Eye · Reflex"
+  },
+  "deep.rc.k0": {
+   "tr": "Süre",
+   "en": "Time"
+  },
+  "deep.rc.v0": {
+   "tr": "~3 dakika",
+   "en": "~3 minutes"
+  },
+  "deep.rc.k1": {
+   "tr": "Çıktı",
+   "en": "Output"
+  },
+  "deep.rc.v1": {
+   "tr": "Günün form skoru",
+   "en": "Today's readiness score"
+  },
+  "deep.rc.k2": {
+   "tr": "Kime",
+   "en": "To"
+  },
+  "deep.rc.v2": {
+   "tr": "Araca",
+   "en": "The vehicle"
+  },
+  "br.l1": {
+   "tr": "Ekibiniz",
+   "en": "Your team"
+  },
+  "br.l1d": {
+   "tr": "Satış, operasyon, yönetim. Soru sorar, karar verir.",
+   "en": "Sales, operations, management. They ask and decide."
+  },
+  "br.l2": {
+   "tr": "ATRON Brain",
+   "en": "ATRON Brain"
+  },
+  "br.l2d": {
+   "tr": "Tek hafıza. Kim ne konuştu, ne karar verildi, hangi iş nerede.",
+   "en": "One memory. Who said what, what was decided, where each job stands."
+  },
+  "br.l3": {
+   "tr": "Ajanlar",
+   "en": "Agents"
+  },
+  "br.l3d": {
+   "tr": "Telefonu açar, WhatsApp'ı okur, listeyi arar. Yaptığını beyne yazar.",
+   "en": "They answer calls, read WhatsApp, call lists, and write what they did to the brain."
+  },
+  "br.l4": {
+   "tr": "Sistemleriniz",
+   "en": "Your systems"
+  },
+  "br.l4d": {
+   "tr": "CRM, ERP, Drive, santral, WhatsApp. Veri yerinde kalır; beyin nerede olduğunu bilir.",
+   "en": "CRM, ERP, Drive, phone system, WhatsApp. Data stays where it is; the brain knows where to find it."
+  },
+  "br.proof": {
+   "tr": "BUGÜNE KADAR KENDİ ATRON BRAIN'İMİZE 1.700'DEN FAZLA KONUŞMA VE KARAR YAZILDI.",
+   "en": "Over 1,700 conversations and decisions have been written to our own ATRON Brain so far."
+  },
+  "br.o1k": {
+   "tr": "Erişim",
+   "en": "Access"
+  },
+  "br.o1": {
+   "tr": "Yeni başlayan biri “Bu müşteriyle en son ne konuştuk?” diye sorar; cevap kaynağıyla gelir.",
+   "en": "A new hire asks “What did we last discuss with this customer?” and gets the answer with its source."
+  },
+  "br.o2k": {
+   "tr": "Hız",
+   "en": "Speed"
+  },
+  "br.o2": {
+   "tr": "Ajan aramayı bitirdiği anda kayıt beyinde. Kimse ertesi sabahı beklemez.",
+   "en": "The moment an agent ends a call, the record is in the brain. Nobody waits for the next morning."
+  },
+  "br.o3k": {
+   "tr": "Verim",
+   "en": "Efficiency"
+  },
+  "br.o3": {
+   "tr": "Aynı bilgi iki kez sorulmaz, iki kez girilmez.",
+   "en": "Nothing gets asked twice or typed in twice."
+  },
+  "br.o4k": {
+   "tr": "İnsan + ajan",
+   "en": "People + agents"
+  },
+  "br.o4": {
+   "tr": "Ajan nerede durması gerektiğini bilir. Kararı insan verir; ajan o kararı da hatırlar.",
+   "en": "Agents know where to stop. People make the call, and the agents remember that call too."
+  }
+ },
+ "ARMS": [
+  {
+   "k": {
+    "tr": "Ses ajanı",
+    "en": "Voice agent"
+   },
+   "p": {
+    "tr": "Gelen aramaları arayanın dilinde karşılar, niteler ve doğru yere aktarır.",
+    "en": "Answers inbound calls in the caller's language, qualifies them and routes them."
+   },
+   "s": "live"
+  },
+  {
+   "k": {
+    "tr": "WhatsApp kalite + tahmin",
+    "en": "WhatsApp QA + forecast"
+   },
+   "p": {
+    "tr": "Satış konuşmalarının tamamını okur, puanlar ve haftanın tahminini çıkarır.",
+    "en": "Reads every sales conversation, scores it and produces the week's forecast."
+   },
+   "s": "live"
+  },
+  {
+   "k": {
+    "tr": "Outbound",
+    "en": "Outbound"
+   },
+   "p": {
+    "tr": "Soğumuş ve kaybedilmiş lead'leri arar, sonucu CRM'e yazar.",
+    "en": "Calls dormant and lost leads and writes the outcome to the CRM."
+   },
+   "s": "live"
+  },
+  {
+   "k": {
+    "tr": "Saha raporu",
+    "en": "Field reporting"
+   },
+   "p": {
+    "tr": "Sahadan sesli anlatılanı doğrulanmış, sisteme hazır kayda çevirir.",
+    "en": "Turns spoken field reports into validated, system-ready records."
+   },
+   "s": "pilot"
+  },
+  {
+   "k": {
+    "tr": "Operasyon koordinatörü",
+    "en": "Operations coordinator"
+   },
+   "p": {
+    "tr": "Grup yazışmalarında verilen sözleri ve tarihleri takip eder, sadece gerektiğinde araya girer.",
+    "en": "Tracks commitments and deadlines in group chats and only steps in when it has to."
+   },
+   "s": "deploy"
+  },
+  {
+   "k": {
+    "tr": "Sizin operasyonunuz",
+    "en": "Your operation"
+   },
+   "p": {
+    "tr": "Sıradaki kol. Bize süreci anlatın, ilk hafta çalışan halini görün.",
+    "en": "The next arm. Tell us the process, see it running in week one."
+   },
+   "s": "yours"
+  }
+ ],
+ "STATUS": {
+  "live": {
+   "tr": "Canlıda",
+   "en": "In production"
+  },
+  "pilot": {
+   "tr": "Kurumsal pilot",
+   "en": "Enterprise pilot"
+  },
+  "deploy": {
+   "tr": "Devreye alınıyor",
+   "en": "Deploying"
+  },
+  "yours": {
+   "tr": "Sıradaki",
+   "en": "Next"
+  }
+ }
+}

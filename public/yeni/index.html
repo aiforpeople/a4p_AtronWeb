@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ATRON · Sürecinizi söyleyin, gelecek hafta çalışsın</title>
+<meta name="description" content="ATRON, şirketlerin telefonda, WhatsApp'ta ve formlarda tekrar eden operasyon işlerini devralan yapay zekâ ajanlarının çalıştığı operasyon katmanıdır.">
+<meta name="robots" content="noindex">
+<link rel="preload" href="/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/sahne/s3/ses/01.webp" as="image">
+<style>
+@font-face{font-family:'Archivo';font-style:normal;font-display:swap;font-weight:100 900;font-stretch:62% 125%;src:url(/fonts/archivo-latin-wdth-normal.woff2) format('woff2-variations');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Archivo';font-style:normal;font-display:swap;font-weight:100 900;font-stretch:62% 125%;src:url(/fonts/archivo-latin-ext-wdth-normal.woff2) format('woff2-variations');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Geist Mono';font-style:normal;font-display:swap;font-weight:100 900;src:url(/fonts/geist-mono-latin-wght-normal.woff2) format('woff2-variations');unicode-range:U+0000-00FF,U+0131,U+2000-206F,U+2191,U+2193}
+@font-face{font-family:'Geist Mono';font-style:normal;font-display:swap;font-weight:100 900;src:url(/fonts/geist-mono-latin-ext-wght-normal.woff2) format('woff2-variations');unicode-range:U+0100-02BA,U+1E00-1E9F}
+@font-face{font-family:'Geist';font-style:normal;font-display:swap;font-weight:100 900;src:url(/fonts/geist-latin-wght-normal.woff2) format('woff2-variations');unicode-range:U+0000-00FF,U+0131,U+2000-206F}
+@font-face{font-family:'Geist';font-style:normal;font-display:swap;font-weight:100 900;src:url(/fonts/geist-latin-ext-wght-normal.woff2) format('woff2-variations');unicode-range:U+0100-02BA,U+1E00-1E9F}
+:root{--paper:#cfd0d3;--ink:#0d0e11;--dim:#5b5e66;--red:#ca0013;--line:rgba(13,14,17,.22)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:'Geist',system-ui,sans-serif;font-size:17px;line-height:1.45;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.06em}
+.act{position:relative;height:500vh}
+.js .act+.act{margin-top:-100svh}   /* next stage is already in place when the previous one finishes its exit */
+.stage{position:sticky;top:0;height:100svh;overflow:hidden;background:var(--bg,var(--paper));color:var(--ink)}
+
+canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.js .fallback{display:none}
+.top{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space-between;align-items:center;padding:calc(18px + env(safe-area-inset-top)) 4vw 14px;border-bottom:1px solid var(--line);margin:0 0;z-index:3}
+.top img{height:20px;width:auto;display:block}
+.top .r{color:var(--dim)}
+.copy{position:absolute;z-index:2;right:4vw;top:50%;transform:translateY(-50%);width:min(38vw,560px)}
+.beat{position:absolute;right:0;top:50%;width:100%;transform:translateY(-50%);will-change:opacity,transform}
+h1,.say{font-family:'Archivo',sans-serif;font-stretch:62%;font-weight:900;line-height:.9;letter-spacing:-.02em}
+h1{font-size:clamp(46px,6.4vw,118px)}
+.say{font-size:clamp(44px,5.6vw,104px)}
+.k{color:var(--red);display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.k i{width:8px;height:8px;border-radius:50%;background:var(--red);display:block}
+.sub{margin-top:22px;max-width:34ch;color:var(--ink);font-size:clamp(16px,1.25vw,20px)}
+.go{display:inline-flex;gap:14px;align-items:center;margin-top:30px;padding-bottom:8px;border-bottom:1.5px solid var(--red);color:var(--ink)}
+.go span:last-child{color:var(--red)}
+.hint{position:absolute;left:4vw;bottom:calc(22px + env(safe-area-inset-bottom));color:var(--dim);z-index:2;display:flex;gap:10px;align-items:center}
+.clock{color:var(--ink);text-align:right}
+.copy .clock.beat{top:0;transform:none}
+.clock b{font-family:'Archivo';font-stretch:62%;font-weight:900;font-size:clamp(88px,11vw,210px);letter-spacing:-.02em;line-height:1;display:block}
+.clock span{color:var(--dim)}
+.next{padding:18vh 4vw;border-top:1px solid var(--line);color:var(--dim)}
+/* no-JS / reduced motion: everything readable, stacked */
+html:not(.js) .act{height:auto}
+html:not(.js) .stage{position:relative;height:auto;min-height:100svh}
+html:not(.js) .copy{position:relative;right:auto;top:auto;transform:none;width:auto;padding:120px 4vw 8vh;margin-left:auto;max-width:620px}
+html:not(.js) .beat{position:relative;top:auto;transform:none;margin-bottom:8vh}
+html:not(.js) .hint{display:none}
+@media (max-aspect-ratio:1/1){
+  .copy{left:6vw;right:6vw;width:auto;top:auto;bottom:calc(64px + env(safe-area-inset-bottom));transform:none;height:38svh}
+  .beat{top:auto;bottom:0;transform:none}
+  h1{font-size:clamp(40px,12.5vw,72px)} .say{font-size:clamp(38px,11.5vw,68px)}
+  .top .r{display:none} .clock{text-align:left} .copy .clock.beat{top:auto;bottom:0} .clock b{font-size:30vw}
+}
+.end{padding:20vh 4vw 22vh;border-top:1px solid var(--line);max-width:1100px}
+.end .sub{max-width:52ch}
+.end .links{display:flex;flex-wrap:wrap;gap:8px 36px}
+h2.say{margin:0}
+html:not(.js) .clock{display:none}
+@media (max-aspect-ratio:1/1){ .clock b{font-size:clamp(64px,24vw,120px)} }
+@media (min-aspect-ratio:1/1){ .act.narrow .copy{width:min(31vw,480px)} .act.narrow .say{font-size:clamp(40px,4.5vw,86px)} }
+@media (min-aspect-ratio:1/1){ .act.tight .copy{width:min(26.5vw,420px)} .act.tight .say{font-size:clamp(36px,3.9vw,74px)} .act.tight .sub{font-size:clamp(15px,1.1vw,18px)} }
+
+/* v2: every act is its own world: own colours, text side, crop */
+.act.L .copy{left:4vw;right:auto}
+.act.L .clock{text-align:left}
+@media (max-aspect-ratio:1/1){
+  .act.L .copy{left:6vw;right:6vw}
+  .fallback{height:60svh}
+}
+@media (max-aspect-ratio:1/1){ .top{border-bottom:0} .copy{height:36svh} }
+
+/* third beat: the concrete example behind each line */
+.mh{font-family:'Archivo',sans-serif;font-stretch:62%;font-weight:900;font-size:clamp(26px,2.6vw,46px);line-height:.95;letter-spacing:-.01em;margin-bottom:18px}
+.rows{display:grid;gap:0}
+.row{display:grid;grid-template-columns:var(--kw,84px) 1fr;gap:16px;border-top:1px solid var(--line);padding:11px 0}
+.row dt{color:var(--red);padding-top:3px}
+.row dd{font-size:clamp(14px,1.08vw,17px);line-height:1.4}
+.b3 .go{margin-top:18px}
+#brain,#derin{--kw:118px}
+.how{padding:18vh 4vw 6vh;max-width:1200px}
+.how .say{max-width:16ch}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:6vh}
+.steps div{border-top:1.5px solid var(--ink);padding-top:16px}
+.steps dt{color:var(--red);margin-bottom:12px}
+.end{border-top:0}
+html:not(.js) .b3{margin-top:4vh}
+@media (max-aspect-ratio:1/1){
+  .copy{height:42svh} .mh{font-size:clamp(22px,6.6vw,30px);margin-bottom:10px}
+  .row{grid-template-columns:var(--kwm,62px) 1fr;gap:12px;padding:8px 0} .row dd{font-size:13.5px;line-height:1.35} .row dt{font-size:10.5px}
+  #brain,#derin{--kwm:84px} #brain .mh,#derin .mh{display:none}
+  .b3 .go{margin-top:10px}
+  .steps{grid-template-columns:1fr}
+}
+
+/* section rail: the visitor sees there are five things, and where they are */
+.top nav{display:flex;gap:22px;color:var(--dim)}
+.top nav a{opacity:.75} .top nav a b{font-weight:400;opacity:.6}
+.top nav a.on{color:var(--ink);opacity:1;border-bottom:1.5px solid var(--red);padding-bottom:3px}
+.b1 .sub{max-width:40ch}
+@media (max-aspect-ratio:1/1){ .top .r{display:flex} .top nav a{display:none} .top nav a.on{display:block;border:0;padding:0} .top nav a.on b::after{content:' / 05 ·'} }
+@media (max-aspect-ratio:1/1){ .hint{display:none} }
+
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+<main>
+<section class="act R narrow" id="ses" aria-label="Ses Ajani" data-n="2" data-dir="/sahne/s3/ses" data-fx="0.2" data-bg="#010c26" data-scrim="0" data-ax="0.48" data-ay="0.67" data-ar="0.035" style="--bg:#010c26;--ink:#f3efe6;--dim:rgba(243,239,230,.62);--line:rgba(243,239,230,.2);--scrim:0;--red:#ff5a47">
+  <div class="stage">
+    <img class="fallback" src="/sahne/s3/ses/02.webp" alt="Gece, masa lambasının altında ATRON kuklası telefonu açmış, bir koluyla not alıyor" loading="eager" style="object-position:20% 50%">
+    <canvas aria-hidden="true"></canvas>
+    <header class="top"><a href="/"><img src="/logo.png" alt="ATRON" width="1037" height="266"></a><nav class="mono r" aria-label="Bölümler"><a href="#ses" class="on" aria-current="true"><b>01</b> SES</a><a href="#whatsapp"><b>02</b> WHATSAPP</a><a href="#outbound"><b>03</b> OUTBOUND</a><a href="#brain"><b>04</b> BRAIN</a><a href="#derin"><b>05</b> RENAULT</a></nav></header>
+    <div class="copy">
+      <div class="beat b1">
+        <h1>Sürecinizi söyleyin. Gelecek hafta çalışsın.</h1>
+        <p class="sub">ATRON, ekibinizin her gün tekrar ettiği işi yapan yapay zekâ çalışanlarıdır. Gece gelen aramayı açar, yüzlerce WhatsApp konuşmasını okur, Excel&#x27;de unutulmuş listeyi arar. Sonucu sabah CRM&#x27;inizde bulursunuz.</p>
+      </div>
+      <p class="beat clock"><b>23:40</b><span class="mono">TELEFON ÇALIYOR · EKİP UYUYOR</span></p>
+      <div class="beat b2">
+        <p class="mono k"><i></i>SES AJANI</p>
+        <p class="say">Gece gelen aramayı açar.</p>
+        <p class="sub">Arayanın dilinde konuşur, ne istediğini sorar, talebi CRM&#x27;inize yazar. Sabah kayıt ekibinizin önündedir.</p>
+      </div>
+      <div class="beat b3">
+        <h3 class="mh">Örnek: bir sağlık turizmi şirketi</h3>
+        <dl class="rows"><div class="row"><dt class="mono">23:40</dt><dd>İtalya&#x27;dan bir hasta arıyor. Ekip uyuyor.</dd></div><div class="row"><dt class="mono">ATRON</dt><dd>Telefonu açar, İtalyanca konuşur, hangi tedaviyi ve ne zaman istediğini sorar. Talebi CRM&#x27;e yazar.</dd></div><div class="row"><dt class="mono">09:00</dt><dd>Kayıt satış ekibinin önünde.</dd></div></dl>
+        <a class="go mono" href="/#canli"><span>AJANLA ŞİMDİ KONUŞ</span><span>→</span></a>
+      </div>
+    </div>
+    <p class="hint mono"><span>↓</span><span>KAYDIRIN</span></p>
+  </div>
+</section>
+<section class="act L " id="whatsapp" aria-label="Whatsapp Kali̇te Kontrol" data-n="2" data-dir="/sahne/s3/wa" data-fx="0.8" data-bg="#f6e4d7" data-scrim="0" data-ax="0.843" data-ay="0.39" data-ar="0.065" style="--bg:#f6e4d7;--ink:#0d0e11;--dim:#5b5e66;--line:rgba(13,14,17,.22);--scrim:0;--red:#ca0013">
+  <div class="stage">
+    <img class="fallback" src="/sahne/s3/wa/02.webp" alt="ATRON kuklası çok yakından: büyüteçle telefondaki yazışmaya bakıyor, gözü mercekte kocaman" loading="lazy" style="object-position:80% 50%">
+    <canvas aria-hidden="true"></canvas>
+    <header class="top"><a href="/"><img src="/logo.png" alt="ATRON" width="1037" height="266"></a><nav class="mono r" aria-label="Bölümler"><a href="#ses"><b>01</b> SES</a><a href="#whatsapp" class="on" aria-current="true"><b>02</b> WHATSAPP</a><a href="#outbound"><b>03</b> OUTBOUND</a><a href="#brain"><b>04</b> BRAIN</a><a href="#derin"><b>05</b> RENAULT</a></nav></header>
+    <div class="copy">
+      <p class="beat clock"><b>09:00</b><span class="mono">DÜNKÜ YAZIŞMALARI KİM OKUDU?</span></p>
+      <div class="beat b2">
+        <p class="mono k"><i></i>WHATSAPP KALİTE KONTROL</p>
+        <h2 class="say">Her yazışmayı okur.</h2>
+        <p class="sub">Ekibinizin WhatsApp görüşmelerini tek tek okur; geç kalan cevabı, yanlış bilgiyi, kaçan satışı işaretler. Yönetici sabah özetini görür.</p>
+      </div>
+      <div class="beat b3">
+        <h3 class="mh">Örnek: aynı şirket, ertesi sabah</h3>
+        <dl class="rows"><div class="row"><dt class="mono">DÜN</dt><dd>Yüzlerce WhatsApp konuşması yapıldı. Kimse hepsini okuyamaz.</dd></div><div class="row"><dt class="mono">ATRON</dt><dd>Hepsini okudu. Fiyat sorusu cevapsız kalan konuşmaları ve iki kez dönüp cevap alamayan müşterileri ayrı bir listeye koydu.</dd></div><div class="row"><dt class="mono">10:20</dt><dd>Liste satış müdürünün ekranında.</dd></div></dl>
+        <a class="go mono" href="/ajanlar/whatsapp-kalite-kontrol/"><span>NASIL ÇALIŞIYOR</span><span>→</span></a>
+      </div>
+    </div>
+    
+  </div>
+</section>
+<section class="act R tight" id="outbound" aria-label="Outbound Geri̇ Kazanim" data-n="2" data-dir="/sahne/s3/out" data-fx="0.32" data-bg="#dbcecc" data-scrim="0.92" data-ax="0.553" data-ay="0.145" data-ar="0.016" style="--bg:#dbcecc;--ink:#0d0e11;--dim:#5b5e66;--line:rgba(13,14,17,.22);--scrim:0.92;--red:#ca0013">
+  <div class="stage">
+    <img class="fallback" src="/sahne/s3/out/02.webp" alt="Dev bir telefon santralinin önünde küçük ATRON kuklası altı koluyla altı kabloyu takmış, lambalar yanıyor" loading="lazy" style="object-position:32% 50%">
+    <canvas aria-hidden="true"></canvas>
+    <header class="top"><a href="/"><img src="/logo.png" alt="ATRON" width="1037" height="266"></a><nav class="mono r" aria-label="Bölümler"><a href="#ses"><b>01</b> SES</a><a href="#whatsapp"><b>02</b> WHATSAPP</a><a href="#outbound" class="on" aria-current="true"><b>03</b> OUTBOUND</a><a href="#brain"><b>04</b> BRAIN</a><a href="#derin"><b>05</b> RENAULT</a></nav></header>
+    <div class="copy">
+      <p class="beat clock"><b>6 HAT</b><span class="mono">ESKİ LİSTE ARANMAYI BEKLİYOR</span></p>
+      <div class="beat b2">
+        <p class="mono k"><i></i>OUTBOUND GERİ KAZANIM</p>
+        <h2 class="say">Aramadığınız listeyi arar.</h2>
+        <p class="sub">Cevap vermemiş eski başvuruları kendi dillerinde arar, ilgileneni ekibinize sıcak devreder. Aynı anda birden çok hat.</p>
+      </div>
+      <div class="beat b3">
+        <h3 class="mh">Örnek: aynı gün, öğleden sonra</h3>
+        <dl class="rows"><div class="row"><dt class="mono">EXCEL</dt><dd>Geçen yıl ilgilenip vazgeçen binlerce kişi bir listede duruyor.</dd></div><div class="row"><dt class="mono">ATRON</dt><dd>Herkesi kendi dilinde ve kendi saatinde arar. Aranmak istemeyenleri bir daha aramaz.</dd></div><div class="row"><dt class="mono">18:00</dt><dd>Hâlâ ilgilenenler CRM&#x27;de, sırada.</dd></div></dl>
+        <a class="go mono" href="/ajanlar/outbound-geri-kazanim/"><span>NASIL ÇALIŞIYOR</span><span>→</span></a>
+      </div>
+    </div>
+    
+  </div>
+</section>
+<section class="act R tight" id="brain" aria-label="Atron Brain" data-n="2" data-dir="/sahne/s3/brain" data-fx="0.3" data-bg="#d7d5d6" data-scrim="0.9" data-ax="0.322" data-ay="0.075" data-ar="0.03" style="--bg:#d7d5d6;--ink:#0d0e11;--dim:#5b5e66;--line:rgba(13,14,17,.22);--scrim:0.9;--red:#ca0013">
+  <div class="stage">
+    <img class="fallback" src="/sahne/s3/brain/02.webp" alt="Tepeden görünüm: ATRON kuklası ortada, her kolu masadaki ayrı bir nesneye uzanmış, hepsi kırmızı iple ona bağlı" loading="lazy" style="object-position:30% 50%">
+    <canvas aria-hidden="true"></canvas>
+    <header class="top"><a href="/"><img src="/logo.png" alt="ATRON" width="1037" height="266"></a><nav class="mono r" aria-label="Bölümler"><a href="#ses"><b>01</b> SES</a><a href="#whatsapp"><b>02</b> WHATSAPP</a><a href="#outbound"><b>03</b> OUTBOUND</a><a href="#brain" class="on" aria-current="true"><b>04</b> BRAIN</a><a href="#derin"><b>05</b> RENAULT</a></nav></header>
+    <div class="copy">
+      <p class="beat clock"><b>TEK YER</b><span class="mono">BİLGİ ON AYRI YERDE DURUYORDU</span></p>
+      <div class="beat b2">
+        <p class="mono k"><i></i>ATRON BRAIN</p>
+        <h2 class="say">Hepsi tek hafızada.</h2>
+        <p class="sub">Kim ne konuştu, ne karar verildi, hangi iş nerede. İnsan da ajan da aynı yerden okur. Biz kendi şirketimizi böyle yönetiyoruz; aynısının sizde kurulduğunu düşünün.</p>
+      </div>
+      <div class="beat b3">
+        <h3 class="mh">Dört katman, tek hafıza</h3>
+        <dl class="rows"><div class="row"><dt class="mono">EKİBİNİZ</dt><dd>Satış, operasyon, yönetim. Soru sorar, karar verir.</dd></div><div class="row"><dt class="mono">BRAIN</dt><dd>Kim ne konuştu, ne karar verildi, hangi iş nerede.</dd></div><div class="row"><dt class="mono">AJANLAR</dt><dd>Telefonu açar, WhatsApp&#x27;ı okur, listeyi arar. Yaptığını beyne yazar.</dd></div><div class="row"><dt class="mono">SİSTEMLER</dt><dd>CRM, ERP, Drive, santral. Veri yerinde kalır; beyin nerede olduğunu bilir.</dd></div></dl>
+        <a class="go mono" href="/#mimari"><span>MİMARİYİ GÖR</span><span>→</span></a>
+      </div>
+    </div>
+    
+  </div>
+</section>
+<section class="act L " id="derin" aria-label="Renault" data-n="2" data-dir="/sahne/s3/oto" data-fx="0.8" data-bg="#353e6e" data-scrim="0.6" style="--bg:#353e6e;--ink:#f3efe6;--dim:rgba(243,239,230,.62);--line:rgba(243,239,230,.2);--scrim:0.6;--red:#ff5a47">
+  <div class="stage">
+    <img class="fallback" src="/sahne/s3/oto/02.webp" alt="Alacakaranlıkta eski bir otomobilin sürücü koltuğunda ATRON kuklası, kolları direksiyonda, gösterge paneli yanıyor" loading="lazy" style="object-position:80% 50%">
+    <canvas aria-hidden="true"></canvas>
+    <header class="top"><a href="/"><img src="/logo.png" alt="ATRON" width="1037" height="266"></a><nav class="mono r" aria-label="Bölümler"><a href="#ses"><b>01</b> SES</a><a href="#whatsapp"><b>02</b> WHATSAPP</a><a href="#outbound"><b>03</b> OUTBOUND</a><a href="#brain"><b>04</b> BRAIN</a><a href="#derin" class="on" aria-current="true"><b>05</b> RENAULT</a></nav></header>
+    <div class="copy">
+      <p class="beat clock"><b>4 PROJE</b><span class="mono">RENAULT INNOVATION HUB · GLOBAL SHORTLIST</span></p>
+      <div class="beat b2">
+        <p class="mono k"><i></i>RENAULT</p>
+        <h2 class="say">Renault bizden dört proje istedi.</h2>
+        <p class="sub">Renault&#x27;nun inovasyon programına geliştirdiğimiz iki proje dünya çapındaki kısa listeye girdi; Renault iki proje daha istedi: PROSEM, VOICE4FIC, Mind Wandering, Ready Check.</p>
+      </div>
+      <div class="beat b3">
+        <h3 class="mh">Dört proje</h3>
+        <dl class="rows"><div class="row"><dt class="mono">PROSEM</dt><dd>Sesten duyguyu, cümle bitmeden okuyan model. Global shortlist.</dd></div><div class="row"><dt class="mono">VOICE4FIC</dt><dd>Teknisyen konuşur, arıza raporu kendini doldurur. Global shortlist.</dd></div><div class="row"><dt class="mono">MIND WANDERING</dt><dd>Sürücünün aklının yoldan ayrıldığını fark eder, güvenli anı bekleyip sorar.</dd></div><div class="row"><dt class="mono">READY CHECK</dt><dd>Yola çıkmadan üç dakikalık ısınma; sürücünün o gün ne kadar hazır olduğunu ölçer.</dd></div></dl>
+        <a class="go mono" href="/#derin"><span>DÖRT PROJEYİ GÖR</span><span>→</span></a>
+      </div>
+    </div>
+    
+  </div>
+</section>
+<section class="how">
+  <p class="mono k"><i></i>NASIL ÇALIŞIYORUZ · BİR HAFTA</p>
+  <h2 class="say">Önce çalışan şey. Sonra gerçek veri.</h2>
+  <dl class="steps">
+    <div><dt class="mono">HAFTA 1 · PROTOTİP</dt><dd>Sürecinizi dışarıdan inceleriz, brief'i kendimize yazarız. Hafta sonunda kendi akışınızda çalışan bir ajan görürsünüz.</dd></div>
+    <div><dt class="mono">PİLOT · GERÇEK VERİ, TEK ÖLÇÜT</dt><dd>Ajan gerçek verinizle, canlıya yakın bir ortamda çalışır. Başarıyı baştan birlikte seçtiğimiz tek bir ölçüte göre değerlendiririz.</dd></div>
+    <div><dt class="mono">CANLI · SİZİN SİSTEMLERİNİZDE</dt><dd>CRM'inize, santralinize ve mesajlaşma kanallarınıza bağlanır, uyum kurallarınızın içinde çalışır. İzlemeyi ve iyileştirmeyi biz sürdürürüz.</dd></div>
+  </dl>
+</section>
+<section class="end">
+  <p class="mono k"><i></i>SIRA SİZDE</p>
+  <h2 class="say">Hangi süreç sizi en çok yoruyor?</h2>
+  <p class="sub">Bize o süreci anlatın. Google Meet'te yarım saat konuşalım, bir hafta sonra çalışır halini görün. ATRON; ses, WhatsApp ve form kanallarında çalışan ajanlar ile hepsinin ortak hafızası ATRON Brain'den oluşan bir operasyon katmanıdır.</p>
+  <p class="links mono"><a class="go" href="/#iletisim"><span>GÖRÜŞME AYARLA</span><span>→</span></a>
+  <a class="go" href="/#canli"><span>AJANLA ŞİMDİ KONUŞ</span><span>→</span></a>
+  <a class="go" href="/#sss"><span>SIK SORULANLAR</span><span>→</span></a></p>
+</section>
+</main>
+<script>
+(function(){
+if(!document.documentElement.classList.contains('js')) return;
+function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
+function ease(t){return t*t*(3-2*t);}
+function band(v,a,b){return clamp((v-a)/(b-a),0,1);}
+function ok(m){return m&&m.complete&&m.naturalWidth;}
+var acts=[].map.call(document.querySelectorAll('.act'),function(el){
+  var cv=el.querySelector('canvas');
+  return {el:el, cv:cv, cx:cv.getContext('2d'), n:+el.dataset.n, dir:el.dataset.dir, fx:+(el.dataset.fx||.5), bg:el.dataset.bg||'#cfd0d3', scrim:+(el.dataset.scrim||0), ax:el.dataset.ax?+el.dataset.ax:null, ay:+(el.dataset.ay||0), ar:+(el.dataset.ar||.03), top:el.querySelector('.top'), next:null,
+    b1:el.querySelector('.b1'), b2:el.querySelector('.b2'), b3:el.querySelector('.b3'), clock:el.querySelector('.clock'), hint:el.querySelector('.hint'),
+    imgs:null, p:0, W:0, H:0, dpr:1, portrait:false, last:''};
+});
+acts.forEach(function(a,i){ a.next=acts[i+1]||null; a.prev=acts[i-1]||null; a.stage=a.el.querySelector('.stage'); });
+function load(a){
+  if(a.imgs) return; a.imgs=[];
+  if(a.n>=5){ a.hiA=new Image(); a.hiB=new Image(); a.hiA.onload=a.hiB.onload=function(){ a.last=''; draw(a); }; a.hiA.src=a.dir+'/a.webp'; a.hiB.src=a.dir+'/b.webp'; }   // crisp stills for the resting poses; the softer video frames only show while things move
+  for(var i=1;i<=a.n;i++){ (function(i){ var im=new Image(); im.decoding='async'; im.onload=function(){ a.last=''; draw(a); }; im.src=a.dir+'/'+('0'+i).slice(-2)+'.webp'; a.imgs[i-1]=im; })(i); }
+}
+function size(a){
+  a.dpr=Math.min(devicePixelRatio||1,2); a.W=a.cv.clientWidth; a.H=a.cv.clientHeight; a.cv.width=Math.round(a.W*a.dpr); a.cv.height=Math.round(a.H*a.dpr);
+  a.portrait=a.W/a.H<1; a.last=''; draw(a);
+}
+function rect(a,im){
+  var ar=16/9, w,h,x,y;   // every scene is 16:9; video frames are a hair off and get stretched to match the stills
+  if(a.portrait){ h=a.H*.60; w=h*ar; x=clamp(a.W/2-a.fx*w,a.W-w,0); y=0; }        // portrait: top 60%, centred on the act's subject
+  else { var s=Math.max(a.W/(ar*900),a.H/900); w=ar*900*s; h=900*s; x=(a.W-w)*(a.fx<.5?0:1); y=(a.H-h)/2; }   // landscape: cover, pinned to the subject's side
+  return {x:x,y:y,w:w,h:h};
+}
+function nearest(a,i){ var im=a.imgs&&a.imgs[i]; if(a.imgs) for(var d=1; !ok(im)&&d<a.n; d++){ im=ok(a.imgs[i-d])?a.imgs[i-d]:(ok(a.imgs[i+d])?a.imgs[i+d]:im); } return im; }
+function rgba(hex,al){ var n=parseInt(hex.slice(1),16); return 'rgba('+(n>>16)+','+((n>>8)&255)+','+(n&255)+','+al+')'; }
+// paints one act exactly as its stage shows it (background, picture, text-side scrim) in the size of the given act's canvas
+function paint(cx,v,a,im,im2,al){
+  cx.fillStyle=a.bg; cx.fillRect(0,0,v.W,v.H);
+  if(ok(im)){ var r=rect({W:v.W,H:v.H,portrait:v.portrait,fx:a.fx},im); cx.drawImage(im,r.x,r.y,r.w,r.h); if(im2){ cx.globalAlpha=al; cx.drawImage(im2,r.x,r.y,r.w,r.h); cx.globalAlpha=1; } }
+  var g;
+  if(v.portrait){ g=cx.createLinearGradient(0,v.H,0,v.H*.44); g.addColorStop(0,a.bg); g.addColorStop(.715,a.bg); g.addColorStop(1,rgba(a.bg,0)); cx.fillStyle=g; cx.fillRect(0,v.H*.44,v.W,v.H*.56+1); }
+  else if(a.scrim>0){ var L=a.el.classList.contains('L'); g=cx.createLinearGradient(L?0:v.W,0,L?v.W*.58:v.W*.42,0); g.addColorStop(0,rgba(a.bg,a.scrim)); g.addColorStop(.31,rgba(a.bg,a.scrim)); g.addColorStop(1,rgba(a.bg,0)); cx.fillStyle=g; cx.fillRect(0,0,v.W,v.H); }
+}
+function draw(a){
+  if(!a.W) return;
+  var p=a.p, cx=a.cx, im, im2=null, al=0, nx=a.next, t=nx&&a.ax!==null?band(p,.90,1):0;
+  if(a.n<5){ al=ease(band(p,.24,.42)); im=nearest(a,0); if(al>0&&a.imgs&&ok(a.imgs[a.n-1])) im2=a.imgs[a.n-1]; al=Math.round(al*50)/50; }   // stills: cross-dissolve
+  else { im=nearest(a,clamp(Math.floor(band(p,.16,.50)*(a.n-1)),0,a.n-1));
+    if(p<.16&&ok(a.hiA)){ im2=a.hiA; al=1-ease(band(p,.12,.16)); } else if(p>.5&&ok(a.hiB)){ im2=a.hiB; al=ease(band(p,.5,.55)); }
+    al=Math.round(al*40)/40; if(al<=0) im2=null; }                                                              // video frames: scrub
+  var nim=t>0&&nx.imgs?(ok(nx.hiA)?nx.hiA:nearest(nx,0)):null;
+  var key=(ok(im)?im.src:'-')+'|'+(im2?al:0)+'|'+(t>0?t.toFixed(3)+(ok(nim)?'y':'n'):'');
+  if(key!==a.last){ a.last=key;
+    cx.setTransform(a.dpr,0,0,a.dpr,0,0); cx.globalAlpha=1;
+    if(t>0&&ok(im)){
+      // exit: the camera pushes into a round object of this scene; the next scene opens inside it
+      var r=rect(a,im), ox=r.x+r.w*a.ax, oy=r.y+r.h*a.ay; ox=clamp(ox,0,a.W); oy=clamp(oy,0,a.H);
+      var e=t*t*(3-2*t), z=1+e*e*7, R=a.ar*r.w*z*(1+e*.6)+e*e*e*Math.hypot(a.W,a.H)*1.05, k=1.5-.5*e;
+      cx.save(); cx.translate(ox,oy); cx.scale(z,z); cx.translate(-ox,-oy); paint(cx,a,a,im,im2,al); cx.restore();
+      cx.save(); cx.beginPath(); cx.arc(ox,oy,R,0,6.2832); cx.clip();
+      cx.fillStyle=nx.bg; cx.fillRect(0,0,a.W,a.H);
+      var nr=ok(nim)?rect({W:a.W,H:a.H,portrait:a.portrait,fx:nx.fx},nim):{x:0,y:0,w:a.W,h:a.H}, sx=nr.x+nr.w*nx.fx, sy=nr.y+nr.h*.5, m=(1-e)*(1-e);   // the next scene's subject starts inside the opening, then settles into place
+      cx.translate((ox-sx)*m,(oy-sy)*m); cx.translate(sx,sy); cx.scale(k,k); cx.translate(-sx,-sy); paint(cx,a,nx,nim,null,0); cx.restore();
+      if(e<.98){ cx.beginPath(); cx.arc(ox,oy,R,0,6.2832); cx.lineWidth=Math.max(1.5,R*.035*(1-e)); cx.strokeStyle='rgba(0,0,0,'+(.55*(1-e))+')'; cx.stroke(); }
+    } else paint(cx,a,a,im,im2,al);
+  }
+  var mid=a.portrait?'':'translateY(-50%) ', out=nx&&a.ax!==null?1-ease(band(p,.85,.895)):1;
+  if(a.b1){ var o1=1-ease(band(p,.10,.18)); a.b1.style.opacity=o1; a.b1.style.transform=mid+'translateY('+(-24*(1-o1))+'px)'; a.b1.style.pointerEvents=o1<.5?'none':'auto'; }
+  var i2=ease(band(p,.42,.50)), o2=i2*(1-ease(band(p,.60,.65))); a.b2.style.opacity=o2; a.b2.style.transform=mid+'translateY('+(24*(1-i2)-18*ease(band(p,.60,.65)))+'px)'; a.b2.style.pointerEvents=o2<.5?'none':'auto';
+  var i3=ease(band(p,.65,.72)), o3=i3*out; a.b3.style.opacity=o3; a.b3.style.transform=mid+'translateY('+(24*(1-i3))+'px)'; a.b3.style.pointerEvents=o3<.5?'none':'auto';
+  if(a.top) a.top.style.opacity=out;
+  if(a.hint) a.hint.style.opacity=1-band(p,.02,.1);
+  var c0=a.b1?.19:.04, oc=ease(band(p,c0,c0+.06))*(1-ease(band(p,.36,.42))); a.clock.style.opacity=oc; a.clock.style.transform=a.portrait?'':'translateY(calc(-50svh + 110px))';
+}
+function tickAct(a){
+  var r=a.el.getBoundingClientRect(), vh=innerHeight;
+  if(a.prev){ var hid=r.top>.5; if(hid!==a.hid){ a.hid=hid; a.stage.style.visibility=hid?'hidden':'visible'; } }   // acts overlap by one screen: stay hidden until the previous exit has finished
+  if(r.top<vh*2.5&&r.bottom>-vh*1.5){ load(a); if(a.next&&r.top<vh) load(a.next); }          // fetch frames a little before the act arrives
+  if(r.bottom<-vh||r.top>vh*2) return;
+  var p=clamp(-r.top/(r.height-vh),0,1); if(p!==a.p||!a.last||p>.89){ a.p=p; draw(a); }
+}
+// some iOS in-app browsers throttle scroll events: poll every frame instead
+(function tick(){ acts.forEach(tickAct); requestAnimationFrame(tick); })();
+addEventListener('resize',function(){ acts.forEach(size); });
+acts.forEach(size);
+window.__ready=true;
+})();
+
+</script>
+</body>
+</html>

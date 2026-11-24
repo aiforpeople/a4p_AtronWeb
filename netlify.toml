@@ -1,7 +1,22 @@
-# Serve the static single-file ATRON landing page (public/index.html) directly.
-# Build step skipped: no Vite build, publish the public/ folder as the site root.
-# To restore the Vue multilingual app: delete this file and public/index.html,
-# then Netlify resumes `vite build` -> dist.
+# Static single-file ATRON site (public/index.html) plus one function for the
+# live agent. No build step: Netlify publishes public/ and bundles
+# netlify/functions/ on its own.
 [build]
   command = ""
   publish = "public"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "microphone=(self)"
