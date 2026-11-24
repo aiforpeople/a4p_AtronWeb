@@ -29,7 +29,7 @@ ACTS = [
          sub="Cevap vermemiş eski başvuruları kendi dillerinde arar, ilgileneni ekibinize sıcak devreder. Aynı anda birden çok hat.",
          cta=("NASIL ÇALIŞIYOR", "/ajanlar/outbound-geri-kazanim/"),
          alt="Dev bir telefon santralinin önünde küçük ATRON kuklası altı koluyla altı kabloyu takmış, lambalar yanıyor"),
-    dict(id="brain", n=2, w="tight", iris=(.33, .09, .04), more=('Dört katman, tek hafıza', [('EKİBİNİZ', 'Satış, operasyon, yönetim. Soru sorar, karar verir.'), ('BRAIN', 'Kim ne konuştu, ne karar verildi, hangi iş nerede.'), ('AJANLAR', "Telefonu açar, WhatsApp'ı okur, listeyi arar. Yaptığını beyne yazar."), ('SİSTEMLER', 'CRM, ERP, Drive, santral. Veri yerinde kalır; beyin nerede olduğunu bilir.')]), dir="/sahne/s3/brain", tag="04 / ATRON BRAIN", label="ATRON BRAIN", side="R", fx=0.3, bg="#d7d5d6", scrim=0.9, **DARK,
+    dict(id="brain", n=2, w="tight", iris=(.322, .075, .03), more=('Dört katman, tek hafıza', [('EKİBİNİZ', 'Satış, operasyon, yönetim. Soru sorar, karar verir.'), ('BRAIN', 'Kim ne konuştu, ne karar verildi, hangi iş nerede.'), ('AJANLAR', "Telefonu açar, WhatsApp'ı okur, listeyi arar. Yaptığını beyne yazar."), ('SİSTEMLER', 'CRM, ERP, Drive, santral. Veri yerinde kalır; beyin nerede olduğunu bilir.')]), dir="/sahne/s3/brain", tag="04 / ATRON BRAIN", label="ATRON BRAIN", side="R", fx=0.3, bg="#d7d5d6", scrim=0.9, **DARK,
          mid=("TEK YER", "BİLGİ ON AYRI YERDE DURUYORDU"),
          say="Hepsi tek hafızada.",
          sub="Kim ne konuştu, ne karar verildi, hangi iş nerede. İnsan da ajan da aynı yerden okur. Biz kendi şirketimizi böyle yönetiyoruz; aynısının sizde kurulduğunu düşünün.",
